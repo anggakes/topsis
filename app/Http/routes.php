@@ -11,17 +11,30 @@
 |
 */
 
+/*
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
+*/
 
+/* 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-
+*/
 
 /* app begin */
 
 Route::resource('lowongan','LowonganController');
+
+/* route bobot lowongan */
+
+Route::controller('{id_lowongan}/bobot','BobotController');
+
+// route untuk viewnya input nilai
+
+Route::controller('{id_lowongan}/inputnilai','InputNilaiController'); 
+
+
 

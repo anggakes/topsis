@@ -1,38 +1,51 @@
-
+@extends('template.backend')
 <!-- awal section content -->
+@section('content')
+  <a class="btn btn-primary pull-right" id="sign" href="#login"><i class="icon-g-circle-plus"></i>Tambah</a>
 
-
-            <article id="content" class="8u 12u(narrower)">
-              <header class="image-wrapper first 12u(narrower)">
-                <h2 class="image">Lowongan</h2>  
-                <a class="image pull-right button small 4(narrower)" id="sign" href="#login"><i class="icon-g-circle-plus"></i>Tambah</a>
-              </header>
-             
-
-
-    
-                          <br>         
-                          <link media="all" type="text/css" rel="stylesheet" href="http://akbar_motor/sibengkel/public/assets/datatables/jquery.dataTables.css">
-
-
-                          <script src="http://akbar_motor/sibengkel/public/assets/jquery-2.0.3.min.js"></script>
-
-                          <script src="http://akbar_motor/sibengkel/public/assets/datatables/jquery.dataTables.js"></script>
-
-                          <table class='datatables'>
-                              <colgroup>
-                                          <col class="con0" />
-                                          <col class="con1" />
-                                          <col class="con2" />
-                                      </colgroup>
+<hr>
+                          <table class='table datatables'>
                               <thead>
                               <tr>
-                                          <th align="center" valign="middle" class="head0">Nama</th>
-                                          <th align="center" valign="middle" class="head1">Harga</th>
-                                          <th align="center" valign="middle" class="head2">Aksi</th>
-                                      </tr>
+                                          <th >Nama</th>
+                                          <th >Divisi</th>
+                                          <th >#</th>
+                                    </tr>
                               </thead>
                               <tbody>
+                              <tr>
+                                <td> Herman Suherman</td>
+                                <td> Keuangan</td>
+                                <td> 
+                                  <a href=''>tambah</a>
+                                  -
+                                  <a href=''>edit</a>
+                                  -
+                                  <a href=''>hapus</a>
+                                </td>
+                              </tr>
+                               <tr>
+                                <td> Herman Suherman</td>
+                                <td> Keuangan</td>
+                                <td> 
+                                  <a href=''>tambah</a>
+                                  -
+                                  <a href=''>edit</a>
+                                  -
+                                  <a href=''>hapus</a>
+                                </td>
+                              </tr>
+                               <tr>
+                                <td> Herman Suherman</td>
+                                <td> Keuangan</td>
+                                <td> 
+                                  <a href=''>tambah</a>
+                                  -
+                                  <a href=''>edit</a>
+                                  -
+                                  <a href=''>hapus</a>
+                                </td>
+                              </tr>
                               </tbody>
                           </table>
 
@@ -83,21 +96,33 @@
                               </div>
                                 </div>
                               </div>
+@stop
 
-                          <script type="text/javascript">
-                             
-                             jQuery(document).ready(function(){ 
-                              oTable = $(".datatables").dataTable(); 
-                            });
-                          </script>
+@section('css')
 
-                       </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-           {!!HTML::script("assets/js/jquery.custombox.js")!!}
+    {!!Html::style("assets/custombox/jquery.custombox.css")!!} 
+
+@stop
+
+
+@section('js')
+  {!!Html::script("assets/custombox/jquery.custombox.js")!!}
+   
+ <script type="text/javascript">          
     
-{!!HTML::style("assets/css/jquery.custombox.css")!!}
+     $(document).ready(function(){ 
+          $('#sign').on('click', function () {
+              $.fn.custombox( this, {
+                   effect: 'sign',
+                   overlayOpacity : 0.7,
+                   overlayColor: '#EBB198',
+                   speed: 500
+               });
+               return false;
+          });
+
+          $(".datatables").dataTable(); 
+     });
+ </script>
+ @stop
+

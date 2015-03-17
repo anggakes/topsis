@@ -16,6 +16,7 @@ class CreateTablePelamar extends Migration {
 		{
 			$table->increments('id')->unsigned();
 			$table->string('nama',100);
+			$table->string('no_ktp',100);
 			$table->text('alamat');
 			$table->string('nomor_pelamar',255);
 			$table->string('kontak',20);

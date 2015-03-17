@@ -2,8 +2,9 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Http\HttpResponse;
 use Illuminate\Http\Request;
+use App\Lowongan;
 
 class LowonganController extends Controller {
 
@@ -24,14 +25,25 @@ class LowonganController extends Controller {
 	 * @return Response
 	 */
 
+	public function create()
+	{
+		//
+
+	}
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Response $response)
 	{
 		//
+
+		Lowongan::create($response->all());
+		return redirect('lowongan.index')
+			->with('message','data berhasil ditambah');
+
 	}
 
 	/**
@@ -62,9 +74,11 @@ class LowonganController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Response $response, $id)
 	{
 		//
+		Lowongan::findOrFail($id)->update($request->all());
+		return redirect('lowongan.index');
 	}
 
 	/**
@@ -76,6 +90,9 @@ class LowonganController extends Controller {
 	public function destroy($id)
 	{
 		//
+		Lowongan::findOrFail($id)->delete();
+		return redirect('lowongan.index');
 	}
+
 
 }
