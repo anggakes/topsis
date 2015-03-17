@@ -16,6 +16,7 @@ class CreateTableLowongan extends Migration {
 		{
 			$table->increments('id')->unsigned();
 			$table->integer('id_divisi')->unsigned();
+			$table->string('kode',100)->unique();
 			$table->string('nama',255);
 			$table->text('keterangan');
 			$table->timestamps();
