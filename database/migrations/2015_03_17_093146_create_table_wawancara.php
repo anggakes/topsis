@@ -15,8 +15,7 @@ class CreateTableWawancara extends Migration {
 		Schema::create('wawancara', function(Blueprint $table)
 		{
 			$table->increments('id')->unsigned();
-			$table->integer('id_pelamar')->unsigned();
-			$table->integer('id_lowongan')->unsigned();
+			$table->integer('id_lamaran')->unsigned();
 			$table->integer('wa1');
 			$table->integer('wa2');
 			$table->integer('wa3');

@@ -7,8 +7,7 @@ class Administrasi extends Model {
 	protected $table ='administrasi';
 	protected $guarded =['id'];
 	protected $fillable = [
-		'id_pelamar',
-		'id_lowongan',
+		'id_lamaran',
 		'nilai_topsis',
 	];
 

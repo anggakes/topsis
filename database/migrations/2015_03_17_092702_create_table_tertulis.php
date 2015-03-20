@@ -15,8 +15,7 @@ class CreateTableTertulis extends Migration {
 		Schema::create('tertulis', function(Blueprint $table)
 		{
 			$table->increments('id')->unsigned();
-			$table->integer('id_pelamar')->unsigned();
-			$table->integer('id_lowongan')->unsigned();
+			$table->integer('id_lamaran')->unsigned();
 			$table->integer('nilai_tertulis');
 			$table->timestamps();
 		});

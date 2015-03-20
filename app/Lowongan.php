@@ -9,7 +9,12 @@ class Lowongan extends Model {
 	protected $fillable = [
 		'id_divisi',
 		'nama',
-		'keterangan'
+		'keterangan',
+		'kode'
 	];
+
+	public function divisi(){
+		return $this->belongsTo("App\Divisi","id_divisi");
+	}
 
 }

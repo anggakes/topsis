@@ -7,8 +7,7 @@ class Tertulis extends Model {
 	protected $table ='tertulis';
 	protected $guarded =['id'];
 	protected $fillable = [
-		'id_pelamar',
-		'id_lowongan',
+		'id_lamaran',
 		'nilai_tertulis',
 	];
 

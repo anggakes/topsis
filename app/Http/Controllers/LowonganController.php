@@ -4,7 +4,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\HttpResponse;
 use Illuminate\Http\Request;
+
 use App\Lowongan;
+use App\Divisi;
 
 class LowonganController extends Controller {
 
@@ -16,7 +18,7 @@ class LowonganController extends Controller {
 	public function index()
 	{
 		//
-		return view ('lowongan.index');
+		return view('lowongan.index');
 	}
 
 	/**
@@ -27,8 +29,9 @@ class LowonganController extends Controller {
 
 	public function create()
 	{
-		//
-
+		$divisi = Divisi::lists('nama','id');
+		return view('lowongan.create')
+			->with('divisi',$divisi);
 	}
 
 	/**
@@ -36,12 +39,12 @@ class LowonganController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Response $response)
+	public function store(Request $request)
 	{
 		//
 
-		Lowongan::create($response->all());
-		return redirect('lowongan.index')
+		Lowongan::create($request->all());
+		return redirect()->route('lowongan.index')
 			->with('message','data berhasil ditambah');
 
 	}
@@ -55,6 +58,8 @@ class LowonganController extends Controller {
 	public function show($id)
 	{
 		//
+		return view('lowongan.detail')
+					->with('id_lowongan',$id);
 	}
 
 	/**
@@ -66,6 +71,12 @@ class LowonganController extends Controller {
 	public function edit($id)
 	{
 		//
+		$lowongan = Lowongan::findOrFail($id);
+		$divisi = Divisi::lists('nama','id');
+
+		return view('lowongan.edit')
+			->with('lowongan',$lowongan)
+			->with('divisi',$divisi);
 	}
 
 	/**
@@ -74,11 +85,11 @@ class LowonganController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Response $response, $id)
+	public function update(Request $request, $id)
 	{
 		//
 		Lowongan::findOrFail($id)->update($request->all());
-		return redirect('lowongan.index');
+		return redirect()->route('lowongan.index');
 	}
 
 	/**
@@ -91,7 +102,31 @@ class LowonganController extends Controller {
 	{
 		//
 		Lowongan::findOrFail($id)->delete();
-		return redirect('lowongan.index');
+		return redirect()->route('lowongan.index');
+	}
+
+	public function datatables(){
+		$lowongan = Lowongan::all();
+		$data=array();
+		$l=array();
+		$i=0;
+		foreach ($lowongan as $value) {
+			$l[0] = $value->nama;
+			$l[1] = $value->kode;
+			$l[2] = $value->divisi->nama;
+			$l[3] = $value->keterangan;
+			$l[4] = "
+				<a href='".route('lowongan.edit',$value->id)."' data-toggle='modal' data-target='#myModal'>Edit</a> - 
+				<a href='".route('lowongan.destroy',$value->id)."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> - 
+				<a href='".route('lowongan.show',$value->id)."'>Kelola</a>
+			";
+
+			$data[$i]=$l;
+			$i++;
+		}
+
+		$return['data'] = $data;
+		return response()->json($return);
 	}
 
 

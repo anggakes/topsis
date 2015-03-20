@@ -15,8 +15,7 @@ class CreateTableAdministrasi extends Migration {
 		Schema::create('administrasi', function(Blueprint $table)
 		{
 			$table->increments('id')->unsigned();
-			$table->integer('id_pelamar')->unsigned();
-			$table->integer('id_lowongan')->unsigned();
+			$table->integer('id_lamaran')->unsigned();
 			$table->float('nilai_topsis');
 			$table->timestamps();
 		});

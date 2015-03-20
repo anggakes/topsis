@@ -1,101 +1,36 @@
 @extends('template.backend')
 <!-- awal section content -->
 @section('content')
-  <a class="btn btn-primary pull-right" id="sign" href="#login"><i class="icon-g-circle-plus"></i>Tambah</a>
+  <a class="btn btn-primary pull-right" id="sign"  href="{!! route('lowongan.create') !!}" data-toggle="modal" data-target="#myModal"><i class="icon-g-circle-plus"></i>Tambah</a>
 
 <hr>
                           <table class='table datatables'>
                               <thead>
                               <tr>
                                           <th >Nama</th>
-                                          <th >Divisi</th>
+                                          <th>Kode</th>
+                                          <th>Divisi</th>
+                                          <th> Keterangan</th>
                                           <th >#</th>
                                     </tr>
                               </thead>
                               <tbody>
-                              <tr>
-                                <td> Herman Suherman</td>
-                                <td> Keuangan</td>
-                                <td> 
-                                  <a href=''>tambah</a>
-                                  -
-                                  <a href=''>edit</a>
-                                  -
-                                  <a href=''>hapus</a>
-                                </td>
-                              </tr>
-                               <tr>
-                                <td> Herman Suherman</td>
-                                <td> Keuangan</td>
-                                <td> 
-                                  <a href=''>tambah</a>
-                                  -
-                                  <a href=''>edit</a>
-                                  -
-                                  <a href=''>hapus</a>
-                                </td>
-                              </tr>
-                               <tr>
-                                <td> Herman Suherman</td>
-                                <td> Keuangan</td>
-                                <td> 
-                                  <a href=''>tambah</a>
-                                  -
-                                  <a href=''>edit</a>
-                                  -
-                                  <a href=''>hapus</a>
-                                </td>
-                              </tr>
+                                
                               </tbody>
                           </table>
 
+ 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+              loading...
+            </div>
+        </div> <!-- /.modal-content -->
+    </div> <!-- /.modal-dialog -->
+</div> <!-- /.modal -->
 
-
-                          <!-- modal container -->
-
-                              <div id="login" style="display: none;" class="modal-example-content">
-                                <div class="modal-example-header" style="height:65px;" onclick="$.fn.custombox('close');">
-                                  <h3 style="float:left;line-height:1em;">Tambah</h3>
-                                </div>
-                                <div class="modal-example-body">
-                                  <div class="row">
-                                <section class="12u 12u(narrower)">
-                                  <form method="post" action="#">   
-                                      <div class="row 50%">           
-                                          <div class="2u 12u(mobile)">Nama</div>
-                                          <div class="10u 12u(mobile)">
-                                              <input required name="nama" placeholder="Nama" type="text" maxlength="15"/>
-                                          </div>
-                                      </div>
-                                      <div class="row 50%">           
-                                          <div class="2u 12u(mobile)">Keterangan</div>
-                                          <div class="10u 12u(mobile)">
-                                              <textarea name="keterangan" type="text" maxlength="15"/></textarea>
-                                          </div>
-                                      </div>
-                                      <div class="row 50%">           
-                                          <div class="2u 12u(mobile)">Divisi</div>
-                                          <div class="10u 12u(mobile)">
-                                              <select name="id_divisi" required/>
-                                                <option>HRD</option>
-                                                <option>IS</option>
-                                                <option>Finance</option>
-                                              </select>
-                                          </div>
-                                      </div>
-
-                                      <div class="row 50%">
-                                        <div class="12u">
-                                        <ul class="actions">
-                                          <li><input type="submit" value="Simpan" /></li>
-                                          <li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
-                                        </ul>
-                                      </div></div>
-                                  </form>
-                                </section>
-                              </div>
-                                </div>
-                              </div>
 @stop
 
 @section('css')
@@ -106,23 +41,30 @@
 
 
 @section('js')
-  {!!Html::script("assets/custombox/jquery.custombox.js")!!}
-   
- <script type="text/javascript">          
-    
-     $(document).ready(function(){ 
-          $('#sign').on('click', function () {
-              $.fn.custombox( this, {
-                   effect: 'sign',
-                   overlayOpacity : 0.7,
-                   overlayColor: '#EBB198',
-                   speed: 500
-               });
-               return false;
-          });
 
-          $(".datatables").dataTable(); 
-     });
+ {!!Html::script("assets/laravel/laravel.methodHandler.js")!!} 
+   
+ <script type="text/javascript">    
+
+    $(document).ready(function(){
+
+    /* refresh modal u can change the text with img */
+
+    refreshModal("Loading..");
+
+          $(".datatables").dataTable({
+              "ajax" : "{!! route('lowongan.datatables') !!}",
+              "fnInitComplete": function(oSettings, json) {
+                  //inisialisi saat datatables setelah load
+                   $('a[data-method]').click(function(e){
+                      handleMethod(e,$(this));
+                      e.preventDefault();
+                   });
+                }
+            }); 
+
+    });
+     
  </script>
  @stop
 

@@ -2,14 +2,14 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Psikotes extends Model {
+class Lamaran extends Model {
 
-	protected $table ='psikotes';
+	protected $table ='administrasi';
 	protected $guarded =['id'];
 	protected $fillable = [
-		'id_lamaran',
-		'nilai_psikotes',
+		'id_pelamar',
+		'nomor_pelamar',
+		'id_lowongan',
 	];
-
 
 }

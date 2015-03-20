@@ -6,22 +6,34 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\HttpResponse;
 
+use App\Administrasi;
+use App\Pelamar;
+use App\PendidikanTerakhir;
+
 class InputNilaiController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
+	 * administrasi
 	 *
 	 * @return Response
 	 */
-	public function getAdministrasi(Request $request, $id_lowongan)
+	public function getAdministrasi($id_lowongan) // index
 	{
-		return $id_lowongan." ";
+		return view('administrasi.inputPelamar');
+	}
+
+	public function getCreateAdministrasi($id_lowongan){
+		return view('inputnilai.pelamarCreate');
 	}
 
 	public function postAdministrasi(Request $request, $id_lowongan)
 	{
-		return $id_lowongan." ";
+		
 	}
+
+
+
+
 
 
 

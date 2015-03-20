@@ -7,8 +7,7 @@ class Wawancara extends Model {
 	protected $table ='wawancara';
 	protected $guarded =['id'];
 	protected $fillable = [
-		'id_pelamar',
-		'id_lowongan',
+		'id_lamaran',
 		'wa1',
 		'wa2',
 		'wa3',

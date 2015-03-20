@@ -26,15 +26,49 @@ Route::controllers([
 
 /* app begin */
 
+Route::get(
+	'lowongan/datatables',
+	['as'=>'lowongan.datatables',
+	'uses'=>'LowonganController@datatables']
+);
+
 Route::resource('lowongan','LowonganController');
 
-/* route bobot lowongan */
 
-Route::controller('{id_lowongan}/bobot','BobotController');
+Route::group(['prefix' => 'lowongan'], function()
+{
 
-// route untuk viewnya input nilai
+	Route::group(['prefix' => '{id_lowongan}/administrasi','namespace' => 'Administrasi'], function()
+	{
 
-Route::controller('{id_lowongan}/inputnilai','InputNilaiController'); 
+		Route::controller(
+			'/',"BobotAdministrasiController",
+			['getBobot'=>'get.bobot','postBobot'=>'post.bobot']
+		);
 
+		Route::get(
+			'pelamar/datatables',
+			['as'=>'pelamar.datatables','uses'=>'PelamarController@datatables']
+		);
+
+		Route::resource(
+			'pelamar','PelamarController',
+			 ['names' => [
+							'create' 	=> 'pelamar.create',
+							'index'  	=> 'pelamar.index',
+							'store'		=> 'pelamar.store',
+							'edit'		=> 'pelamar.edit',
+							'update'	=> 'pelamar.update',
+							'destroy'	=> 'pelamar.destroy'
+						]]
+		);
+
+		  
+
+	});// <--- end administrasi
+
+
+
+});// <-- end prefix lowongan
 
 

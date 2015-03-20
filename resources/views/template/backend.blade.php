@@ -13,6 +13,8 @@
 <!-- Js -->
 {!!Html::script("assets/jquery/jquery-2.0.3.min.js")!!}
 {!!Html::script("assets/bootstrap/js/bootstrap.js")!!}
+ {!!Html::script("assets/laravel/laravel.bootstrap.js")!!} 
 {!!Html::script("assets/datatables/jquery.dataTables.js")!!}
+
 @yield('js');
 

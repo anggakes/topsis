@@ -9,13 +9,13 @@ class Pelamar extends Model {
 	protected $fillable = [
 		'nama',
 		'alamat',
-		'nomor_pelamar',
 		'kontak',
 		'tempat_lahir',
 		'tanggal_lahir',
-		'pengalaman_kerja',
-		'pendidikan_non_ilmiah'
 	];
 	//
+
+	/* relation */
+	
 
 }

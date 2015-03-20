@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablePsikotes extends Migration {
+class CreateLamaranTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,12 @@ class CreateTablePsikotes extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('psikotes', function(Blueprint $table)
+		Schema::create('lamaran', function(Blueprint $table)
 		{
-			$table->increments('id')->unsigned();
-			$table->integer('id_lamaran')->unsigned();
-			$table->integer('nilai_psikotes');
+			$table->increments('id');
+			$table->integer('id_pelamar')->unsigned();
+			$table->integer('id_lowongan')->unsigned();
+			$table->string('nomor_pelamar',100)->unique();
 			$table->timestamps();
 		});
 	}
@@ -28,7 +29,7 @@ class CreateTablePsikotes extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('psikotes');
+		Schema::drop('lamaran');
 	}
 
 }
