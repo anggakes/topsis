@@ -24,8 +24,8 @@
 <div class='psikotes' >
 	<h3>Psikotes</h3><hr>
 
-<a class="btn btn-primary" id='bobotAdm'  
-	href="{!! route('lowongan.create') !!}" 
+<a class="btn btn-primary" id='bobotPsikotes'  
+	href="{!! route('psikotes.get.bobot',$id_lowongan) !!}" 
 	data-toggle="modal" 
 	data-target="#myModal"><i class="icon-g-circle-plus"></i>
 	Bobot</a>

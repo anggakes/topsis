@@ -69,6 +69,15 @@ Route::group(['prefix' => 'lowongan'], function()
 
 	});// <--- end administrasi
 
+	Route::group(['prefix' => '{id_lowongan}/psikotes','namespace' => 'Psikotes'], function()
+	{
+		Route::controller(
+			'/',"KuotaPsikotesController",
+			['getBobot'=>'psikotes.get.bobot','postBobot'=>'psikotes.post.bobot']
+		);
+
+	});
+
 
 
 });// <-- end prefix lowongan
