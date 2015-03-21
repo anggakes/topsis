@@ -1,8 +1,8 @@
-  {!! Form::open(['route'=>['psikotes.post.bobot',$id_lowongan],'class'=>'form-horizontal']) !!} 
+  {!! Form::open(['route'=>['tertulis.post.bobot',$id_lowongan],'class'=>'form-horizontal']) !!} 
 
    <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                 <h4 class="modal-title">Kuota Psikotest</h4>
+                 <h4 class="modal-title">Kuota Tertulis</h4>
  
    </div>			<!-- /modal-header -->
    <div class="modal-body">

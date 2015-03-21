@@ -47,7 +47,7 @@
 	<h3>Tertulis</h3><hr>
 
 <a class="btn btn-primary" id='bobotAdm'  
-	href="{!! route('lowongan.create') !!}" 
+	href="{!! route('tertulis.get.bobot',$id_lowongan) !!}" 
 	data-toggle="modal" 
 	data-target="#myModal"><i class="icon-g-circle-plus"></i>
 	Bobot</a>
@@ -69,7 +69,7 @@
 	<h3>Wawancara</h3><hr>
 
 <a class="btn btn-primary" id='bobotAdm'  
-	href="{!! route('lowongan.create') !!}" 
+	href="{!! route('wawancara.get.bobot', $id_lowongan) !!}" 
 	data-toggle="modal" 
 	data-target="#myModal"><i class="icon-g-circle-plus"></i>
 	Bobot</a>

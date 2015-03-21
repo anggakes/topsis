@@ -65,8 +65,6 @@ Route::group(['prefix' => 'lowongan'], function()
 			['getBobot'=>'adm.get.bobot','postBobot'=>'adm.post.bobot']
 		);
 
-		  
-
 	});// <--- end administrasi
 
 	Route::group(['prefix' => '{id_lowongan}/psikotes','namespace' => 'Psikotes'], function()
@@ -76,9 +74,25 @@ Route::group(['prefix' => 'lowongan'], function()
 			['getBobot'=>'psikotes.get.bobot','postBobot'=>'psikotes.post.bobot']
 		);
 
-	});
+	}); //<--- end Psikotest
 
+	Route::group(['prefix' => '{id_lowongan}/tertulis','namespace' => 'Tertulis'], function()
+	{
+		Route::controller(
+			'/',"KuotaTertulisController",
+			['getBobot'=>'tertulis.get.bobot','postBobot'=>'tertulis.post.bobot']
+		);
 
+	}); //<--- end Tertulis
+
+	Route::group(['prefix' => '{id_lowongan}/wawancara','namespace' => 'Wawancara'], function()
+	{
+		Route::controller(
+			'/',"BobotWawancaraController",
+			['getBobot'=>'wawancara.get.bobot','postBobot'=>'wawancara.post.bobot']
+		);
+
+	}); //<--- end Tertulis
 
 });// <-- end prefix lowongan
 
