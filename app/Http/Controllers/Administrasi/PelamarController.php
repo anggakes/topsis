@@ -33,10 +33,10 @@ class PelamarController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create($id_lowongan,DynamicalAddInput $dyna)
+	public function create($id_lowongan, DynamicalAddInput $dyna, Lamaran $lamaran)
 	{
 		//
-		$nomor_peserta = "AKB48-otaku";
+		$nomor_peserta = $lamaran->makeNomorPelamar();
 
 		return view('administrasi.pelamar.create')
 			->with('id_lowongan',$id_lowongan)

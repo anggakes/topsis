@@ -13,7 +13,7 @@ class Lamaran extends Model {
 	];
 
 	public function makeNomorPelamar(){
-
+		return "AKB48-UII";
 	}
 
 	
