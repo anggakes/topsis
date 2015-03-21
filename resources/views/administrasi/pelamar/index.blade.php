@@ -1,16 +1,16 @@
 @extends('template.backend')
 <!-- awal section content -->
 @section('content')
-  <a class="btn btn-primary pull-right" id="sign"  href="{!! route('lowongan.create') !!}" data-toggle="modal" data-target="#myModal"><i class="icon-g-circle-plus"></i>Tambah</a>
+  <a class="btn btn-primary pull-right" id="sign"  href="{!! route('pelamar.create',$id_lowongan) !!}"><i class="icon-g-circle-plus"></i>Tambah</a>
 
 <hr>
                           <table class='table datatables'>
                               <thead>
                               <tr>
-                                          <th >Nama</th>
-                                          <th>Kode</th>
-                                          <th>Divisi</th>
-                                          <th> Keterangan</th>
+                                          <th>No Peserta</th>
+                                          <th>Nama</th>
+                                          <th>Tanggal Lahir</th>
+                                          <th>Kotak</th>
                                           <th >#</th>
                                     </tr>
                               </thead>
@@ -19,7 +19,6 @@
                               </tbody>
                           </table>
 
-@include('modal') <!-- include modal Wrap -->
 
 @stop
 

@@ -12,4 +12,9 @@ class Lamaran extends Model {
 		'id_lowongan',
 	];
 
+	public function makeNomorPelamar(){
+
+	}
+
+	
 }

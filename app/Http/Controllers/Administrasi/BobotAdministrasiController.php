@@ -10,8 +10,14 @@ use App\BobotAdministrasi;
 
 class BobotAdministrasiController extends Controller {
 
-	public function getBobot(){
-		return "aa";
+	public function getBobot(BobotAdministrasi $model, $id_lowongan){
+		
+		$bobot = $model->where('id_lowongan','=',$id_lowongan)->first();
+
+
+		return view('administrasi.bobot')
+			->with('id_lowongan',$id_lowongan)
+			->with('bobot',$bobot);
 	}
 
 	/**
@@ -22,20 +28,11 @@ class BobotAdministrasiController extends Controller {
 	public function postBobot(Request $request,BobotAdministrasi $model ,$id_lowongan)
 	{
 		
+		$bb = $model->firstOrNew(['id_lowongan'=>$id_lowongan]);
+		$bb->fill($request->all());
+		$bb->save();
 		
-		$input = $request->all();
-		$input['id_lowongan'] =$id_lowongan;
-
-		if($request->has('id'))
-		{
-			//update
-			$model->findOrFail($request->input('id'))->update($input);
-		}else{
-			//create
-			$model->create($input);	
-		}
-		
-		return redirect()->route("lowongan.show");
+		return redirect()->route("lowongan.show",$id_lowongan);
 		
 	}
 

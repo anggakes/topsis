@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers\administrasi;
+<?php namespace App\Http\Controllers\Administrasi;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\HttpResponse;
 
 use App\Pelamar;
+use App\Lamaran;
+use App\Administrasi;
+
+use App\Helpers\DynamicalAddInput;
 
 class PelamarController extends Controller {
 
@@ -15,10 +19,13 @@ class PelamarController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		//
+	public function index($id_lowongan)
+	{	
+
 		
+		return view('administrasi.pelamar.index')
+			->with('id_lowongan',$id_lowongan);
+
 	}
 
 	/**
@@ -26,9 +33,15 @@ class PelamarController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($id_lowongan,DynamicalAddInput $dyna)
 	{
 		//
+		$nomor_peserta = "AKB48-otaku";
+
+		return view('administrasi.pelamar.create')
+			->with('id_lowongan',$id_lowongan)
+			->with('nomor_peserta', $nomor_peserta);
+
 	}
 
 	/**
@@ -36,9 +49,10 @@ class PelamarController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 		//
+		return $request->all();
 	}
 
 	/**
@@ -83,6 +97,10 @@ class PelamarController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function datatables(){
+
 	}
 
 }

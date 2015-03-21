@@ -41,10 +41,7 @@ Route::group(['prefix' => 'lowongan'], function()
 	Route::group(['prefix' => '{id_lowongan}/administrasi','namespace' => 'Administrasi'], function()
 	{
 
-		Route::controller(
-			'/',"BobotAdministrasiController",
-			['getBobot'=>'get.bobot','postBobot'=>'post.bobot']
-		);
+
 
 		Route::get(
 			'pelamar/datatables',
@@ -52,7 +49,7 @@ Route::group(['prefix' => 'lowongan'], function()
 		);
 
 		Route::resource(
-			'pelamar','PelamarController',
+			'/pelamar','PelamarController',
 			 ['names' => [
 							'create' 	=> 'pelamar.create',
 							'index'  	=> 'pelamar.index',
@@ -61,6 +58,11 @@ Route::group(['prefix' => 'lowongan'], function()
 							'update'	=> 'pelamar.update',
 							'destroy'	=> 'pelamar.destroy'
 						]]
+		);
+
+		Route::controller(
+			'/',"BobotAdministrasiController",
+			['getBobot'=>'adm.get.bobot','postBobot'=>'adm.post.bobot']
 		);
 
 		  
