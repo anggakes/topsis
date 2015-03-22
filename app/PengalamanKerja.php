@@ -14,5 +14,12 @@ class PengalamanKerja extends Model {
 		'tgl_keluar'	
 	];
 	//
+	 public $dynamicInputField=  [
+		['name'=>'pk[jabatan][]','type'=>'text','placeholder'=>'Jabatan', 'value'=>''],
+		['name'=>'pk[instansi][]','type'=>'text','placeholder'=>'Instansi', 'value'=>''],
+		['name'=>'pk[tgl_masuk][]','type'=>'date','placeholder'=>'', 'value'=>''],
+		['name'=>'pk[tgl_keluar][]','type'=>'date','placeholder'=>'', 'value'=>'']
+	];
+	
 
 }

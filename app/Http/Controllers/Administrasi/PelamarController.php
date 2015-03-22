@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\HttpResponse;
 
+
 use App\Pelamar;
 use App\Lamaran;
 use App\Administrasi;
 
-use App\Helpers\DynamicalAddInput;
 
 class PelamarController extends Controller {
 
@@ -33,15 +33,17 @@ class PelamarController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create($id_lowongan, DynamicalAddInput $dyna, Lamaran $lamaran)
+	public function create($id_lowongan, Lamaran $lamaran, Pelamar $pelamar)
 	{
-		//
-		$nomor_peserta = $lamaran->makeNomorPelamar();
 
+		$nomor_peserta 	= $lamaran->makeNomorPelamar();
+		
 		return view('administrasi.pelamar.create')
 			->with('id_lowongan',$id_lowongan)
-			->with('nomor_peserta', $nomor_peserta);
-
+			->with('nomor_peserta', $nomor_peserta)
+			->with('pni',json_encode($pelamar->dynamicInputFieldPendidikanNonIlmiah()))
+			->with('pk',json_encode($pelamar->dynamicInputFieldPengalamanKerja()));		
+		
 	}
 
 	/**

@@ -87,10 +87,29 @@
   
 
 <legend>Pendidikan Non Ilmiah</legend>
+<div id="pni"></div>
 
 <legend>Pengalaman Kerja</legend>
+<div id="pk"></div>
 
   {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}
 
   {!! Form::close() !!} 
+@stop
+
+@section('js')
+{!!Html::script("assets/dynamicInput/dynamic_input.js")!!} 
+ 
+<script type="text/javascript">
+var aa=  {!!$pni!!};
+var tt=  {!!$pk!!};
+$(document).ready(function(){
+
+  create_row('pni',aa,'aa');
+  create_row('pk',tt,'tt');
+
+
+
+});
+</script>
 @stop

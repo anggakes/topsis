@@ -13,6 +13,19 @@ class PendidikanNonIlmiah extends Model {
 		'tgl_masuk',
 		'tgl_keluar'	
 	];
-	//
+
+	
+	 public $dynamicInputField=  [
+		['name'=>'pni[nama][]','type'=>'text','placeholder'=>'nama', 'value'=>''],
+		['name'=>'pni[instansi][]','type'=>'text','placeholder'=>'Instansi', 'value'=>''],
+		['name'=>'pni[tgl_masuk][]','type'=>'date','placeholder'=>'', 'value'=>''],
+		['name'=>'pni[tgl_keluar][]','type'=>'date','placeholder'=>'', 'value'=>'']
+	];
+	
+
+
+
+	
+	
 
 }
