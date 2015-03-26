@@ -5,6 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 class PendidikanTerakhir extends Model {
 
 	protected $table ='pendidikan_terakhir';
+	public $timestamps = false;
+	
 	protected $guarded =['id'];
 	protected $fillable = [
 		'id_pelamar',
@@ -15,5 +17,6 @@ class PendidikanTerakhir extends Model {
 		'ipk',
 		'jenjang'
 	];
+
 
 }

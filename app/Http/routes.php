@@ -52,6 +52,7 @@ Route::group(['prefix' => 'lowongan'], function()
 			'/pelamar','PelamarController',
 			 ['names' => [
 							'create' 	=> 'pelamar.create',
+							'show' 		=> 'pelamar.show',
 							'index'  	=> 'pelamar.index',
 							'store'		=> 'pelamar.store',
 							'edit'		=> 'pelamar.edit',
@@ -61,9 +62,17 @@ Route::group(['prefix' => 'lowongan'], function()
 		);
 
 		Route::controller(
-			'/',"BobotAdministrasiController",
+			'bobot',"BobotAdministrasiController",
 			['getBobot'=>'adm.get.bobot','postBobot'=>'adm.post.bobot']
 		);
+
+
+		Route::controller(
+			'proses',"ProsesAdministrasiController",
+			['getProses'=>'adm.get.proses']
+		);
+
+		
 
 	});// <--- end administrasi
 

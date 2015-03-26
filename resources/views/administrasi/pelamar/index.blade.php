@@ -7,10 +7,11 @@
                           <table class='table datatables'>
                               <thead>
                               <tr>
-                                          <th>No Peserta</th>
+                                          <th>No. Pelamar</th>
                                           <th>Nama</th>
+                                          <th>No. KTP</th>
                                           <th>Tanggal Lahir</th>
-                                          <th>Kotak</th>
+                                          <th>Kontak</th>
                                           <th >#</th>
                                     </tr>
                               </thead>
@@ -19,6 +20,7 @@
                               </tbody>
                           </table>
 
+<a href="{!! route('adm.get.proses',$id_lowongan)!!}" class='btn btn-primary'> Proses <br> Hitung Topsis</a>
 
 @stop
 
@@ -32,7 +34,7 @@
     $(document).ready(function(){
 
           $(".datatables").dataTable({
-              "ajax" : "{!! route('lowongan.datatables') !!}",
+              "ajax" : "{!! route('pelamar.datatables',$id_lowongan) !!}",
               "fnInitComplete": function(oSettings, json) {
                   //inisialisi saat datatables setelah load
                    $('a[data-method]').click(function(e){

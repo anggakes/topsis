@@ -21,9 +21,9 @@ function LoopObjCreate(value,id,id_table)
 	return tex;
 }
 
-function add_row(e,id,id_table)
+function add_row(container,e,id,id_table)
 {		
-	$("#"+id+":last").after(LoopObj(e,id,id_table));     
+	$("#"+container).append(LoopObjCreate(e,id,id_table));     
 	
 	     // Insert new elements after detailpakai
 }
@@ -42,7 +42,7 @@ function delete_row(r ,id_table)
 	}
 }
 function create_row(id, field, str){
-	var but= '<button class="btn btn-success pull-right" type="button" value="Add" onclick="add_row('+str+''+",'detailpakai"+str+"','detailpemakaian"+str+'\')">Tambah + </button>';
+	var but= '<button class="btn btn-success pull-right" type="button" value="Add" onclick="add_row(\'detail_pakai'+str+'\','+str+''+",'detailpakai"+str+"','detailpemakaian"+str+'\')">Tambah + </button>';
 	var tab= but+'<br><table id="detailpemakaian'+str+'" class="detailpemakaian'+str+' table" cellspacing="0" cellpadding="0" style="margin-top:20px"   width="1000"> \
 			<tbody id="detail_pakai'+str+'"> \
 			<tr id="detailpakai'+str+'"></tr> \
@@ -51,6 +51,27 @@ function create_row(id, field, str){
 		$('#'+id).html(tab);
 		$('#detail_pakai'+str).html(LoopObjCreate(field,'detailpakai'+str,'detailpemakaian'+str));
 		
+}
+
+function insert_row(id, field, str){
+	var but= '<button class="btn btn-success pull-right" type="button" value="Add" onclick="add_row(\'detail_pakai'+str+'\','+str+''+",'detailpakai"+str+"','detailpemakaian"+str+'\')">Tambah + </button>';
+	var tab= but+'<br><table id="detailpemakaian'+str+'" class="detailpemakaian'+str+' table" cellspacing="0" cellpadding="0" style="margin-top:20px"   width="1000"> \
+			<tbody id="detail_pakai'+str+'"> \
+			<tr id="detailpakai'+str+'"></tr> \
+			</tbody>\
+		</table>';
+		$('#'+id).html(tab);
+
+		var i = 1;
+		for (var ui in field) 
+	    {	console.log(field[ui]);
+	    	if(i == 1){
+	    	$('#detail_pakai'+str).html(LoopObjCreate(field[ui],'detailpakai'+str,'detailpemakaian'+str));	
+	    	}else{
+	    	$('#detail_pakai'+str).append(LoopObjCreate(field[ui],'detailpakai'+str,'detailpemakaian'+str));  
+	    	}
+	    	i++;
+	    }
 }
 
 /*

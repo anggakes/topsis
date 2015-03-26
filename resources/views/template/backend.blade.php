@@ -4,7 +4,7 @@
 <!-- Css -->
 {!!Html::style("assets/datatables/jquery.dataTables.css")!!}
 {!!Html::style("assets/bootstrap/css/bootstrap.css")!!} 
-@yield('css');
+@yield('css')
 
 @yield('content')
 

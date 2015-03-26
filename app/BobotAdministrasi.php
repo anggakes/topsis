@@ -12,6 +12,7 @@ class BobotAdministrasi extends Model {
 		'ka2',
 		'ka3',
 		'ka4',
+		'kuota'
 	];
 
 }

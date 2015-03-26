@@ -18,11 +18,14 @@ class CreateTablePendidikanTerakhir extends Migration {
 			$table->integer('id_pelamar')->unsigned();
 			$table->string('institusi',255);
 			$table->char('akreditas',1);
-			$table->date('tahun_lulus');
-			$table->date('tahun_masuk');
-			$table->decimal('ipk',2,2);
+			$table->integer('tahun_lulus')->unsigned();
+			$table->integer('tahun_masuk')->unsigned();
+			$table->decimal('ipk',4,2);
 			$table->string('jenjang',5);
-			$table->timestamps();
+
+			$table->foreign('id_pelamar')
+      		->references('id')->on('pelamar')
+      		->onDelete('cascade');
 		});
 	}
 

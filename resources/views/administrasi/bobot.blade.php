@@ -31,6 +31,12 @@
       {!! Form::text('ka4',@$bobot->ka4,['class'=>'form-control', 'placeholder'=>'Nama Lowongan'])!!}    
     </div>
   </div>
+   <div class="form-group">
+      {!! Form::label('kuota','Kuota',['class'=>'col-sm-4 control-label']) !!}
+    <div class="col-sm-6">
+      {!! Form::text('kuota',@$bobot->kuota,['class'=>'form-control', 'placeholder'=>'kuota'])!!}    
+    </div>
+  </div>
      
   </div>			<!-- /modal-body -->
    <div class="modal-footer">

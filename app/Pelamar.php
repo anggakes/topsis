@@ -9,6 +9,7 @@ class Pelamar extends Model {
 	protected $table ='pelamar';
 	protected $guarded =['id'];
 	protected $fillable = [
+		'no_ktp',
 		'nama',
 		'alamat',
 		'kontak',
@@ -37,15 +38,19 @@ class Pelamar extends Model {
 	
 	}
 
+	// dynamic input
+
 	public function dynamicInputFieldPendidikanNonIlmiah(){
 		$pni = new PendidikanNonIlmiah;
 		return $pni->dynamicInputField;
 	}
 
 	public function dynamicInputFieldPengalamanKerja(){
-		$pni = new PengalamanKerja;
-		return $pni->dynamicInputField;
+		$pk = new PengalamanKerja;
+		return $pk->dynamicInputField;
 	}
+
+	
 
 	
 

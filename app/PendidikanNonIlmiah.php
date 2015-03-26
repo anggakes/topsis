@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class PendidikanNonIlmiah extends Model {
 
 	protected $table ='pendidikan_non_ilmiah';
+	public $timestamps = false;
 	protected $guarded =['id'];
 	protected $fillable = [
 		'nama',
@@ -14,7 +15,7 @@ class PendidikanNonIlmiah extends Model {
 		'tgl_keluar'	
 	];
 
-	
+
 	 public $dynamicInputField=  [
 		['name'=>'pni[nama][]','type'=>'text','placeholder'=>'nama', 'value'=>''],
 		['name'=>'pni[instansi][]','type'=>'text','placeholder'=>'Instansi', 'value'=>''],

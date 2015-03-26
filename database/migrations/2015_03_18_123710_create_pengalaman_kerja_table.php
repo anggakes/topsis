@@ -20,7 +20,10 @@ class CreatePengalamanKerjaTable extends Migration {
 			$table->string('instansi',100);
 			$table->date("tgl_masuk");
 			$table->date("tgl_keluar");
-			$table->timestamps();
+
+			$table->foreign('id_pelamar')
+      		->references('id')->on('pelamar')
+      		->onDelete('cascade');
 		});
 	}
 

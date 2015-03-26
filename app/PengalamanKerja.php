@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class PengalamanKerja extends Model {
 
 	protected $table ='pengalaman_kerja';
+	public $timestamps = false;
 	protected $guarded =['id'];
 	protected $fillable = [
 		'jabatan',

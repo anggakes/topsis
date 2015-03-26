@@ -20,6 +20,7 @@ class CreateTableBobotAdministrasi extends Migration {
 			$table->decimal('ka2',2,2);
 			$table->decimal('ka3',2,2);
 			$table->decimal('ka4',2,2);
+			$table->integer('kuota');
 			$table->timestamps();
 		});
 	}
