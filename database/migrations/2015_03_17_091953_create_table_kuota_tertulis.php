@@ -17,7 +17,7 @@ class CreateTableKuotaTertulis extends Migration {
 			$table->increments('id')->unsigned();
 			$table->integer('id_lowongan')->unsigned();
 			$table->integer('kuota');
-			$table->decimal('nilai_minimum',3,2);
+			$table->float('nilai_minimum');
 			$table->timestamps();
 		});
 	}

@@ -65,7 +65,13 @@
   <div class="form-group">
       {!! Form::label('akreditas','Akreditas',['class'=>'col-sm-2 control-label']) !!}
     <div class="col-sm-8">
-      {!! Form::text('pendidikan_terakhir[akreditas]',@$lamaran->pelamar->pendidikanTerakhir->akreditas,['class'=>'form-control', 'placeholder'=>'Akreditas'])!!}    
+      {!! Form::select('pendidikan_terakhir[akreditas]',
+        [
+        'A' => 'A',
+        'B' => 'B',
+        'C' => 'C'
+        ]
+        ,@$lamaran->pelamar->pendidikanTerakhir->akreditas,['class'=>'form-control', 'placeholder'=>'Akreditas'])!!}    
     </div>
   </div>
   <div class="form-group">

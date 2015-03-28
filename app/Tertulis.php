@@ -11,4 +11,10 @@ class Tertulis extends Model {
 		'nilai_tertulis',
 	];
 
+	public function lamaran(){
+
+		return $this->belongsTo('App\Lamaran','id_lamaran');
+	
+	}
+
 }

@@ -15,10 +15,9 @@
 	<i class="icon-g-circle-plus"></i>
 	Kelola Pelamar</a>
 
-<a class="btn btn-primary disabled" id='hasilAdm'  
-	href="{!! route('lowongan.edit',1) !!}" 
-	data-toggle="modal" 
-	data-target="#myModal"><i class="icon-g-circle-plus"></i>
+<a class="btn btn-primary" id='hasilAdm'  
+	href="{!! route('adm.get.hasil',$id_lowongan) !!}" 
+	><i class="icon-g-circle-plus"></i>
 	Hasil</a>
 
 <div class='psikotes' >
@@ -28,18 +27,16 @@
 	href="{!! route('psikotes.get.bobot',$id_lowongan) !!}" 
 	data-toggle="modal" 
 	data-target="#myModal"><i class="icon-g-circle-plus"></i>
-	Bobot</a>
+	Kuota</a>
 
 <a class="btn btn-primary" id='kelolaPelamar'  
-	href="{!! route('lowongan.create') !!}" 
-	data-toggle="modal" 
-	data-target="#myModal"><i class="icon-g-circle-plus"></i>
-	Kelola Pelamar</a>
+	href="{!! route('psikotes.get.index', $id_lowongan) !!}" 
+	><i class="icon-g-circle-plus"></i>
+	Input Nilai</a>
 
 <a class="btn btn-primary" id='hasilAdm'  
-	href="{!! route('lowongan.edit',1) !!}" 
-	data-toggle="modal" 
-	data-target="#myModal"><i class="icon-g-circle-plus"></i>
+	href="{!! route('psikotes.get.hasil',$id_lowongan) !!}" 
+	><i class="icon-g-circle-plus"></i>
 	Hasil</a>
 </div>
 
@@ -50,18 +47,16 @@
 	href="{!! route('tertulis.get.bobot',$id_lowongan) !!}" 
 	data-toggle="modal" 
 	data-target="#myModal"><i class="icon-g-circle-plus"></i>
-	Bobot</a>
+	Kuota</a>
 
 <a class="btn btn-primary" id='kelolaPelamar'  
-	href="{!! route('lowongan.create') !!}" 
-	data-toggle="modal" 
-	data-target="#myModal"><i class="icon-g-circle-plus"></i>
-	Kelola Pelamar</a>
+	href="{!! route('tertulis.get.index',$id_lowongan) !!}" 
+	><i class="icon-g-circle-plus"></i>
+	Input Nilai</a>
 
 <a class="btn btn-primary" id='hasilAdm'  
-	href="{!! route('lowongan.edit',1) !!}" 
-	data-toggle="modal" 
-	data-target="#myModal"><i class="icon-g-circle-plus"></i>
+	href="{!! route('tertulis.get.hasil',$id_lowongan) !!}" 
+	><i class="icon-g-circle-plus"></i>
 	Hasil</a>
 </div>
 

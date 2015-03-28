@@ -69,7 +69,7 @@ Route::group(['prefix' => 'lowongan'], function()
 
 		Route::controller(
 			'proses',"ProsesAdministrasiController",
-			['getProses'=>'adm.get.proses']
+			['getProses'=>'adm.get.proses', 'getHasil'=>'adm.get.hasil']
 		);
 
 		
@@ -79,8 +79,22 @@ Route::group(['prefix' => 'lowongan'], function()
 	Route::group(['prefix' => '{id_lowongan}/psikotes','namespace' => 'Psikotes'], function()
 	{
 		Route::controller(
-			'/',"KuotaPsikotesController",
+			'bobot',"KuotaPsikotesController",
 			['getBobot'=>'psikotes.get.bobot','postBobot'=>'psikotes.post.bobot']
+		);
+
+		Route::controller(
+			'input',"InputPsikotesController",
+			[
+			'getIndex'=>'psikotes.get.index',
+			'postIndex'=>'psikotes.post.index',
+			'getDatatables'=>'psikotes.datatables'
+			]
+		);
+
+		Route::controller(
+			'proses',"ProsesPsikotesController",
+			['getHasil'=>'psikotes.get.hasil']
 		);
 
 	}); //<--- end Psikotest
@@ -88,9 +102,24 @@ Route::group(['prefix' => 'lowongan'], function()
 	Route::group(['prefix' => '{id_lowongan}/tertulis','namespace' => 'Tertulis'], function()
 	{
 		Route::controller(
-			'/',"KuotaTertulisController",
+			'bobot',"KuotaTertulisController",
 			['getBobot'=>'tertulis.get.bobot','postBobot'=>'tertulis.post.bobot']
 		);
+
+		Route::controller(
+			'input',"InputTertulisController",
+			[
+			'getIndex'=>'tertulis.get.index',
+			'postIndex'=>'tertulis.post.index',
+			'getDatatables'=>'tertulis.datatables'
+			]
+		);
+
+		Route::controller(
+			'proses',"ProsesTertulisController",
+			['getHasil'=>'tertulis.get.hasil']
+		);
+
 
 	}); //<--- end Tertulis
 

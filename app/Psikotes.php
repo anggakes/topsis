@@ -11,5 +11,10 @@ class Psikotes extends Model {
 		'nilai_psikotes',
 	];
 
+	public function lamaran(){
+
+		return $this->belongsTo('App\Lamaran','id_lamaran');
+	
+	}
 
 }

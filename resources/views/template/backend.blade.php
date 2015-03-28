@@ -21,5 +21,5 @@
 	    refreshModal("Loading..");
 </script>
 
-@yield('js');
+@yield('js')
 
