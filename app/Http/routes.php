@@ -126,8 +126,22 @@ Route::group(['prefix' => 'lowongan'], function()
 	Route::group(['prefix' => '{id_lowongan}/wawancara','namespace' => 'Wawancara'], function()
 	{
 		Route::controller(
-			'/',"BobotWawancaraController",
+			'bobot',"BobotWawancaraController",
 			['getBobot'=>'wawancara.get.bobot','postBobot'=>'wawancara.post.bobot']
+		);
+
+		 Route::controller(
+			'input',"InputWawancaraController",
+			[
+			'getIndex'=>'wawancara.get.index',
+			'postIndex'=>'wawancara.post.index',
+			'getDatatables'=>'wawancara.datatables'
+			]
+		);
+
+		 Route::controller(
+			'proses',"ProsesWawancaraController",
+			['getProses'=>'wawancara.get.proses', 'getHasil'=>'wawancara.get.hasil']
 		);
 
 	}); //<--- end Tertulis

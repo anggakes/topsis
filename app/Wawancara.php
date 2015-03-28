@@ -15,4 +15,10 @@ class Wawancara extends Model {
 		'nilai_topsis',
 	];
 
+	public function lamaran(){
+
+		return $this->belongsTo('App\Lamaran','id_lamaran');
+	
+	}
+
 }

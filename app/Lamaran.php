@@ -27,6 +27,14 @@ class Lamaran extends Model {
 	public function administrasi(){
 		return $this->hasOne('App\Administrasi','id_lamaran');
 	}
+	
+	public function psikotes(){
+		return $this->hasOne('App\Psikotes','id_lamaran');
+	}
+
+	public function tertulis(){
+		return $this->hasOne('App\Tertulis','id_lamaran');
+	}
 
 	/*
 	|	Menampilkan pelamar yang lulus Administrasi

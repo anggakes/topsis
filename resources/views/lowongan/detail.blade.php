@@ -70,9 +70,8 @@
 	Bobot</a>
 
 <a class="btn btn-primary" id='kelolaPelamar'  
-	href="{!! route('lowongan.create') !!}" 
-	data-toggle="modal" 
-	data-target="#myModal"><i class="icon-g-circle-plus"></i>
+	href="{!! route('wawancara.get.index',$id_lowongan) !!}" 
+	><i class="icon-g-circle-plus"></i>
 	Kelola Pelamar</a>
 
 <a class="btn btn-primary" id='hasilAdm'  
