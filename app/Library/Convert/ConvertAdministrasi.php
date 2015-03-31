@@ -38,16 +38,17 @@ class ConvertAdministrasi{
 
 	public function ipk($ipk){
 
-		$point = [0 => 1,
-			0.81 =>2,
-			1.71 =>3,
-			2.51 =>4,
-			3.31 =>5
+		$point = [
+		 1=> ['bawah' => 0,'atas'=>0.80],
+		 2=> ['bawah' => 0.81,'atas'=>1.70],
+		 3=> ['bawah' => 1.71,'atas'=>2.5],
+		 4=> ['bawah' => 2.51,'atas'=>3.30],
+		 5=> ['bawah' => 3.31,'atas'=>4.00],	
 		];
 		$v = 1;
 		foreach ($point as $key => $value) {
-			if($key<$ipk){
-				$v = $value;
+			if($ipk>$value['bawah'] and $ipk<$value['atas']){
+				$v = $key;
 			}
 		}
 

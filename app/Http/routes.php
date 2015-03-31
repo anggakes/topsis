@@ -72,6 +72,11 @@ Route::group(['prefix' => 'lowongan'], function()
 			['getProses'=>'adm.get.proses', 'getHasil'=>'adm.get.hasil']
 		);
 
+		Route::controller(
+			'stepbystep',"StepByStepAdministrasiController",
+			['getAlternatif'=>'sbs.get.alternatif']
+		);
+
 		
 
 	});// <--- end administrasi

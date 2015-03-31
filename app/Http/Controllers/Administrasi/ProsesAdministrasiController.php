@@ -48,7 +48,13 @@ class ProsesAdministrasiController extends Controller {
 
 				$delete[$key] = $l->id;
 			}
-
+			
+		/*	foreach ($alt as $key => $value) {
+				$urutan = $key+1;
+				echo "$urutan =>";
+				echo $value[0]."-".$value[1]."-".$value[2]."-".$value[3]."<br><br>";
+			}*/
+				
 			//proses penyimpanan di database
 			DB::table('administrasi')->whereIn('id_lamaran',$delete)->delete();
 			DB::table('administrasi')->insert($adm);
