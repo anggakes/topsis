@@ -3,7 +3,7 @@
 @section('content')
   <h3> Solisi Ideal {!! $tahap !!} </h3>
 <hr>
-
+<a href="{!! route($next,$id_lowongan) !!}" class='btn btn-primary'>Next -></a>
 
     <table class='table'>
       <thead>

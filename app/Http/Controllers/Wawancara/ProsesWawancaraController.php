@@ -19,11 +19,11 @@ class ProsesWawancaraController extends Controller {
 
 	public function getProses($id_lowongan){
 
-		$wawancara = Wawancara::with(['lamaran'=>function($q)use($id_lowongan){
-			
-						$q->where('id_lowongan','=',$id_lowongan);
-					
-					}])->get();
+		$wawancara = $wawancara = Wawancara::whereHas('lamaran', function($q)use($id_lowongan)
+						{
+						    $q->where('id_lowongan', '=', $id_lowongan);
+
+						})->get();
 
 		$b = BobotWawancara::where('id_lowongan','=',$id_lowongan)->first();
 		

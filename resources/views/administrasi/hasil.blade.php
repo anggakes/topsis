@@ -4,6 +4,8 @@
   <h3> Hasil Tahap Administrasi </h3>
 <hr>
 <span class='label label-primary pull-right' style='font-size: 14pt'>Kuota : {!! $kuota !!} </span>
+<a href="{!! route('adm.sbs.alternatif',$id_lowongan) !!}" class='btn btn-primary'>Step By Step</a>
+<a href="{!! route('lowongan.show',$id_lowongan) !!}" class='btn btn-primary'>Kembali</a>
 <?php $peringkat =1; ?>
     <table class='table'>
       <thead>

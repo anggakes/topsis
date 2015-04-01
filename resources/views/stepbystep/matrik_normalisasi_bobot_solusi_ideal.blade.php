@@ -1,6 +1,7 @@
 @extends('template.backend')
 <!-- awal section content -->
 @section('content')
+<a href="{!! route($next,$id_lowongan) !!}" class='btn btn-primary'>Next -></a>
   <h3> Matrik Keputusan Ternormalisasi Terbobot Dikurangi A+ {!! $tahap !!} </h3>
 <hr>
 

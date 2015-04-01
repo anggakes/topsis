@@ -1,4 +1,4 @@
-@extends('app')
+@extends('template.backend')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,10 @@
 				<div class="panel-heading">Home</div>
 
 				<div class="panel-body">
-					You are logged in!
+					<a href="{!! route('lowongan.index') !!}" class='btn'>Divisi</a><br>
+					<a href="{!! route('lowongan.index') !!}" class='btn'>Lowongan</a><br>
+					<a href="{!! route('lowongan.index') !!}" class='btn'>Management User</a>
+
 				</div>
 			</div>
 		</div>

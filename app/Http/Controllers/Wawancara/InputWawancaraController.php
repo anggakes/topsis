@@ -21,10 +21,19 @@ class InputWawancaraController extends Controller {
 
 		$lulus = $lamaran->lulusTertulis($id_lowongan,$kuota->kuota,$kuota->nilai_minimum);
 
+		$wawancara = Wawancara::whereHas('lamaran',function($q)use($id_lowongan){
+				$q->where('id_lowongan','=',$id_lowongan);
+		})->get();
+
+		foreach ($wawancara as $key => $value) {
+			$data_id [$key] = $value->id_lamaran;	
+		}
+		
+		$nomor_pelamar=array();
 		foreach ($lulus as $key => $value) {
-		
-			$nomor_pelamar[$value->id] = "$value->nomor_pelamar - $value->nama";
-		
+			if( !in_array($value->id,$data_id)){
+				$nomor_pelamar[$value->id] = "$value->nomor_pelamar - $value->nama";
+			}
 		}
 
 		$option = [
@@ -53,11 +62,11 @@ class InputWawancaraController extends Controller {
 
 	public function getDatatables($id_lowongan){
 
-		$wawancara = Wawancara::with(['lamaran'=>function($q)use($id_lowongan){
-			
-						$q->where('id_lowongan','=',$id_lowongan);
-					
-					}])->get();
+		$wawancara = Wawancara::whereHas('lamaran', function($q)use($id_lowongan)
+		{
+		    $q->where('id_lowongan', '=', $id_lowongan);
+
+		})->get();
 
 		$data=array();
 		$l=array();

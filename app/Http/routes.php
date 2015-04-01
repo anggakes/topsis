@@ -1,30 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-/*
-Route::get('/', 'WelcomeController@index');
-
-Route::get('home', 'HomeController@index');
-*/
-
-/* 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
-*/
-
 /* app begin */
+
 
 Route::get(
 	'lowongan/datatables',
@@ -74,7 +51,15 @@ Route::group(['prefix' => 'lowongan'], function()
 
 		Route::controller(
 			'stepbystep',"StepByStepAdministrasiController",
-			['getAlternatif'=>'sbs.get.alternatif']
+			[
+			'getAlternatif'=>'adm.sbs.alternatif',
+			'getKuadratHasilAkar'=>'adm.sbs.kuadrathasilakar',
+			'getMatrikNormalisasi'=>'adm.sbs.matriknormalisasi',
+			'getMatrikNormalisasiBobot'=>'adm.sbs.matriknormalisasibobot',
+			'getSolusiIdeal'=>'adm.sbs.solusiideal',
+			'getMatrikNormalisasiBobotSolusiIdeal'=>'adm.sbs.matriknormalisasibobotsolusiideal',
+			'getJarakAlternatif'=>'adm.sbs.jarakalternatif'
+			]
 		);
 
 		
@@ -153,4 +138,4 @@ Route::group(['prefix' => 'lowongan'], function()
 
 });// <-- end prefix lowongan
 
-
+Route::get('/',['as'=>'home','uses'=>'Homecontroller@index']);

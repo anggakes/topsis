@@ -1,10 +1,10 @@
 @extends('template.backend')
 <!-- awal section content -->
 @section('content')
+
+<a href="{!! route($next,$id_lowongan) !!}" class='btn btn-primary'>Next -></a>
   <h3> Jarak Alternatif Solusi Ideal Positif {!! $tahap !!} </h3>
 <hr>
-
-
     <table class='table'>
       <thead>
         <tr>

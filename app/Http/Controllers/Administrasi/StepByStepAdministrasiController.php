@@ -31,7 +31,8 @@ class StepByStepAdministrasiController extends Controller {
 				->with('kriteria',$kriteria)
 				->with('id_lowongan',$id_lowongan)
 				->with('tahap','Administrasi')
-				->with('lamaran',$lamaran);			
+				->with('lamaran',$lamaran)
+				->with('next','adm.sbs.kuadrathasilakar');			
 	}
 
 	public function getKuadratHasilAkar($id_lowongan){
@@ -57,7 +58,8 @@ class StepByStepAdministrasiController extends Controller {
 				->with('kriteria',$kriteria)
 				->with('id_lowongan',$id_lowongan)
 				->with('tahap','Administrasi')
-				->with('lamaran',$lamaran);		
+				->with('lamaran',$lamaran)
+				->with('next','adm.sbs.matriknormalisasi');		
 
 	}
 
@@ -84,7 +86,8 @@ class StepByStepAdministrasiController extends Controller {
 				->with('kriteria',$kriteria)
 				->with('id_lowongan',$id_lowongan)
 				->with('tahap','Administrasi')
-				->with('lamaran',$lamaran);	
+				->with('lamaran',$lamaran)
+				->with('next','adm.sbs.matriknormalisasibobot');	
 	}
 
 	public function getMatrikNormalisasiBobot($id_lowongan){
@@ -110,7 +113,8 @@ class StepByStepAdministrasiController extends Controller {
 				->with('kriteria',$kriteria)
 				->with('id_lowongan',$id_lowongan)
 				->with('tahap','Administrasi')
-				->with('lamaran',$lamaran);	
+				->with('lamaran',$lamaran)
+				->with('next','adm.sbs.solusiideal');	
 	}
 
 	public function getSolusiIdeal($id_lowongan){
@@ -136,7 +140,8 @@ class StepByStepAdministrasiController extends Controller {
 				->with('kriteria',$kriteria)
 				->with('id_lowongan',$id_lowongan)
 				->with('tahap','Administrasi')
-				->with('lamaran',$lamaran);
+				->with('lamaran',$lamaran)
+				->with('next','adm.sbs.matriknormalisasibobotsolusiideal');
 	}
 
 	public function getMatrikNormalisasiBobotSolusiIdeal($id_lowongan){
@@ -164,7 +169,8 @@ class StepByStepAdministrasiController extends Controller {
 				->with('kriteria',$kriteria)
 				->with('id_lowongan',$id_lowongan)
 				->with('tahap','Administrasi')
-				->with('lamaran',$lamaran);
+				->with('lamaran',$lamaran)
+				->with('next','adm.sbs.jarakalternatif');
 	}
 
 	public function getJarakAlternatif($id_lowongan){
@@ -192,7 +198,8 @@ class StepByStepAdministrasiController extends Controller {
 				->with('kriteria',$kriteria)
 				->with('id_lowongan',$id_lowongan)
 				->with('tahap','Administrasi')
-				->with('lamaran',$lamaran);
+				->with('lamaran',$lamaran)
+				->with('next','adm.get.hasil');
 	}
 
 
