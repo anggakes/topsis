@@ -1,7 +1,13 @@
 <?php
 
 /* app begin */
+Route::get(
+	'divisi/datatables',
+	['as'=>'divisi.datatables',
+	'uses'=>'DivisiController@datatables']
+);
 
+Route::resource('divisi','DivisiController');
 
 Route::get(
 	'lowongan/datatables',

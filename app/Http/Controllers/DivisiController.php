@@ -1,24 +1,19 @@
 <?php namespace App\Http\Controllers;
 
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\HttpResponse;
 use Illuminate\Http\Request;
 
-use App\Lowongan;
 use App\Divisi;
 
-class LowonganController extends Controller {
+class DivisiController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 	public function index()
 	{
 		//
-		return view('lowongan.index');
+		return view('divisi.index');
 	}
 
 	/**
@@ -29,10 +24,7 @@ class LowonganController extends Controller {
 
 	public function create()
 	{
-
-			$divisi = Divisi::lists('nama','id');
-			return view('lowongan.create')
-			->with('divisi',$divisi);
+			return view('divisi.create');
 	}
 
 	/**
@@ -44,8 +36,8 @@ class LowonganController extends Controller {
 	{
 		//
 
-		Lowongan::create($request->all());
-		return redirect()->route('lowongan.index')
+		Divisi::create($request->all());
+		return redirect()->route('divisi.index')
 			->with('message','data berhasil ditambah');
 
 	}
@@ -59,8 +51,8 @@ class LowonganController extends Controller {
 	public function show($id)
 	{
 		//
-		return view('lowongan.detail')
-					->with('id_lowongan',$id);
+		return view('divisi.detail')
+					->with('id_divisi',$id);
 	}
 
 	/**
@@ -72,11 +64,9 @@ class LowonganController extends Controller {
 	public function edit($id)
 	{
 		//
-		$lowongan = Lowongan::findOrFail($id);
-		$divisi = Divisi::lists('nama','id');
-
-		return view('lowongan.edit')
-			->with('lowongan',$lowongan)
+		$divisi = Divisi::findOrFail($id);
+		return view('divisi.edit')
+			->with('divisi',$divisi)
 			->with('divisi',$divisi);
 	}
 
@@ -89,8 +79,8 @@ class LowonganController extends Controller {
 	public function update(Request $request, $id)
 	{
 		//
-		Lowongan::findOrFail($id)->update($request->all());
-		return redirect()->route('lowongan.index');
+		Divisi::findOrFail($id)->update($request->all());
+		return redirect()->route('divisi.index');
 	}
 
 	/**
@@ -102,24 +92,20 @@ class LowonganController extends Controller {
 	public function destroy($id)
 	{
 		//
-		Lowongan::findOrFail($id)->delete();
-		return redirect()->route('lowongan.index');
+		Divisi::findOrFail($id)->delete();
+		return redirect()->route('divisi.index');
 	}
 
 	public function datatables(){
-		$lowongan = Lowongan::all();
+		$divisi = Divisi::all();
 		$data=array();
 		$l=array();
 		$i=0;
-		foreach ($lowongan as $value) {
+		foreach ($divisi as $value) {
 			$l[0] = $value->nama;
-			$l[1] = $value->kode;
-			$l[2] = $value->divisi->nama;
-			$l[3] = $value->keterangan;
-			$l[4] = "
-				<a href='".route('lowongan.edit',$value->id)."' data-toggle='modal' data-target='#myModal'>Edit</a> - 
-				<a href='".route('lowongan.destroy',$value->id)."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> - 
-				<a href='".route('lowongan.show',$value->id)."'>Kelola</a>
+			$l[1] = "
+				<a href='".route('divisi.edit',$value->id)."' data-toggle='modal' data-target='#myModal'>Edit</a> - 
+				<a href='".route('divisi.destroy',$value->id)."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a>
 			";
 
 			$data[$i]=$l;
@@ -129,6 +115,5 @@ class LowonganController extends Controller {
 		$return['data'] = $data;
 		return response()->json($return);
 	}
-
 
 }
