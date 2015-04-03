@@ -14,7 +14,7 @@
 	href="{!! route('pelamar.index',$id_lowongan) !!}" 
 	<i class="icon-g-circle-plus"></i>
 	Kelola Pelamar</a>
-
+ 
 <a class="btn btn-primary" id='hasilAdm'  
 	href="{!! route('adm.get.hasil',$id_lowongan) !!}" 
 	><i class="icon-g-circle-plus"></i>
