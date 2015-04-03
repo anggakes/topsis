@@ -16,10 +16,19 @@ class Registrar implements RegistrarContract {
 	{
 		return Validator::make($data, [
 			'name' => 'required|max:255',
-			'email' => 'required|email|max:255|unique:users',
-			'password' => 'required|confirmed|min:6',
+			'username' => 'required|max:255|unique:users',
+			'password' => 'required|confirmed',
 		]);
 	}
+
+	public function validatorUpdate(array $data)
+	{
+		return Validator::make($data, [
+			'name' => 'required|max:255',
+			'username' => 'required|max:255',
+		]);
+	}
+
 
 	/**
 	 * Create a new user instance after a valid registration.
@@ -31,9 +40,21 @@ class Registrar implements RegistrarContract {
 	{
 		return User::create([
 			'name' => $data['name'],
-			'email' => $data['email'],
+			'username' => $data['username'],
 			'password' => bcrypt($data['password']),
+			'roles' => $data['roles'],
+			'id_divisi' => $data['id_divisi'],
 		]);
+	}
+
+	public function update($id,array $data){
+
+		return User::findOrFail($id)->update([
+			'name' => $data['name'],
+			'username' => $data['username'],
+			'roles' => $data['roles'],
+			'id_divisi' => $data['id_divisi'],
+			]);
 	}
 
 }

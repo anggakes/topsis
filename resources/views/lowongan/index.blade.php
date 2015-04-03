@@ -10,6 +10,7 @@
                                           <th >Nama</th>
                                           <th>Kode</th>
                                           <th>Divisi</th>
+                                           <th>Tahap</th>
                                           <th> Keterangan</th>
                                           <th >#</th>
                                     </tr>

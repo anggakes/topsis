@@ -1,6 +1,7 @@
 <?php
 
-/* app begin */
+// Divisi
+
 Route::get(
 	'divisi/datatables',
 	['as'=>'divisi.datatables',
@@ -8,6 +9,8 @@ Route::get(
 );
 
 Route::resource('divisi','DivisiController');
+
+// Lowongan 
 
 Route::get(
 	'lowongan/datatables',
@@ -17,8 +20,17 @@ Route::get(
 
 Route::resource('lowongan','LowonganController');
 
+// User
 
-Route::group(['prefix' => 'lowongan'], function()
+Route::get(
+	'user/datatables',
+	['as'=>'user.datatables',
+	'uses'=>'UserController@datatables']
+);
+
+Route::resource('user','UserController');
+
+Route::group(['middleware' => 'auth','prefix' => 'lowongan'], function()
 {
 
 	Route::group(['prefix' => '{id_lowongan}/administrasi','namespace' => 'Administrasi'], function()
@@ -144,4 +156,5 @@ Route::group(['prefix' => 'lowongan'], function()
 
 });// <-- end prefix lowongan
 
+Route::controller('login','Auth\Authcontroller');
 Route::get('/',['as'=>'home','uses'=>'Homecontroller@index']);

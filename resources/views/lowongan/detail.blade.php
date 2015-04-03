@@ -3,7 +3,7 @@
 @section('content')
 
 	<h3>Administrasi</h3><hr>
-
+@if(Auth::user()->roles == "admin")
 <a class="btn btn-primary" id='bobotAdm'  
 	href="{!! route('adm.get.bobot',$id_lowongan) !!}" 
 	data-toggle="modal" 
@@ -19,6 +19,9 @@
 	href="{!! route('adm.get.hasil',$id_lowongan) !!}" 
 	><i class="icon-g-circle-plus"></i>
 	Hasil</a>
+@endif
+
+@if(Auth::user()->roles == "badan independent")
 
 <div class='psikotes' >
 	<h3>Psikotes</h3><hr>
@@ -72,7 +75,7 @@
 <a class="btn btn-primary" id='kelolaPelamar'  
 	href="{!! route('wawancara.get.index',$id_lowongan) !!}" 
 	><i class="icon-g-circle-plus"></i>
-	Kelola Pelamar</a>
+	Input Nilai</a>
 
 <a class="btn btn-primary" id='hasilAdm'  
 	href="{!! route('lowongan.edit',1) !!}" 
@@ -80,6 +83,7 @@
 	data-target="#myModal"><i class="icon-g-circle-plus"></i>
 	Hasil</a>
 </div>
+@endif
 
 @include('modal')
 

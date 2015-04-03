@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Contracts\Auth\Registrar;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
+use Illuminate\Http\Request;
 
 class AuthController extends Controller {
 
@@ -18,8 +18,6 @@ class AuthController extends Controller {
 	|
 	*/
 
-	use AuthenticatesAndRegistersUsers;
-
 	/**
 	 * Create a new authentication controller instance.
 	 *
@@ -27,12 +25,48 @@ class AuthController extends Controller {
 	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
 	 * @return void
 	 */
-	public function __construct(Guard $auth, Registrar $registrar)
+	public function __construct()
 	{
-		$this->auth = $auth;
-		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
+	}
+
+	public function getIndex()
+	{
+		return view('auth.login');
+	}
+
+	/**
+	 * Handle a login request to the application.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function postIndex(Request $request, Guard $auth)
+	{
+		$this->validate($request, [
+			'username' => 'required', 'password' => 'required',
+		]);
+
+		$credentials = $request->only('username', 'password');
+
+		if ($auth->attempt($credentials, $request->has('remember')))
+		{
+			return redirect()->intended('/');
+		}
+
+		return redirect('login')
+					->withInput($request->only('username', 'remember'))
+					->withErrors([
+						'username' => 'Kombinasi salah',
+					]);
+	}
+
+	public function getLogout(Guard $auth)
+	{
+		$auth->logout();
+
+		return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/login');
 	}
 
 }

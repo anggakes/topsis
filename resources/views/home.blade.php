@@ -8,9 +8,9 @@
 				<div class="panel-heading">Home</div>
 
 				<div class="panel-body">
-					<a href="{!! route('lowongan.index') !!}" class='btn'>Divisi</a><br>
+					<a href="{!! route('divisi.index') !!}" class='btn'>Divisi</a><br>
 					<a href="{!! route('lowongan.index') !!}" class='btn'>Lowongan</a><br>
-					<a href="{!! route('lowongan.index') !!}" class='btn'>Management User</a>
+					<a href="{!! route('user.index') !!}" class='btn'>Management User</a>
 
 				</div>
 			</div>

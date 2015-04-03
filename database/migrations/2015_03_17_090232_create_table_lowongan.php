@@ -20,6 +20,11 @@ class CreateTableLowongan extends Migration {
 			$table->string('nama',255);
 			$table->text('keterangan');
 			$table->timestamps();
+
+			$table->foreign('id_divisi')
+      		->references('id')->on('divisi')
+      		->onDelete('cascade');
+      		
 		});
 	}
 

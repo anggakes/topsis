@@ -14,7 +14,9 @@ class Lowongan extends Model {
 	];
 
 	public function divisi(){
+
 		return $this->belongsTo("App\Divisi","id_divisi");
+		
 	}
 
 }
