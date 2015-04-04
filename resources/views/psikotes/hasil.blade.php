@@ -6,7 +6,7 @@
 <span class='label label-primary ' style='font-size: 14pt'>Kuota : {!! $kuota->kuota !!} </span>
 -
 <span class='label label-primary ' style='font-size: 14pt'>Nilai Minimum : {!! $kuota->nilai_minimum !!} </span><br><br>
-
+<a href="{!! route('lowongan.show',$id_lowongan) !!}" class='btn btn-primary'>Kembali</a>
 <?php $peringkat =1; ?>
     <table class='table'>
       <thead>

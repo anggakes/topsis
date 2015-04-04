@@ -19,4 +19,8 @@ class Lowongan extends Model {
 		
 	}
 
+	public function tahap(){
+		return $this->belongsTo("App\Tahap","id_tahap");
+	}
+
 }
