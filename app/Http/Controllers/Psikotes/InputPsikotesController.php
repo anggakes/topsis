@@ -10,6 +10,7 @@ use Illuminate\Http\HttpResponse;
 use App\Lamaran;
 use App\Psikotes;
 use App\BobotAdministrasi;
+use App\Lowongan;
 
 class InputPsikotesController extends Controller {
 
@@ -37,6 +38,7 @@ class InputPsikotesController extends Controller {
 		}
 
 		return view('psikotes.index')
+		->with('jumlah_pelamar',count($psikotes))
 		->with('nomor_pelamar',$nomor_pelamar)
 		->with('id_lowongan',$id_lowongan);
 	}
@@ -53,6 +55,7 @@ class InputPsikotesController extends Controller {
 			$psikotes = Psikotes::firstOrNew(['id_lamaran'=>$request->input('id_lamaran')]);
 			$psikotes->fill($data_psikotes);
 			$psikotes->save();	
+
 
 			return redirect()->route('psikotes.get.index',$id_lowongan);	
 

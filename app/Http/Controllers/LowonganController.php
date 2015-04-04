@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Lowongan;
 use App\Divisi;
+use App\Lamaran;
 
 class LowonganController extends Controller {
 	
@@ -64,8 +65,12 @@ class LowonganController extends Controller {
 	public function show($id)
 	{
 		//
+		$jumlah_pelamar = Lamaran::where('id_lowongan','=',$id)->count();
+		$lowongan = Lowongan::findOrFail($id);
 		return view('lowongan.detail')
-					->with('id_lowongan',$id);
+					->with('id_lowongan',$id)
+					->with('lowongan',$lowongan)
+					->with('jumlah_pelamar',$jumlah_pelamar);
 	}
 
 	/**
@@ -120,7 +125,7 @@ class LowonganController extends Controller {
 			$l[0] = $value->nama;
 			$l[1] = $value->kode;
 			$l[2] = $value->divisi->nama;
-			$l[3] = $value->tahap;
+			$l[3] = $value->tahap->tahap;
 			$l[4] = $value->keterangan;
 			$l[5] = "
 				<a href='".route('lowongan.edit',$value->id)."' data-toggle='modal' data-target='#myModal'>Edit</a> - 

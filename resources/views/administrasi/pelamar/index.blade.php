@@ -20,7 +20,7 @@
                               </tbody>
                           </table>
 
-<a href="{!! route('adm.get.proses',$id_lowongan)!!}" class='btn btn-primary'> Proses <br> Hitung Topsis</a>
+<a href="{!! route('adm.get.proses',$id_lowongan)!!}" class='btn btn-primary <?php echo ($jumlah_pelamar>2)? "":"disabled" ;?>'> Proses <br> Hitung Topsis</a>
 
 @stop
 

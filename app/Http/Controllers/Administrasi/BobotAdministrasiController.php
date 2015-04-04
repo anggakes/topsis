@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\HttpResponse;
 
 use App\BobotAdministrasi;
+use App\Lowongan;
 
 class BobotAdministrasiController extends Controller {
 
@@ -32,6 +33,10 @@ class BobotAdministrasiController extends Controller {
 		$bb->fill($request->all());
 		$bb->save();
 		
+		$l = Lowongan::findOrFail($id_lowongan);
+		$l->id_tahap = 2;
+		$l->save();
+
 		return redirect()->route("lowongan.show",$id_lowongan);
 		
 	}

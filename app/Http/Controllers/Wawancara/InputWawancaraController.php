@@ -10,6 +10,7 @@ use Illuminate\Http\HttpResponse;
 use App\Lamaran;
 use App\Wawancara;
 use App\KuotaTertulis;
+use App\Lowongan;
 
 class InputWawancaraController extends Controller {
 
@@ -55,6 +56,19 @@ class InputWawancaraController extends Controller {
 			$psikotes = Wawancara::firstOrNew(['id_lamaran'=>$request->input('id_lamaran')]);
 			$psikotes->fill($request->all());
 			$psikotes->save();	
+
+			$jumlah_pelamar = Wawancara::whereHas('lamaran', function($q)use($id_lowongan)
+				{
+				    $q->where('id_lowongan', '=', $id_lowongan);
+
+				})->count();
+
+				if($jumlah_pelamar > 2){
+					$l = Lowongan::findOrFail($id_lowongan);
+					$l->id_tahap = 12;
+					$l->save();
+				}
+
 
 			return redirect()->route('wawancara.get.index',$id_lowongan);	
 

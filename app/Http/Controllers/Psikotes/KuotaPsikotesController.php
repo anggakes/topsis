@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\HttpResponse;
 
 use App\KuotaPsikotes;
+use App\Lowongan;
 
 class KuotaPsikotesController extends Controller {
 
@@ -32,6 +33,9 @@ class KuotaPsikotesController extends Controller {
 		$bb->fill($request->all());
 		$bb->save();
 		
+		$l = Lowongan::findOrFail($id_lowongan);
+			$l->id_tahap = 5;
+			$l->save();
 		return redirect()->route("lowongan.show",$id_lowongan);
 		
 	}

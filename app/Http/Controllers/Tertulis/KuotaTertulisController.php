@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\HttpResponse;
 
 use App\KuotaTertulis;
+use App\Lowongan;
 
 class KuotaTertulisController extends Controller {
 
@@ -32,6 +33,9 @@ class KuotaTertulisController extends Controller {
 		$bb->fill($request->all());
 		$bb->save();
 		
+		$l = Lowongan::findOrFail($id_lowongan);
+			$l->id_tahap = 8;
+			$l->save();
 		return redirect()->route("lowongan.show",$id_lowongan);
 		
 	}

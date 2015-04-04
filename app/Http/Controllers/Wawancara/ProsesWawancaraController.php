@@ -13,6 +13,7 @@ use App\BobotWawancara;
 use App\Wawancara;
 use App\Library\Topsis\Topsis;
 use App\Library\Convert\ConvertWawancara;
+use App\Lowongan;
 
 class ProsesWawancaraController extends Controller {
 
@@ -60,7 +61,9 @@ class ProsesWawancaraController extends Controller {
 			//proses penyimpanan di database
 			DB::table('wawancara')->whereIn('id_lamaran',$delete)->delete();
 			DB::table('wawancara')->insert($w);
-
+			$l = Lowongan::findOrFail($id_lowongan);
+					$l->id_tahap = 13;
+					$l->save();
 			return redirect()->route('wawancara.get.hasil',$id_lowongan);
 			
 

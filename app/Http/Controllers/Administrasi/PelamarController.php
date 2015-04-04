@@ -12,6 +12,7 @@ use App\Pelamar;
 use App\pendidikanTerakhir;
 use App\Lamaran;
 use App\Administrasi;
+use App\Lowongan;
 
 
 class PelamarController extends Controller {
@@ -24,9 +25,11 @@ class PelamarController extends Controller {
 	public function index($id_lowongan)
 	{	
 
+		$jumlah_pelamar = Lamaran::where('id_lowongan','=',$id_lowongan)->count();
 		
 		return view('administrasi.pelamar.index')
-			->with('id_lowongan',$id_lowongan);
+			->with('id_lowongan',$id_lowongan)
+			->with('jumlah_pelamar',$jumlah_pelamar);
 
 	}
 
@@ -72,7 +75,13 @@ class PelamarController extends Controller {
 					'nomor_pelamar'	=> $request->input('lamaran.nomor_pelamar')
 					]);
 
-			
+			$jumlah_pelamar = Lamaran::where('id_lowongan','=',$id_lowongan)->count();
+				if($jumlah_pelamar > 2){
+					$l = Lowongan::findOrFail($id_lowongan);
+					$l->id_tahap = 3;
+					$l->save();
+				}
+
 		});
 	
 		return redirect()->route('pelamar.index',$id_lowongan)

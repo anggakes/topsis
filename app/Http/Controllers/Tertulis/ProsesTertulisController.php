@@ -8,6 +8,7 @@ use Illuminate\Http\HttpResponse;
 
 use App\KuotaTertulis;
 use App\Lamaran;
+use App\Lowongan;
 
 class ProsesTertulisController extends Controller {
 
@@ -18,6 +19,12 @@ class ProsesTertulisController extends Controller {
 		$kuota = KuotaTertulis::where('id_lowongan','=',$id_lowongan)->first();
 
 		$lulus = $lamaran->lulusTertulis($id_lowongan, 0, 0); // 0 0 -> ambil semua data
+
+		$l = Lowongan::findOrFail($id_lowongan);
+		if($l->id_tahap<10){
+			$l->id_tahap = 10;
+			$l->save();
+		}
 
 		return view('tertulis.hasil')
 		->with('lulus',$lulus)

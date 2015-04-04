@@ -13,6 +13,7 @@ use App\BobotAdministrasi;
 use App\Administrasi;
 use App\Library\Topsis\Topsis;
 use App\Library\Convert\ConvertAdministrasi;
+use App\lowongan;
 
 class ProsesAdministrasiController extends Controller {
 
@@ -58,6 +59,9 @@ class ProsesAdministrasiController extends Controller {
 			//proses penyimpanan di database
 			DB::table('administrasi')->whereIn('id_lamaran',$delete)->delete();
 			DB::table('administrasi')->insert($adm);
+					$l = Lowongan::findOrFail($id_lowongan);
+					$l->id_tahap = 4;
+					$l->save();
 
 			return redirect()->route('adm.get.hasil',$id_lowongan);
 			

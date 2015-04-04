@@ -18,6 +18,11 @@
 						</div>
 					@endif
 
+					username: admin
+					password:drummer5
+
+					username: badanindependent
+					password: isaisaisa
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 

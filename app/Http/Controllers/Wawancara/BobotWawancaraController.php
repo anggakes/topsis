@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\HttpResponse;
 
 use App\BobotWawancara;
+use App\Lowongan;
 
 class BobotWawancaraController extends Controller {
 
@@ -31,7 +32,9 @@ class BobotWawancaraController extends Controller {
 		$bb = $model->firstOrNew(['id_lowongan'=>$id_lowongan]);
 		$bb->fill($request->all());
 		$bb->save();
-		
+		$l = Lowongan::findOrFail($id_lowongan);
+			$l->id_tahap = 11;
+			$l->save();
 		return redirect()->route("lowongan.show",$id_lowongan);
 		
 	}
