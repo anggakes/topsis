@@ -74,11 +74,11 @@ class ProsesWawancaraController extends Controller {
 	}
 
 	public function getHasil($id_lowongan, Wawancara $wawancara, Lamaran $lamaran){
-		$lulus = Wawancara::with(['lamaran'=>function($q)use($id_lowongan){
+		$lulus = Wawancara::whereHas('lamaran',function($q)use($id_lowongan){
 			
 						$q->where('id_lowongan','=',$id_lowongan);
 					
-					}])->get();
+					})->get();
 
 	return view('wawancara.hasil')
 		->with('lulus',$lulus)

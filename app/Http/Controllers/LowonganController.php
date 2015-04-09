@@ -125,10 +125,11 @@ class LowonganController extends Controller {
 			$l[0] = $value->nama;
 			$l[1] = $value->kode;
 			$l[2] = $value->divisi->nama;
-			$l[3] = $value->tahap->tahap;
+			$l[3] = $value->tahap->nama;
+			// error ! non object! 
 			$l[4] = $value->keterangan;
 			$l[5] = "
-				<a href='".route('lowongan.edit',$value->id)."' data-toggle='modal' data-target='#myModal'>Edit</a> - 
+				<a href='".route('lowongan.edit',$value->id)."' onclick='edit(this)'  data-toggle='modal' data-target='#myModal'>Edit</a> - 
 				<a href='".route('lowongan.destroy',$value->id)."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> - 
 				<a href='".route('lowongan.show',$value->id)."'>Kelola</a>
 			";

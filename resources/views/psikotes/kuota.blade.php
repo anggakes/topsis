@@ -1,32 +1,43 @@
-  {!! Form::open(['route'=>['psikotes.post.bobot',$id_lowongan],'class'=>'form-horizontal']) !!} 
+  <div id="user" class="modal-example-content">
+        {!! Form::open(['route'=>['psikotes.post.bobot',$id_lowongan],'class'=>'form-horizontal']) !!} 
 
-   <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                 <h4 class="modal-title">Kuota Psikotest</h4>
- 
-   </div>			<!-- /modal-header -->
-   <div class="modal-body">
-     
-    <div class="form-group">
-      {!! Form::label('kuota','Kuota',['class'=>'col-sm-4 control-label']) !!}
-    <div class="col-sm-6">
-      {!! Form::text('kuota',@$bobot->kuota,['class'=>'form-control', 'placeholder'=>'Kode Lowongan'])!!}    
-    </div>
-  </div>
-  <div class="form-group">
-      {!! Form::label('nilai_minimum','Nilai Minimum',['class'=>'col-sm-4 control-label']) !!}
-    <div class="col-sm-6">
-      {!! Form::text('nilai_minimum',@$bobot->nilai_minimum,['class'=>'form-control', 'placeholder'=>'Kode Lowongan'])!!}    
-    </div>
-  </div>
-   
-     
-  </div>			<!-- /modal-body -->
-   <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="modal-example-header">
+              <h4 class="modal-title">Kuota Psikotes</h4>
+         </div>     <!-- /modal-header -->
+         <div class="modal-example-body">
+              <div class="row">
+                  <section class="12u 12u(narrower)">
 
-    {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}
-              
-   
-   </div>			<!-- /modal-footer -->
-     {!! Form::close() !!} 
+                      <div class="row 50%">           
+                          <div class="2u 12u(mobile)">
+                              {!! Form::label('kuota','Kuota',['class'=>'col-sm-4 control-label']) !!}
+                          </div>
+                          <div class="10u 12u(mobile)">
+                              {!! Form::input('number','kuota',@$bobot->kuota,['class'=>'form-control', 'placeholder'=>'Kode Lowongan','required'=>'required'])!!}     
+                          </div>
+                      </div>
+
+                      <div class="row 50%">           
+                          <div class="2u 12u(mobile)">
+                              {!! Form::label('nilai_minimum','Nilai Minimum',['class'=>'col-sm-4 control-label']) !!}
+                          </div>
+                          <div class="10u 12u(mobile)">
+                              {!! Form::input('number','nilai_minimum',@$bobot->nilai_minimum,['class'=>'form-control', 'placeholder'=>'Kode Lowongan','required'=>'required'])!!}     
+                          </div>
+                      </div>
+                   <!-- /modal-body -->
+                      <div class="row 50%">
+                        <div class="12u">
+                            <ul class="actions">
+                              <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
+                              <li><input type="reset" value="Kosongkan Formulir" /></li>
+                              <li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
+                            </ul>
+                        </div>
+                      </div>
+                  </section>
+            </div>
+      </div>
+  </div>      <!-- /modal-end -->
+  {!! Form::close() !!} 
+</div>
