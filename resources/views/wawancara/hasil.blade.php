@@ -22,13 +22,13 @@
           {!! $peringkat !!}
         </td>
         <td>
-          {!! $l->lamaran->nomor_pelamar !!}
+          {!! $l->nomor_pelamar !!}
         </td>
         <td>
-          {!! $l->lamaran->pelamar->nama !!}
+          {!! $l->pelamar->nama !!}
         </td>
         <td>
-          {!! $l->lamaran->pelamar->tanggal_lahir !!}
+          {!! $l->pelamar->tanggal_lahir !!}
         </td>
         <td>
           {!! $l->nilai_topsis !!}

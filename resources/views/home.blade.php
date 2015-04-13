@@ -8,10 +8,14 @@
 				<div class="panel-heading">Home</div>
 
 				<div class="panel-body">
+				@if(Auth::user()->roles == "admin")
 					<a href="{!! route('divisi.index') !!}" class='btn'>Divisi</a><br>
-					<a href="{!! route('lowongan.index') !!}" class='btn'>Lowongan</a><br>
 					<a href="{!! route('user.index') !!}" class='btn'>Management User</a>
-
+				@endif
+					
+					<a href="{!! route('lowongan.index') !!}" class='btn'>Lowongan</a><br>
+					
+				
 				</div>
 			</div>
 		</div>

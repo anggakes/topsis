@@ -20,7 +20,7 @@ class ProsesWawancaraController extends Controller {
 
 	public function getProses($id_lowongan){
 
-		$wawancara = $wawancara = Wawancara::whereHas('lamaran', function($q)use($id_lowongan)
+		$wawancara = Wawancara::whereHas('lamaran', function($q)use($id_lowongan)
 						{
 						    $q->where('id_lowongan', '=', $id_lowongan);
 
@@ -74,15 +74,13 @@ class ProsesWawancaraController extends Controller {
 	}
 
 	public function getHasil($id_lowongan, Wawancara $wawancara, Lamaran $lamaran){
-		$lulus = Wawancara::with(['lamaran'=>function($q)use($id_lowongan){
+		$lulus = Wawancara::whereHas('lamaran', function($q)use($id_lowongan){
 			
 						$q->where('id_lowongan','=',$id_lowongan);
 					
-					}])->get();
+					})->get();
 
-	return view('wawancara.hasil')
-		->with('lulus',$lulus)
-		->with('id_lowongan',$id_lowongan);
+	return $lulus;
 	}
 
 }

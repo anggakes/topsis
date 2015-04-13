@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\HttpResponse;
 use Illuminate\Http\Request;
 
+use Auth;
+
 use App\Lowongan;
 use App\Divisi;
 use App\Lamaran;
@@ -122,14 +124,18 @@ class LowonganController extends Controller {
 		$l=array();
 		$i=0;
 		foreach ($lowongan as $value) {
+
+			$aksi_admin = (Auth::user()->roles != "admin") ? "" :
+				"<a href='".route('lowongan.edit',$value->id)."' data-toggle='modal' data-target='#myModal'>Edit</a> - 
+				<a href='".route('lowongan.destroy',$value->id)."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> -";
+
 			$l[0] = $value->nama;
 			$l[1] = $value->kode;
 			$l[2] = $value->divisi->nama;
 			$l[3] = $value->tahap->tahap;
 			$l[4] = $value->keterangan;
 			$l[5] = "
-				<a href='".route('lowongan.edit',$value->id)."' data-toggle='modal' data-target='#myModal'>Edit</a> - 
-				<a href='".route('lowongan.destroy',$value->id)."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> - 
+				$aksi_admin
 				<a href='".route('lowongan.show',$value->id)."'>Kelola</a>
 			";
 
