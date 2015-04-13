@@ -1,11 +1,12 @@
 @extends('template.backend')
 <!-- awal section content -->
 @section('content')
-  <h3> Matrik Normalisasi {!! $tahap !!} </h3>
-<hr>
-
-<a href="{!! route($next,$id_lowongan) !!}" class='btn btn-primary'>Next -></a>
-    <table class='table'>
+<article id="content" class="11u 12u(narrower)">
+    <header class="image-wrapper first 12u(narrower)">
+      <h2 class="image"> Matrik Normalisasi {!! $tahap !!} </h2>
+      <a href="{!! route($next,$id_lowongan) !!}" class='image pull-right button small 4(narrower)'>Selanjutnya</a>
+    </header>
+    <table class='table default 12u 12u(mobile)'>
       <thead>
         <tr>
           <td>Alternatif</td>

@@ -1,14 +1,32 @@
 @extends('template.backend')
 <!-- awal section content -->
 @section('content')
+<article id="content" class="8u 12u(narrower)">
+    <header class="image-wrapper first 12u(narrower)">
+      <h2 class="image">Tambah Pelamar</h2> 
+    </header>
+             
+    <div class="row">
+  		{!! Form::open(['route'=>['pelamar.store',$id_lowongan],'class'=>'form-horizontal']) !!} 
 
-  {!! Form::open(['route'=>['pelamar.store',$id_lowongan],'class'=>'form-horizontal']) !!} 
-
-@include('administrasi.pelamar.form')
-
-  {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}
+		@include('administrasi.pelamar.form')
+                
+          		<!-- /modal-body -->
+            <div class="row 50%">
+              <div class="12u">
+                  <ul class="actions">
+                    <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
+                    <li><input type="reset" value="Kosongkan Formulir" /></li>
+                    <li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
+                  </ul>
+              </div>
+            </div>
+    </div>
+      
 
   {!! Form::close() !!} 
+</article>
+
 @stop
 
 @section('js')

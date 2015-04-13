@@ -132,7 +132,8 @@ class LowonganController extends Controller {
 			$l[0] = $value->nama;
 			$l[1] = $value->kode;
 			$l[2] = $value->divisi->nama;
-			$l[3] = $value->tahap->tahap;
+			$l[3] = $value->tahap->nama;
+			// error ! non object! 
 			$l[4] = $value->keterangan;
 			$l[5] = "
 				$aksi_admin

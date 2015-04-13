@@ -1,24 +1,35 @@
-  {!! Form::model($divisi,['method'=>'PATCH','route'=>['divisi.update',$divisi->id],'class'=>'form-horizontal']) !!} 
+<div id="user" class="modal-example-content">
 
-   <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                 <h4 class="modal-title">Edit Divisi</h4>
- 
-   </div>			<!-- /modal-header -->
-   <div class="modal-body">
-     
-    <div class="form-group">
-      {!! Form::label('nama','Nama',['class'=>'col-sm-2 control-label']) !!}
-    <div class="col-sm-8">
-      {!! Form::text('nama',null,['class'=>'form-control', 'placeholder'=>'Nama Divisi'])!!}    
-    </div>
-    </div> 
-  </div>			<!-- /modal-body -->
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+   {!! Form::model($divisi,['method'=>'PATCH','route'=>['divisi.update',$divisi->id],'class'=>'form-horizontal']) !!} 
 
-    {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}
-              
-   
-   </div>			<!-- /modal-footer -->
-     {!! Form::close() !!} 
+      <div class="modal-example-header">
+            <h4 class="modal-title">Edit Data Divisi</h4>
+      </div>     <!-- /modal-header -->
+        <div class="modal-example-body">
+            <div class="row">
+                <section class="12u 12u(narrower)">     <!-- /modal-header -->
+
+                  <div class="row 50%">           
+                      <div class="2u 12u(mobile)">
+                          {!! Form::label('nama','Nama',['class'=>'col-sm-2 control-label']) !!}
+                      </div>
+                      <div class="10u 12u(mobile)">
+                          {!! Form::text('nama',null,['class'=>'form-control', 'placeholder'=>'Nama Divisi', 'required'=>'required'])!!}    
+                      </div>
+                  </div> 
+             <!-- /modal-body -->
+                      <div class="row 50%">
+                        <div class="12u">
+                            <ul class="actions">
+                              <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
+                              <li><input type="reset" value="Kosongkan Formulir" /></li>
+                              <li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
+                            </ul>
+                        </div>
+                      </div>
+                  </section>
+            </div>
+      </div>
+  </div>      <!-- /modal-end -->
+  {!! Form::close() !!} 
+</div>

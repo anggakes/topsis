@@ -2,13 +2,28 @@
 <!-- awal section content -->
 @section('content')
 
-  {!! Form::open(['method'=>'PATCH','route'=>['pelamar.update',$id_lowongan, $lamaran->id],'class'=>'form-horizontal']) !!} 
+	<article id="content" class="8u 12u(narrower)">
+	    <header class="image-wrapper first 12u(narrower)">
+	      <h2 class="image">Edit Pelamar</h2> 
+	    </header>
+	             
+	    <div class="row">
 
-@include('administrasi.pelamar.form')
+ 		{!! Form::open(['method'=>'PATCH','route'=>['pelamar.update',$id_lowongan, $lamaran->id],'class'=>'form-horizontal']) !!} 
 
-  {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}
+		@include('administrasi.pelamar.form')
 
-  {!! Form::close() !!} 
+   			<div class="row 50%">
+              <div class="12u">
+                  <ul class="actions">
+                    <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
+                    <li><input type="reset" value="Kosongkan Formulir" /></li>
+                    <li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
+                  </ul>
+              </div>
+            </div>
+		</div>
+	</article>
 @stop
 
 @section('js')

@@ -2,52 +2,72 @@
 <!-- awal section content -->
 
 @section('content')
+<article id="content" class="10u 12u(narrower)">
+    <header class="image-wrapper first 12u(narrower)">
+      <h2 class="image">Nilai Tertulis</h2> 
+    </header>
+             
+    <div class="row">
+            <div class="8u 12u(mobile)">
+            <p class="subtitle"><i class="icon-g-folder-open"></i>Input Nilai Tertulis</p>
+               {!! Form::open(['route'=>['tertulis.post.index',$id_lowongan],'class'=>'form-horizontal']) !!} 
+            
 
-<h3>Input Nilai Tertulis</h3>
-<hr>
-
- {!! Form::open(['route'=>['tertulis.post.index',$id_lowongan],'class'=>'form-horizontal']) !!} 
+            <div class="row 50%">           
+                 <div class="2u 12u(mobile)">
+                    {!! Form::label('nomor_pelamar','Nomor Pelamar',['class'=>'col-sm-2 control-label']) !!}
+                </div>
+                <div class="10u 12u(mobile)">
+                    {!! Form::select('id_lamaran',
+            	         $nomor_pelamar
+                        ,'',['class'=>'form-control', 'placeholder'=>'Nomor Pelamar','id'=>'select2', 'required'=>'required'])!!}    
+                </div>
+            </div>
   
-  <div class="form-group">
-      {!! Form::label('nomor_pelamar','Nomor Pelamar',['class'=>'col-sm-2 control-label']) !!}
-    <div class="col-sm-8">
-      {!! Form::select('id_lamaran',
-      	$nomor_pelamar
-      ,'',['class'=>'form-control', 'placeholder'=>'Nomor Pelamar','id'=>'select2'])!!}    
+            <div class="row 50%">           
+                <div class="2u 12u(mobile)">
+                    {!! Form::label('nilai','Nilai',['class'=>'col-sm-2 control-label']) !!}
+                </div>
+                <div class="10u 12u(mobile)">
+                    {!! Form::input('number','nilai_tertulis',null,['class'=>'form-control', 'placeholder'=>'Nilai Tertulis', 'required'=>'required', 'min'=>'0', 'max'=>'100'])!!}    
+                </div>
+            </div>
+
+            <div class="row 50%">           
+                <div class="2u 12u(mobile)">
+                    {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}
+                </div>
+            </div>
+    
+             {!! Form::close() !!} 
+        </div>
     </div>
-  </div>
-  <div class="form-group">
-      {!! Form::label('nilai','Nilai',['class'=>'col-sm-2 control-label']) !!}
-    <div class="col-sm-8">
-      {!! Form::text('nilai_tertulis',null,['class'=>'form-control', 'placeholder'=>'Nilai Tertulis'])!!}    
+    
+<br>
+<br>
+    <div class="row">
+        <div class="10u 12u(mobile)">
+            <p class="subtitle"><i class="icon-g-folder-open"></i>
+                Nilai Tertulis
+            </p>
+            <a href="{!! route('tertulis.get.hasil',$id_lowongan)!!}" class='button small pull-right'> Proses Seleksi Tertulis</a>
+        </div>
+        <div class="10u 12u(mobile)">
+            <table class='table datatables' width='800px'>
+                <thead>
+                    <tr>
+                          <th>No. Pelamar</th>
+                          <th>Nama</th>
+                          <th>Nilai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}
-      </div>
-  </div>
-        
- {!! Form::close() !!} 
-
-<hr>
-<h3>Nilai Tertulis</h3> <hr>
-
-<table class='table datatables' width='98%'>
-                              <thead>
-                              <tr>
-                                          <th>No. Pelamar</th>
-                                          <th>Nama</th>
-                                          <th>Nilai</th>
-                                          
-                                    </tr>
-                              </thead>
-                              <tbody>
-                                
-                              </tbody>
-                          </table>
-
-<a href="{!! route('tertulis.get.hasil',$id_lowongan)!!}" class='btn btn-primary'> Proses <br> Seleksi Tertulis</a>
+</article>
 
 @include('modal') <!-- include modal Wrap -->
 

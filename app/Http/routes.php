@@ -1,5 +1,5 @@
 <?php
-
+Route::get('/logs',function(){	return view('template.index');   });
 // Divisi
 
 Route::get(
