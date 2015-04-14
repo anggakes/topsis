@@ -37,7 +37,7 @@
                         <td>
                           {!! $l->nama !!}
                         </td>
-                        <td>
+                          <td>
                           {!! $l->tanggal_lahir !!}
                         </td>
                         <td>
