@@ -25,7 +25,7 @@
 									href="{!! route('pelamar.index',$id_lowongan) !!}" >
 		                      		Kelola Pelamar</a>
 
-		                      <a class="pull-right button small 4(narrower) blanchedalmond <?php echo ($lowongan->id_tahap>1)? "":"disabled" ;?>" 
+		                      <a class="pull-right button small 4(narrower) blanchedalmond <?php echo ($lowongan->id_tahap>2)? "":"disabled" ;?>" 
 		                      		id='bobotAdm'  
 		                      		href="{!! route('adm.get.bobot',$id_lowongan) !!}" 
 									data-toggle="modal" 
