@@ -25,18 +25,19 @@ class InputPsikotesController extends Controller {
 		$psikotes = Psikotes::whereHas('lamaran',function($q)use($id_lowongan){
 				$q->where('id_lowongan','=',$id_lowongan);
 		})->get();
-
+		$data_id =array();
 		foreach ($psikotes as $key => $value) {
 			$data_id [$key] = $value->id_lamaran;	
 		}
 
 		$nomor_pelamar=array();
+		if(count($lulus)>0){
 		foreach ($lulus as $key => $value) {
 			if( !in_array($value->id,$data_id)){
 				$nomor_pelamar[$value->id] = "$value->nomor_pelamar - $value->nama";
 			}
 		}
-
+			}
 		return view('psikotes.index')
 		->with('jumlah_pelamar',count($psikotes))
 		->with('nomor_pelamar',$nomor_pelamar)

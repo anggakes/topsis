@@ -30,7 +30,7 @@ class ProsesWawancaraController extends Controller {
 		
 		$kriteria=['WA1','WA2','WA3','WA4', 'WA5', 'WA6'];
 		
-		if(count($wawancara)>2){
+		
 
 			$aa = new ConvertWawancara($wawancara);
 
@@ -67,10 +67,7 @@ class ProsesWawancaraController extends Controller {
 			return redirect()->route('wawancara.get.hasil',$id_lowongan);
 			
 
-		}else{
-
-			return "maaf pelamar tidak boleh kurang dari 2 orang";
-		}
+		
 	}
 
 	public function getHasil($id_lowongan, Wawancara $wawancara, Lamaran $lamaran){
@@ -80,7 +77,9 @@ class ProsesWawancaraController extends Controller {
 					
 					})->get();
 
-	return $lulus;
+	return view('wawancara.hasil')
+		->with('lulus',$lulus)
+		->with('id_lowongan',$id_lowongan);
 	}
 
 }

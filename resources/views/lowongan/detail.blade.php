@@ -13,8 +13,8 @@
 						
 						<div class="10u 12u(mobile)">
 		                      <p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Administrasi</p>
-		                      <a class="pull-right button small 4(narrower) azure
-		                      		<?php echo ($jumlah_pelamar>3)? "":"disabled" ;?>" 
+		                      <a  class="pull-right button small 4(narrower) azure
+		                      		" 
 			                      	id='hasilAdm'  
 									href="{!! route('adm.get.hasil',$id_lowongan) !!}" >
 		                      		<i class="icon-g-group"></i> Hasil</a>
@@ -25,7 +25,7 @@
 									href="{!! route('pelamar.index',$id_lowongan) !!}" >
 		                      		<i class="icon-g-user-add"></i> Kelola Pelamar</a>
 
-		                      <a class="pull-right button small 4(narrower) blanchedalmond" 
+		                      <a class="pull-right button small 4(narrower) blanchedalmond <?php echo ($lowongan->id_tahap>1)? "":"disabled" ;?>" 
 		                      		id='bobotAdm'  
 		                      		href="{!! route('adm.get.bobot',$id_lowongan) !!}" 
 									data-toggle="modal" 
@@ -51,7 +51,7 @@
 		                      		<i class="icon-g-pen"></i> Input Nilai</a>
 		                      
 		                      <a class="pull-right button small 4(narrower) blanchedalmond
-		                      		<?php echo ($lowongan->id_tahap>3)? "":"disabled" ;?>" 
+		                      		<?php echo ($lowongan->id_tahap>1)? "":"disabled" ;?>" 
 		                      		id='bobotPsikotes'  
 									href="{!! route('psikotes.get.bobot',$id_lowongan) !!}" 
 									data-toggle="modal" 

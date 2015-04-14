@@ -126,7 +126,7 @@ class LowonganController extends Controller {
 		foreach ($lowongan as $value) {
 
 			$aksi_admin = (Auth::user()->roles != "admin") ? "" :
-				"<a href='".route('lowongan.edit',$value->id)."' data-toggle='modal' data-target='#myModal'>Edit</a> - 
+				"<a href='".route('lowongan.edit',$value->id)."' id='edit' onclick='edit(this)' data-toggle='modal' data-target='#myModal'>Edit</a> - 
 				<a href='".route('lowongan.destroy',$value->id)."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> -";
 
 			$l[0] = $value->nama;

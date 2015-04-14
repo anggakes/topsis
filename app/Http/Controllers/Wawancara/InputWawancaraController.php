@@ -25,7 +25,7 @@ class InputWawancaraController extends Controller {
 		$wawancara = Wawancara::whereHas('lamaran',function($q)use($id_lowongan){
 				$q->where('id_lowongan','=',$id_lowongan);
 		})->get();
-
+$data_id =array();
 		foreach ($wawancara as $key => $value) {
 			$data_id [$key] = $value->id_lamaran;	
 		}

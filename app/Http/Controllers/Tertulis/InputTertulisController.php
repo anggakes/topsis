@@ -24,7 +24,7 @@ class InputTertulisController extends Controller {
 		$tertulis = Tertulis::whereHas('lamaran',function($q)use($id_lowongan){
 				$q->where('id_lowongan','=',$id_lowongan);
 		})->get();
-
+$data_id =array();
 		foreach ($tertulis as $key => $value) {
 			$data_id [$key] = $value->id_lamaran;	
 		}

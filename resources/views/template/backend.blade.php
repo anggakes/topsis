@@ -26,6 +26,12 @@
 		{!!Html::style("assets/css/skel.css")!!}
 		{!!Html::style("assets/css/style.css")!!}
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<style>
+.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+		</style>
 	</head>
 	<body class="no-sidebar">
 
@@ -37,10 +43,11 @@
 						<h1 id="logo"><a href=".">{!!HTML::image("assets/logo/nindya-01.png");!!} <p id="logo">PT NINDYA KARYA</p></a></h1>
 						<nav id="nav" style="  margin-top: 73px;">
 							<ul>
+								@if(Auth::user()->roles == "admin")
 								<li style="white-space: nowrap;"><a href="{!! route('divisi.index') !!}">Divisi</a></li>
 								
 								<li style="white-space: nowrap;"><a href="{!! route('user.index') !!}">Manajemen Pengguna</a></li>
-
+								@endif
 								<li style="white-space: nowrap;"><a href="{!! route('lowongan.index') !!}">Lowongan</a></li>
 
 								<li style="white-space: nowrap;"><a href="{!! url('login/logout') !!}">Log Out</a></li>

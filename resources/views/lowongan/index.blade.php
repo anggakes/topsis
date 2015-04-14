@@ -54,7 +54,7 @@
               
             $('#sign').on('click', function () {
                 $.fn.custombox( this, {
-                    effect: 'makeway',
+                    effect: 'newspaper',
                     overlayOpacity : 0.7,
                     overlayColor: '#EBB198',
                     speed: 150

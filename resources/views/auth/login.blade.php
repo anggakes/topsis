@@ -70,11 +70,7 @@
 											</div>
 										@endif
 
-									<p style="font-size:10pt">username: admin
-									password:drummer5
-									&nbsp; | &nbsp;
-									username: badanindependent
-									password: isaisaisa
+									<p style="font-size:10pt">
 									</p>
 									<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
 										<input type="hidden" name="_token" value="{{ csrf_token() }}">
