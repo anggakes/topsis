@@ -25,7 +25,7 @@
 									href="{!! route('pelamar.index',$id_lowongan) !!}" >
 		                      		Kelola Pelamar</a>
 
-		                      <a class="pull-right button small 4(narrower) blanchedalmond" 
+		                      <a class="pull-right button small 4(narrower) blanchedalmond <?php echo ($lowongan->id_tahap>2)? "":"disabled" ;?>" 
 		                      		id='bobotAdm'  
 		                      		href="{!! route('adm.get.bobot',$id_lowongan) !!}" 
 									data-toggle="modal" 
@@ -83,7 +83,7 @@
 
 	                  	<div class="10u 12u(mobile)">
 		                      <p class="subtitle"><i class="icon-g-old-man"></i>Tahap Wawancara</p>
-		                      <a class="pull-right button small 4(narrower) azure
+		                      <a class="pull-right button small 4(narrower) azure  <?php echo ($lowongan->id_tahap>9)? "":"disabled" ;?>
 		                      		<?php echo ($lowongan->id_tahap>12)? "":"disabled" ;?>" id='hasilAdm'  
 									href="{!! route('wawancara.get.hasil',$id_lowongan) !!}">
 		                      		Hasil</a>
@@ -95,7 +95,7 @@
 		                      		Input Nilai</a>
 		                      
 		                      <a class="pull-right button small 4(narrower) blanchedalmond
-		                      		 <?php echo ($lowongan->id_tahap>9)? "":"disabled" ;?>"
+		                      		"
 									href="{!! route('wawancara.get.bobot',$id_lowongan) !!}" 
 		                      		id='bobotTertulis'  
 									data-toggle="modal" 
