@@ -5,7 +5,7 @@
 <article id="content" class="8u 12u(narrower)">
     <header class="image-wrapper first 12u(narrower)">
       <h2 class="image">Pengguna</h2> 
-      <a class="image pull-right button small 4(narrower)" id="sign"  href="{!! route('user.create') !!}" data-target="#input"><i class="icon-g-circle-plus"></i>Tambah</a> 
+      <a class="image pull-right button small 4(narrower)" id="sign"  href="{!! route('user.create') !!}" data-target="#input">Tambah</a> 
     </header>
              
     <div class="row">

@@ -9,7 +9,7 @@
                 <h2 class="image">Hasil Seleksi</h2>  
                 <a href="{!! route('lowongan.show',$id_lowongan) !!}" class="image pull-right button small 4(narrower)">Kembali</a>
                 <a href="{!! route('adm.sbs.alternatif',$id_lowongan) !!}" class='image pull-right button small 4(narrower)'>Step By Step</a>
-                <a class="image pull-right button small 4(narrower)" href="#" onclick="window.print()"><i class="icon-g-print"></i>Cetak</a>
+                <a class="image pull-right button small 4(narrower)" href="#" onclick="window.print()">Cetak</a>
               </header>
 
               <span class='label label-primary ' style='font-size: 14pt'>Kuota : {!! $kuota !!} </span>

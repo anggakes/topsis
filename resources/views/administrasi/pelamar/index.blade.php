@@ -1,7 +1,7 @@
 @extends('template.backend')
 <!-- awal section content -->
 @section('content')
-  <article id="content" class="11u 12u(narrower)">
+  <article id="content" class="9u 12u(narrower)">
     <header class="image-wrapper first 12u(narrower)">
       <h2 class="image">Pengguna</h2> 
       <a href="{!! route('adm.get.proses',$id_lowongan)!!}" class='image pull-right button small 4(narrower) <?php echo ($jumlah_pelamar>2)? "":"disabled" ;?>'> 
@@ -12,7 +12,7 @@
              
     <div class="row">
 
-        <table class='table datatables table-bordered 11u 12u(narrower)' style='wid:800px'>
+        <table class='table datatables table-bordered 11u 12u(narrower)' style='wid:1000px'>
             <thead>
             <tr>
                         <th>No. Pelamar</th>

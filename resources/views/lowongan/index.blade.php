@@ -5,7 +5,7 @@
 <article id="content" class="8u 12u(narrower)">
     <header class="image-wrapper first 12u(narrower)">
       <h2 class="image">Lowongan</h2> 
-      <a class="image pull-right button small 4(narrower)" id="sign" href="{!! route('lowongan.create') !!}" data-toggle="modal" data-target="#myModal"><i class="icon-g-circle-plus"></i>Tambah</a>
+      <a class="image pull-right button small 4(narrower)" id="sign" href="{!! route('lowongan.create') !!}" data-toggle="modal" data-target="#myModal">Tambah</a>
     </header>
              
     <div class="row">
