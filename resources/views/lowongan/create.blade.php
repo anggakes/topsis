@@ -27,7 +27,7 @@
 
                       <div class="row 50%">           
                           <div class="2u 12u(mobile)">
-                              {!! Form::label('nama','Nama',['class'=>'col-sm-2 control-label']) !!}
+                              {!! Form::label('divisi','Divisi',['class'=>'col-sm-2 control-label']) !!}
                           </div>
                           <div class="10u 12u(mobile)">
                               {!! Form::select('id_divisi',$divisi,'',['class'=>'form-control', 'reuired'=>'required'])!!}  
@@ -49,7 +49,7 @@
                         <div class="12u">
                             <ul class="actions">
                               <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
-                              <li><input type="reset" value="Kosongkan Formulir" /></li>
+                              <li><input type="reset" value="Clear" id="clear"/></li>
                               <li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
                             </ul>
                         </div>

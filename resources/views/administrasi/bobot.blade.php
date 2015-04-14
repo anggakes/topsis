@@ -2,7 +2,7 @@
     {!! Form::open(['route'=>['adm.post.bobot',$id_lowongan],'class'=>'form-horizontal']) !!} 
 
       <div class="modal-example-header">
-          <h4 class="modal-title">Tambah User</h4>
+          <h4 class="modal-title">Bobot Administrasi</h4>
       </div>     <!-- /modal-header -->
       <div class="modal-example-body">
           <div class="row">
@@ -13,7 +13,7 @@
                             {!! Form::label('akreditas','Akreditas',['class'=>'col-sm-4 control-label']) !!}
                         </div>
                         <div class="10u 12u(mobile)">
-                            {!! Form::input('number','ka1',@$bobot->ka1,['class'=>'form-control', 'placeholder'=>'Kode Lowongan','required','required'])!!}    
+                            {!! Form::input('number','ka1',@$bobot->ka1,['class'=>'form-control', 'placeholder'=>'Bobot Akreditas','required','required'])!!}    
                         </div>
                   </div>
 
@@ -22,7 +22,7 @@
                             {!! Form::label('ipk','Ipk',['class'=>'col-sm-4 control-label']) !!}
                         </div>
                         <div class="10u 12u(mobile)">
-                            {!! Form::input('number','ka2',@$bobot->ka2,['class'=>'form-control', 'placeholder'=>'Nama Lowongan','required','required'])!!}    
+                            {!! Form::input('number','ka2',@$bobot->ka2,['class'=>'form-control', 'placeholder'=>'Bobot IPK','required','required'])!!}    
                         </div>
                   </div>
                   
@@ -31,7 +31,7 @@
                             {!! Form::label('pni','Pendidikan Non Ilmiah',['class'=>'col-sm-4 control-label']) !!}
                         </div>
                         <div class="10u 12u(mobile)">
-                            {!! Form::input('number','ka3',@$bobot->ka3,['class'=>'form-control', 'placeholder'=>'Nama Lowongan','required','required'])!!}    
+                            {!! Form::input('number','ka3',@$bobot->ka3,['class'=>'form-control', 'placeholder'=>'Bobot Pendidikan Non Ilmiah','required','required'])!!}   
                         </div>
                   </div>
 
@@ -40,7 +40,7 @@
                             {!! Form::label('pk','Pengalaman Kerja',['class'=>'col-sm-4 control-label']) !!}
                         </div>
                         <div class="10u 12u(mobile)">
-                            {!! Form::input('number','ka4',@$bobot->ka4,['class'=>'form-control', 'placeholder'=>'Nama Lowongan','required','required'])!!}    
+                            {!! Form::input('number','ka4',@$bobot->ka4,['class'=>'form-control', 'placeholder'=>'Bobot Pengalaman Kerja','required','required'])!!}    
                         </div>
                   </div>
 

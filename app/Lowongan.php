@@ -10,7 +10,8 @@ class Lowongan extends Model {
 		'id_divisi',
 		'nama',
 		'keterangan',
-		'kode'
+		'kode',
+		'id_tahap'
 	];
 
 	public function divisi(){
