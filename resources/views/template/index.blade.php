@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Telephasic by HTML5 UP</title>
+		<title>Sistem Pendukung Keputusan</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -121,7 +121,7 @@
 			</div>
 				<div id="copyright" class="container" style="padding-top:0px;margin-top:5px;">
 					<ul class="menu">
-						<li>&copy; Sistem Pendukung Keputusan. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Sistem Pendukung Keputusan. All rights reserved.</li>
 					</ul>
 				</div>
 	</body>
