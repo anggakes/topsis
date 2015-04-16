@@ -13,7 +13,7 @@
 						
 						<div class="10u 12u(mobile)">
 		                      <p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Administrasi</p>
-		                      <a  class="pull-right button small 4(narrower) azure
+		                      <a  class="pull-right button small 4(narrower) azure <?php echo ($lowongan->id_tahap>2)? "":"disabled" ;?>
 		                      		" 
 			                      	id='hasilAdm'  
 									href="{!! route('adm.get.hasil',$id_lowongan) !!}" >
@@ -25,7 +25,7 @@
 									href="{!! route('pelamar.index',$id_lowongan) !!}" >
 		                      		Kelola Pelamar</a>
 
-		                      <a class="pull-right button small 4(narrower) blanchedalmond <?php echo ($lowongan->id_tahap>2)? "":"disabled" ;?>" 
+		                      <a class="pull-right button small 4(narrower) blanchedalmond " 
 		                      		id='bobotAdm'  
 		                      		href="{!! route('adm.get.bobot',$id_lowongan) !!}" 
 									data-toggle="modal" 
@@ -35,7 +35,7 @@
 					@endif
 			
 
-					@if(Auth::user()->roles == "badan independent")
+					@if(Auth::user()->roles == "tim independent")
 
 						<div class="10u 12u(mobile)">
 		                      <p class="subtitle"><i class="icon-g-old-man"></i>Tahap Psikotes</p>

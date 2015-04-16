@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Lowongan extends Model {
 
@@ -10,8 +11,21 @@ class Lowongan extends Model {
 		'id_divisi',
 		'nama',
 		'keterangan',
-		'kode'
+		'kode',
+		'id_tahap'
 	];
+
+	public function makeKodeLowongan(){
+		$year = date("Y");
+		$get = DB::table($this->table)->whereRaw("Year(created_at)='$year'")->orderBy('id','desc')->first();
+		if(count($get)>0){
+			$p = explode('-',$get->kode);
+			$id = $p[2] + 1;
+			return "NK-$year-$id";
+		}else{
+			return "NK-$year-1";
+		}
+	}	
 
 	public function divisi(){
 

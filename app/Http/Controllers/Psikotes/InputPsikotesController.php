@@ -62,10 +62,16 @@ class InputPsikotesController extends Controller {
 
 	}
 
+	public function hapus($id_lowongan,$id){
+		Psikotes::findOrFail($id)->delete();
+		return redirect()->route('psikotes.get.index',$id_lowongan);
+	}
+
+
 	public function getDatatables($id_lowongan){
 
 		$psikotes = DB::table('lamaran')
-					->select('lamaran.nomor_pelamar','pelamar.nama','psikotes.nilai_psikotes')
+					->select('lamaran.nomor_pelamar','pelamar.nama','psikotes.nilai_psikotes','psikotes.id')
 					->join('pelamar','pelamar.id','=','lamaran.id_pelamar')
 					->join('psikotes','lamaran.id','=','psikotes.id_lamaran')
 					->where('lamaran.id_lowongan','=',$id_lowongan)->get();
@@ -78,6 +84,7 @@ class InputPsikotesController extends Controller {
 			$l[0] = $value->nomor_pelamar;
 			$l[1] = $value->nama;
 			$l[2] = $value->nilai_psikotes;
+			$l[3] = "<a href='".route('psikotes.destroy',[$id_lowongan,$value->id])."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a>";
 			$data[$i]=$l;
 			$i++;
 		}

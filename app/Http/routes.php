@@ -91,6 +91,8 @@ Route::group(['middleware' => 'auth','prefix' => 'lowongan'], function()
 			['getBobot'=>'psikotes.get.bobot','postBobot'=>'psikotes.post.bobot']
 		);
 
+		Route::delete('input/{id}',['as'=>'psikotes.destroy','uses'=>'InputPsikotesController@hapus']);
+
 		Route::controller(
 			'input',"InputPsikotesController",
 			[
@@ -99,6 +101,8 @@ Route::group(['middleware' => 'auth','prefix' => 'lowongan'], function()
 			'getDatatables'=>'psikotes.datatables'
 			]
 		);
+
+
 
 		Route::controller(
 			'proses',"ProsesPsikotesController",
@@ -114,6 +118,7 @@ Route::group(['middleware' => 'auth','prefix' => 'lowongan'], function()
 			['getBobot'=>'tertulis.get.bobot','postBobot'=>'tertulis.post.bobot']
 		);
 
+		Route::delete('input/{id}',['as'=>'tertulis.destroy','uses'=>'InputTertulisController@hapus']);
 		Route::controller(
 			'input',"InputTertulisController",
 			[
@@ -138,6 +143,7 @@ Route::group(['middleware' => 'auth','prefix' => 'lowongan'], function()
 			['getBobot'=>'wawancara.get.bobot','postBobot'=>'wawancara.post.bobot']
 		);
 
+		Route::delete('input/{id}',['as'=>'wawancara.destroy','uses'=>'InputWawancaraController@hapus']);
 		 Route::controller(
 			'input',"InputWawancaraController",
 			[
@@ -150,6 +156,19 @@ Route::group(['middleware' => 'auth','prefix' => 'lowongan'], function()
 		 Route::controller(
 			'proses',"ProsesWawancaraController",
 			['getProses'=>'wawancara.get.proses', 'getHasil'=>'wawancara.get.hasil']
+		);
+
+		 Route::controller(
+			'stepbystep',"StepByStepWawancaraController",
+			[
+			'getAlternatif'=>'wawancara.sbs.alternatif',
+			'getKuadratHasilAkar'=>'wawancara.sbs.kuadrathasilakar',
+			'getMatrikNormalisasi'=>'wawancara.sbs.matriknormalisasi',
+			'getMatrikNormalisasiBobot'=>'wawancara.sbs.matriknormalisasibobot',
+			'getSolusiIdeal'=>'wawancara.sbs.solusiideal',
+			'getMatrikNormalisasiBobotSolusiIdeal'=>'wawancara.sbs.matriknormalisasibobotsolusiideal',
+			'getJarakAlternatif'=>'wawancara.sbs.jarakalternatif'
+			]
 		);
 
 	}); //<--- end Tertulis

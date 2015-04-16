@@ -57,11 +57,15 @@ $data_id =array();
 			return redirect()->route('tertulis.get.index',$id_lowongan);	
 
 	}
+	public function hapus($id_lowongan,$id){
+		Tertulis::findOrFail($id)->delete();
+		return redirect()->route('tertulis.get.index',$id_lowongan);
+	}
 
 	public function getDatatables($id_lowongan){
 
 		$tertulis = DB::table('lamaran')
-					->select('lamaran.nomor_pelamar','pelamar.nama','tertulis.nilai_tertulis')
+					->select('lamaran.nomor_pelamar','pelamar.nama','tertulis.nilai_tertulis','tertulis.id')
 					->join('pelamar','pelamar.id','=','lamaran.id_pelamar')
 					->join('tertulis','lamaran.id','=','tertulis.id_lamaran')
 					->where('lamaran.id_lowongan','=',$id_lowongan)->get();
@@ -74,6 +78,7 @@ $data_id =array();
 			$l[0] = $value->nomor_pelamar;
 			$l[1] = $value->nama;
 			$l[2] = $value->nilai_tertulis;
+			$l[3] = "<a href='".route('tertulis.destroy',[$id_lowongan,$value->id])."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a>";
 			$data[$i]=$l;
 			$i++;
 		}

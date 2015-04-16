@@ -6,6 +6,7 @@
 @section('content')
 <article id="content" class="10u 12u(narrower)">
     <header class="image-wrapper first 12u(narrower)">
+        <a href="{!! route('lowongan.show',$id_lowongan) !!}" class="image pull-right button small 4(narrower)">Kembali</a>
       <h2 class="image">Nilai Wawancara</h2> 
     </header>
              
@@ -95,7 +96,7 @@
                             <th>Bahasa Asing</th>
                             <th>Psikotes</th>
                             <th>Tertulis</th>
-                            
+                            <th>Hapus</th>
                       </tr>
                 </thead>
                 <tbody>
@@ -113,18 +114,17 @@
 @section('js')
 
  {!! Html::script('assets/select2/js/select2.min.js')!!}
+  {!!Html::script("assets/laravel/laravel.methodHandler.js")!!} 
  <script type="text/javascript">    
     $(document).ready(function(){
     	 
     	 $(".datatables").dataTable({
-              "ajax" : "{!! route('wawancara.datatables',$id_lowongan) !!}",
-              "fnInitComplete": function(oSettings, json) {
+              "ajax" : "{!! route('wawancara.datatables',$id_lowongan) !!}"}).on('draw.dt',function(){
                   //inisialisi saat datatables setelah load
                    $('a[data-method]').click(function(e){
                       handleMethod(e,$(this));
                       e.preventDefault();
                    });
-                }
             }); 
     	  $("#select2").prepend("<option></option>").val('');
         

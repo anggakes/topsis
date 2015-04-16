@@ -130,36 +130,16 @@
 
       <br>
       <p class="subtitle pull-right" style="font-size:18pt;width:100%"><i class="icon-g-folder-open"></i>Pendidikan Non Ilmiah</p>
-      <div class="row pull-left">           
-          <div class="3u 12u(mobile)">
-              Nama Pendidikan
-          </div>
-          <div class="3u 12u(mobile)">
-              Instansi
-          </div>
-          <div class="3u 12u(mobile)">
-              Tanggal Masuk
-          </div>
-          <div class="3u 12u(mobile)">
-              Tanggal Keluar
-          </div>
-      </div>
-      <div id="pni" class="12u"></div>
+
+      <div id="pni" ></div>
 
       <br>
       <p class="subtitle pull-right" style="font-size:18pt;width:100%"><i class="icon-g-folder-open"></i>Pengalaman Kerja</p>
-      <div class="row pull-left">           
-          <div class="3u 12u(mobile)">
-              Jabatan
-          </div>
-          <div class="3u 12u(mobile)">
-              Instansi
-          </div>
-          <div class="3u 12u(mobile)">
-              Tanggal Masuk
-          </div>
-          <div class="3u 12u(mobile)">
-              Tanggal Keluar
-          </div>
-      </div>
+     
       <div id="pk"></div>
+
+<style type="text/css">
+table td{
+  text-align: center;
+}
+</style>

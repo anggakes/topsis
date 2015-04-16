@@ -25,7 +25,8 @@ class InputWawancaraController extends Controller {
 		$wawancara = Wawancara::whereHas('lamaran',function($q)use($id_lowongan){
 				$q->where('id_lowongan','=',$id_lowongan);
 		})->get();
-$data_id =array();
+		
+		$data_id =array();
 		foreach ($wawancara as $key => $value) {
 			$data_id [$key] = $value->id_lamaran;	
 		}
@@ -74,6 +75,11 @@ $data_id =array();
 
 	}
 
+	public function hapus($id_lowongan,$id){
+		Wawancara::findOrFail($id)->delete();
+		return redirect()->route('wawancara.get.index',$id_lowongan);
+	}
+
 	public function getDatatables($id_lowongan){
 
 		$wawancara = Wawancara::whereHas('lamaran', function($q)use($id_lowongan)
@@ -95,6 +101,7 @@ $data_id =array();
 			$l[5] = $value->wa4;
 			$l[6] = $value->lamaran->psikotes->nilai_psikotes;
 			$l[7] = $value->lamaran->tertulis->nilai_tertulis;
+			$l[8] = "<a href='".route('wawancara.destroy',[$id_lowongan,$value->id])."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a>";
 			$data[$i]=$l;
 			$i++;
 		}

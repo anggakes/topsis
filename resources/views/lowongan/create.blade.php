@@ -2,6 +2,7 @@
       {!! Form::open(['route'=>'lowongan.store','class'=>'form-horizontal']) !!} 
 
          <div class="modal-example-header">
+          <a href='#' class='pull-right' onclick="$.fn.custombox('close');" >&times;</a>
               <h4 class="modal-title">Tambah Lowongan</h4>
          </div>     <!-- /modal-header -->
          <div class="modal-example-body">
@@ -12,7 +13,7 @@
                               {!! Form::label('kode','Kode',['class'=>'col-sm-2 control-label']) !!}
                           </div>
                           <div class="10u 12u(mobile)">
-                              {!! Form::text('kode','',['class'=>'form-control', 'placeholder'=>'Kode Lowongan','required'=>'required'])!!}    
+                              {!! Form::text('kode',$kd_lowongan,['class'=>'form-control disabled', 'placeholder'=>'Kode Lowongan','required'=>'required',])!!}    
                           </div>
                       </div>
 
@@ -27,7 +28,7 @@
 
                       <div class="row 50%">           
                           <div class="2u 12u(mobile)">
-                              {!! Form::label('nama','Nama',['class'=>'col-sm-2 control-label']) !!}
+                              {!! Form::label('nama','Divisi',['class'=>'col-sm-2 control-label']) !!}
                           </div>
                           <div class="10u 12u(mobile)">
                               {!! Form::select('id_divisi',$divisi,'',['class'=>'form-control', 'reuired'=>'required'])!!}  
@@ -45,12 +46,12 @@
 
 
                       <!-- /modal-body -->
-                      <div class="row 50%">
+                      <div class="row 50% pull-right">
                         <div class="12u">
                             <ul class="actions">
                               <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
-                              <li><input type="reset" value="Kosongkan Formulir" /></li>
-                              <li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
+                              
+                              
                             </ul>
                         </div>
                       </div>

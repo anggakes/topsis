@@ -35,12 +35,14 @@ class LowonganController extends Controller {
 	 * @return Response
 	 */
 
-	public function create()
+	public function create(Lowongan $lowongan)
 	{
-
+			$kd_lowongan = $lowongan->makeKodeLowongan();
 			$divisi = Divisi::lists('nama','id');
+
 			return view('lowongan.create')
-			->with('divisi',$divisi);
+			->with('divisi',$divisi)
+			->with('kd_lowongan',$kd_lowongan);
 	}
 
 	/**
@@ -51,8 +53,9 @@ class LowonganController extends Controller {
 	public function store(Request $request)
 	{
 		//
-
-		Lowongan::create($request->all());
+		$insert = $request->all();
+		$insert['id_tahap'] = 1;
+		Lowongan::create($insert);
 		return redirect()->route('lowongan.index')
 			->with('message','data berhasil ditambah');
 
@@ -132,7 +135,7 @@ class LowonganController extends Controller {
 			$l[0] = $value->nama;
 			$l[1] = $value->kode;
 			$l[2] = $value->divisi->nama;
-			$l[3] = $value->tahap->nama;
+			$l[3] = $value->tahap->tahap;
 			// error ! non object! 
 			$l[4] = $value->keterangan;
 			$l[5] = "

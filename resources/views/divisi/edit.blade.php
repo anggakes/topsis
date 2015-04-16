@@ -3,6 +3,7 @@
    {!! Form::model($divisi,['method'=>'PATCH','route'=>['divisi.update',$divisi->id],'class'=>'form-horizontal']) !!} 
 
       <div class="modal-example-header">
+        <a href='#' class='pull-right' onclick="$.fn.custombox('close');" >&times;</a>
             <h4 class="modal-title">Edit Data Divisi</h4>
       </div>     <!-- /modal-header -->
         <div class="modal-example-body">
@@ -17,13 +18,13 @@
                           {!! Form::text('nama',null,['class'=>'form-control', 'placeholder'=>'Nama Divisi', 'required'=>'required'])!!}    
                       </div>
                   </div> 
-             <!-- /modal-body -->
-                      <div class="row 50%">
+             <!-- /modal-body --><br>
+                      <div class="row 50% pull-right">
                         <div class="12u">
                             <ul class="actions">
                               <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
-                              <li><input type="reset" value="Kosongkan Formulir" /></li>
-                              <li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
+                            
+                             
                             </ul>
                         </div>
                       </div>

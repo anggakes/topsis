@@ -54,6 +54,7 @@
 
 					<div id="tambah" style="display: none;" class="modal-example-content">
 						<div class="modal-example-header" style="height:65px;" onclick="$.fn.custombox('close');">
+							<a href='#' class='pull-right' onclick="$.fn.custombox('close');" >&times;</a>
 							<h3 style="float:left;line-height:1em;">Login</h3>
 						</div>
 						<div class="modal-example-body">
@@ -86,14 +87,13 @@
 												</div>
 											</div>
 											
-											<div class="row 50%">
+											<div class="row 50% pull-right">
 												<div class="12u">
 												<ul class="actions">
 													<li><input type="submit" value="Login" /></li>
-													<li><input type="reset" value="Clear form" /></li>
-													<li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
+													
 												</ul>
-												<a class="btn btn-link" href="{{ url('/password/email') }}" style="font-size:10pt;">Lupa kata sandi?</a>
+												
 												</div>
 											</div>
 									</form>
@@ -107,8 +107,7 @@
 			        $.fn.custombox( this, {
 			            effect: 'sign',
 			            overlayOpacity : 0.7,
-			            overlayColor: '#EBB198',
-			            speed: 5000
+			            overlayColor: '#EBB198'
 			        });
 			        return false;
 			    });

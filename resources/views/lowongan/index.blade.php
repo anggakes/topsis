@@ -5,12 +5,14 @@
 <article id="content" class="8u 12u(narrower)">
     <header class="image-wrapper first 12u(narrower)">
       <h2 class="image">Lowongan</h2> 
+      @if(Auth::user()->roles == "admin"))
       <a class="image pull-right button small 4(narrower)" id="sign" href="{!! route('lowongan.create') !!}" data-toggle="modal" data-target="#myModal">Tambah</a>
+      @endif
     </header>
              
     <div class="row">
 
-        <table class='table datatables table-bordered 8u 12u(narrower)' style='width:800px'>
+        <table class='table datatables table-bordered 8u 12u(narrower)' style='width:900px'>
             <thead>
                   <tr>
                         <th >Nama</th>
@@ -42,14 +44,13 @@
         $(document).ready(function(){
 
               $(".datatables").dataTable({
-                  "ajax" : "{!! route('lowongan.datatables') !!}",
-                  "fnInitComplete": function(oSettings, json) {
-                      //inisialisi saat datatables setelah load
+                  "ajax" : "{!! route('lowongan.datatables') !!}"                      
+                }).on( 'draw.dt', function () {
+                    //inisialisi saat datatables setelah draw
                        $('a[data-method]').click(function(e){
                           handleMethod(e,$(this));
                           e.preventDefault();
                        });
-                    }
                 }); 
               
             $('#sign').on('click', function () {

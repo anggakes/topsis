@@ -4,6 +4,7 @@
 @section('content')
 <article id="content" class="10u 12u(narrower)">
     <header class="image-wrapper first 12u(narrower)">
+      <a href="{!! route('lowongan.show',$id_lowongan) !!}" class="image pull-right button small 4(narrower)">Kembali</a>
       <h2 class="image">Nilai Psikotes</h2> 
     </header>
              
@@ -13,10 +14,10 @@
              {!! Form::open(['route'=>['psikotes.post.index',$id_lowongan],'class'=>'form-horizontal']) !!} 
               
               <div class="row 50%">           
-                  <div class="2u 12u(mobile)">
+                  <div class="4u 12u(mobile)">
                       {!! Form::label('nomor_pelamar','Nomor Pelamar',['class'=>'col-sm-2 control-label']) !!}
                   </div>
-                  <div class="10u 12u(mobile)">
+                  <div class="6u 12u(mobile)">
                       {!! Form::select('id_lamaran',
                       	$nomor_pelamar
                       ,'',['class'=>'form-control', 'placeholder'=>'Nomor Pelamar','id'=>'select2'])!!}    
@@ -24,10 +25,10 @@
               </div>
   
               <div class="row 50%">           
-                  <div class="2u 12u(mobile)">
+                  <div class="4u 12u(mobile)">
                       {!! Form::label('nilai','Nilai',['class'=>'col-sm-2 control-label']) !!}
                   </div>
-                  <div class="10u 12u(mobile)">
+                  <div class="6u 12u(mobile)">
                       {!! Form::input('number','nilai_psikotes',null,['class'=>'form-control', 'placeholder'=>'Nilai Psikotes', 'required'=>'required', 'min'=>'0', 'max'=>'100'])!!}    
                   </div>
               </div>
@@ -57,6 +58,7 @@
                               <th>No. Pelamar</th>
                               <th>Nama</th>
                               <th>Nilai</th>
+                              <th>Hapus</th>
                               
                         </tr>
                   </thead>
@@ -74,19 +76,20 @@
 @section('js')
 
  {!! Html::script('assets/select2/js/select2.min.js')!!}
+  {!!Html::script("assets/laravel/laravel.methodHandler.js")!!} 
+
  <script type="text/javascript">    
     $(document).ready(function(){
     	 
     	 $(".datatables").dataTable({
-              "ajax" : "{!! route('psikotes.datatables',$id_lowongan) !!}",
-              "fnInitComplete": function(oSettings, json) {
+              "ajax" : "{!! route('psikotes.datatables',$id_lowongan) !!}"}).on('draw.dt',function(){
                   //inisialisi saat datatables setelah load
                    $('a[data-method]').click(function(e){
                       handleMethod(e,$(this));
                       e.preventDefault();
                    });
-                }
             }); 
+              
     	  $("#select2").prepend("<option></option>").val('');
         
     	 $('#select2').select2({

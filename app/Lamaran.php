@@ -14,10 +14,18 @@ class Lamaran extends Model {
 	];
 
 	public function makeNomorPelamar($id_lowongan){
-		$id = DB::table($this->table)->max('id')+1;
-		$prefix = 'NK';
-		$th = date('y');
-		return "$prefix-$id_lowongan-$th-$id";
+
+		$get = DB::table($this->table)->where('id_lowongan','=',$id_lowongan)->orderBy('id','desc')->first();
+		$lowongan = DB::table('lowongan')->where('id','=',$id_lowongan)->first();
+		
+		if(count($get)>0){
+			$p = explode('-',$get->nomor_pelamar);
+			$id = $p[3] + 1;
+			return $lowongan->kode."-$id";
+		}else{
+			return $lowongan->kode."-1";
+		}
+		
 	}
 
 	public function pelamar(){

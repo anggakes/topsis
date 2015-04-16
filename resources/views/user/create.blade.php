@@ -3,6 +3,7 @@
  {!! Form::open(['route'=>'user.store','class'=>'form-horizontal', 'id'=>'add']) !!} 
 
    <div class="modal-example-header">
+    <a href='#' class='pull-right' onclick="$.fn.custombox('close');" >&times;</a>
         <h4 class="modal-title">Tambah User</h4>
    </div>			<!-- /modal-header -->
    <div class="modal-example-body">
@@ -67,12 +68,12 @@
                     </div>
                   
                   		<!-- /modal-body -->
-                    <div class="row 50%">
+                    <div class="row 50% pull-right">
                       <div class="12u">
                           <ul class="actions">
                             <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
-                            <li><input type="reset" value="Kosongkan Formulir" /></li>
-                            <li><input type="button" class="close button" onclick="$.fn.custombox('close');" value="&times;"/></li>
+                            
+                            
                           </ul>
                       </div>
                     </div>

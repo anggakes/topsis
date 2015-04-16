@@ -3,11 +3,12 @@
 @section('content')
   <article id="content" class="9u 12u(narrower)">
     <header class="image-wrapper first 12u(narrower)">
+      <a href="{!! route('lowongan.show',$id_lowongan) !!}" class="image pull-right button small 4(narrower)">Kembali</a>
       <h2 class="image">Pengguna</h2> 
       <a href="{!! route('adm.get.proses',$id_lowongan)!!}" class='image pull-right button small 4(narrower) <?php echo ($jumlah_pelamar>2)? "":"disabled" ;?>'> 
         Proses 
         Hitung Topsis</a>
-      <a class="image pull-right button small 4(narrower)" id="sign" href="{!! route('pelamar.create',$id_lowongan) !!}" data-target="#input"><i class="icon-g-circle-plus"></i>Tambah</a> 
+      <a class="image pull-right button small 4(narrower)" id="sign" href="{!! route('pelamar.create',$id_lowongan) !!}" data-target="#input">Tambah</a> 
     </header>
              
     <div class="row">
@@ -42,14 +43,12 @@
     $(document).ready(function(){
 
           $(".datatables").dataTable({
-              "ajax" : "{!! route('pelamar.datatables',$id_lowongan) !!}",
-              "fnInitComplete": function(oSettings, json) {
+              "ajax" : "{!! route('pelamar.datatables',$id_lowongan) !!}"}).on( 'draw.dt', function () {
                   //inisialisi saat datatables setelah load
                    $('a[data-method]').click(function(e){
                       handleMethod(e,$(this));
                       e.preventDefault();
                    });
-                }
             }); 
 
     });
