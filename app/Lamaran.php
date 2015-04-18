@@ -44,6 +44,10 @@ class Lamaran extends Model {
 		return $this->hasOne('App\Tertulis','id_lamaran');
 	}
 
+	public function lowongan(){
+		return $this->belongsTo('App\Lowongan','id_lowongan');
+	}
+
 	/*
 	|	Menampilkan pelamar yang lulus Administrasi
 	| 	Kuota 0 jika tidak ada batasan kuota

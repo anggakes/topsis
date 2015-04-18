@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 04 Apr 2015 pada 03.27
+-- Generation Time: 18 Apr 2015 pada 10.50
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `administrasi` (
   `nilai_topsis` float NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=300 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=306 ;
 
 --
 -- Dumping data untuk tabel `administrasi`
@@ -43,9 +43,6 @@ INSERT INTO `administrasi` (`id`, `id_lamaran`, `nilai_topsis`, `created_at`, `u
 (15, 2, 0, '2015-03-26 01:29:04', '2015-03-26 01:29:04'),
 (16, 3, 0, '2015-03-26 01:29:04', '2015-03-26 01:29:04'),
 (17, 4, 4, '2015-03-26 01:29:04', '2015-03-26 01:29:04'),
-(39, 5, 0.54, '2015-03-28 02:13:42', '2015-03-28 02:13:42'),
-(40, 6, 0.49, '2015-03-28 02:13:42', '2015-03-28 02:13:42'),
-(41, 7, 0.73, '2015-03-28 02:13:42', '2015-03-28 02:13:42'),
 (270, 8, 0.339412, '2015-04-03 17:49:18', '2015-04-03 17:49:18'),
 (271, 9, 0.542142, '2015-04-03 17:49:18', '2015-04-03 17:49:18'),
 (272, 10, 0.494288, '2015-04-03 17:49:18', '2015-04-03 17:49:18'),
@@ -75,7 +72,10 @@ INSERT INTO `administrasi` (`id`, `id_lamaran`, `nilai_topsis`, `created_at`, `u
 (296, 34, 0.279334, '2015-04-03 17:49:18', '2015-04-03 17:49:18'),
 (297, 35, 0.374622, '2015-04-03 17:49:18', '2015-04-03 17:49:18'),
 (298, 36, 0.374622, '2015-04-03 17:49:18', '2015-04-03 17:49:18'),
-(299, 37, 0.374622, '2015-04-03 17:49:18', '2015-04-03 17:49:18');
+(299, 37, 0.374622, '2015-04-03 17:49:18', '2015-04-03 17:49:18'),
+(303, 5, 0.732014, '2015-04-13 21:27:04', '2015-04-13 21:27:04'),
+(304, 6, 0.553451, '2015-04-13 21:27:04', '2015-04-13 21:27:04'),
+(305, 7, 0.267986, '2015-04-13 21:27:04', '2015-04-13 21:27:04');
 
 -- --------------------------------------------------------
 
@@ -86,14 +86,14 @@ INSERT INTO `administrasi` (`id`, `id_lamaran`, `nilai_topsis`, `created_at`, `u
 CREATE TABLE IF NOT EXISTS `bobot_administrasi` (
 `id` int(10) unsigned NOT NULL,
   `id_lowongan` int(10) unsigned NOT NULL,
-  `ka1` decimal(2,2) NOT NULL,
-  `ka2` decimal(2,2) NOT NULL,
-  `ka3` decimal(2,2) NOT NULL,
-  `ka4` decimal(2,2) NOT NULL,
+  `ka1` decimal(3,2) NOT NULL,
+  `ka2` decimal(3,2) NOT NULL,
+  `ka3` decimal(3,2) NOT NULL,
+  `ka4` decimal(3,2) NOT NULL,
   `kuota` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data untuk tabel `bobot_administrasi`
@@ -101,9 +101,10 @@ CREATE TABLE IF NOT EXISTS `bobot_administrasi` (
 
 INSERT INTO `bobot_administrasi` (`id`, `id_lowongan`, `ka1`, `ka2`, `ka3`, `ka4`, `kuota`, `created_at`, `updated_at`) VALUES
 (1, 9, '0.25', '0.99', '0.75', '0.75', 5, '2015-03-25 22:34:46', '2015-03-25 22:37:53'),
-(2, 1, '0.20', '0.99', '0.75', '0.00', 3, '2015-03-26 03:59:30', '2015-03-28 02:13:36'),
+(2, 1, '0.20', '0.99', '0.75', '0.00', 3, '2015-03-26 03:59:30', '2015-04-13 21:27:35'),
 (3, 2, '0.25', '0.99', '0.75', '0.75', 28, '2015-03-28 04:22:46', '2015-03-28 04:22:46'),
-(4, 3, '0.25', '0.10', '0.20', '0.20', 3, '2015-04-03 09:59:32', '2015-04-03 09:59:43');
+(4, 3, '0.25', '0.10', '0.20', '0.20', 3, '2015-04-03 09:59:32', '2015-04-03 09:59:43'),
+(5, 5, '0.30', '1.00', '0.10', '0.20', 0, '2015-04-15 19:43:12', '2015-04-15 19:43:12');
 
 -- --------------------------------------------------------
 
@@ -114,11 +115,11 @@ INSERT INTO `bobot_administrasi` (`id`, `id_lowongan`, `ka1`, `ka2`, `ka3`, `ka4
 CREATE TABLE IF NOT EXISTS `bobot_wawancara` (
 `id` int(10) unsigned NOT NULL,
   `id_lowongan` int(10) unsigned NOT NULL,
-  `wa1` decimal(2,2) NOT NULL,
-  `wa2` decimal(2,2) NOT NULL,
-  `wa3` decimal(2,2) NOT NULL,
-  `wa4` decimal(2,2) NOT NULL,
-  `wa5` decimal(2,2) NOT NULL,
+  `wa1` decimal(3,2) NOT NULL,
+  `wa2` decimal(3,2) NOT NULL,
+  `wa3` decimal(3,2) NOT NULL,
+  `wa4` decimal(3,2) NOT NULL,
+  `wa5` decimal(3,2) NOT NULL,
   `wa6` decimal(2,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
@@ -129,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `bobot_wawancara` (
 --
 
 INSERT INTO `bobot_wawancara` (`id`, `id_lowongan`, `wa1`, `wa2`, `wa3`, `wa4`, `wa5`, `wa6`, `created_at`, `updated_at`) VALUES
-(1, 1, '0.27', '0.35', '0.70', '0.99', '0.23', '0.50', '2015-03-27 20:13:44', '2015-03-27 20:13:44');
+(1, 1, '0.27', '0.34', '0.70', '1.00', '0.30', '0.10', '2015-03-27 20:13:44', '2015-04-15 09:38:32');
 
 -- --------------------------------------------------------
 
@@ -142,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `divisi` (
   `nama` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data untuk tabel `divisi`
@@ -150,7 +151,8 @@ CREATE TABLE IF NOT EXISTS `divisi` (
 
 INSERT INTO `divisi` (`id`, `nama`, `created_at`, `updated_at`) VALUES
 (1, 'Keuangan', '2015-04-01 03:30:06', '2015-04-01 03:30:06'),
-(2, 'HRD', '2015-04-01 03:30:19', '2015-04-01 03:30:19');
+(2, 'HRD', '2015-04-01 03:30:19', '2015-04-01 03:30:19'),
+(3, 'Teknis', '2015-04-13 21:23:40', '2015-04-13 21:23:40');
 
 -- --------------------------------------------------------
 
@@ -272,16 +274,23 @@ CREATE TABLE IF NOT EXISTS `lowongan` (
   `id_tahap` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data untuk tabel `lowongan`
 --
 
 INSERT INTO `lowongan` (`id`, `id_divisi`, `kode`, `nama`, `keterangan`, `id_tahap`, `created_at`, `updated_at`) VALUES
-(1, 1, 'NK-ADM', 'Administrasi', 'hahaha', 1, '2015-03-28 04:20:39', '2015-03-28 04:20:39'),
-(2, 2, 'STAFF15', 'Lowongan Staff HRD', '', 10, '2015-04-01 03:31:17', '2015-04-03 17:53:56'),
-(3, 2, 'KI-2015', 'Sekertaris', 'Lowongan sekertaris', 3, '2015-04-03 02:32:23', '2015-04-03 10:27:03');
+(1, 1, 'NK-15-1', 'Administrasi', 'hahaha', 13, '2015-03-28 04:20:39', '2015-04-16 00:26:36'),
+(5, 2, 'NK-2015-2', 'asdhajh', 'asd', 2, '2015-04-15 19:40:41', '2015-04-15 19:43:12'),
+(6, 1, 'NK-2015-3', 'ss', 'hjh', 1, '2015-04-15 22:47:40', '2015-04-15 22:47:40'),
+(7, 1, 'NK-2015-4', 'sdsd', 'ksjdksd', 1, '2015-04-15 22:47:50', '2015-04-15 22:47:50'),
+(8, 1, 'NK-2015-5', 'skdjfkj', 'jsdkfjsd', 1, '2015-04-15 22:47:58', '2015-04-15 22:47:58'),
+(10, 1, 'NK-2015-7', 'sfsdhj', 'jhsdjfh', 1, '2015-04-15 22:48:17', '2015-04-15 22:48:17'),
+(11, 1, 'NK-2015-8', 'sdkfsdfjk', 'sjkdfjskdf', 1, '2015-04-15 22:48:25', '2015-04-15 22:48:25'),
+(12, 1, 'NK-2015-9', 'sdkfsdjfkj', 'ksjdkfjsd', 1, '2015-04-15 22:48:33', '2015-04-15 22:48:33'),
+(13, 1, 'NK-2015-10', 'sdkfskdfj', 'sldfsdljf', 1, '2015-04-15 22:48:43', '2015-04-15 22:48:43'),
+(14, 1, 'NK-2015-11', 'sdfsd', 'lkjsldjfs', 1, '2015-04-15 22:48:53', '2015-04-15 22:48:53');
 
 -- --------------------------------------------------------
 
@@ -389,7 +398,7 @@ INSERT INTO `pelamar` (`id`, `nama`, `no_ktp`, `alamat`, `kontak`, `tempat_lahir
 (35, 'alt29', '328238', 'gg', '7708', 'jggk', '1998-06-05', '2015-03-31 00:27:42', '2015-03-31 00:27:42'),
 (36, 'alt30', '8302882', 'ohewhkew', '72971', 'ljdslj', '1993-09-07', '2015-03-31 00:28:52', '2015-03-31 00:28:52'),
 (37, 'alt16', '56656565656', 'jasjdansjdn', '9129129839', 'sd', '1992-11-12', '2015-03-31 00:58:58', '2015-03-31 00:58:58'),
-(38, '', '', '', '', '', '0000-00-00', '2015-04-03 10:23:24', '2015-04-03 10:27:03');
+(38, '', '', '', '', '', '0000-00-00', '2015-04-03 10:23:24', '2015-04-15 22:47:03');
 
 -- --------------------------------------------------------
 
@@ -404,7 +413,7 @@ CREATE TABLE IF NOT EXISTS `pendidikan_non_ilmiah` (
   `instansi` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `tgl_masuk` date NOT NULL,
   `tgl_keluar` date NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=179 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=180 ;
 
 --
 -- Dumping data untuk tabel `pendidikan_non_ilmiah`
@@ -497,7 +506,7 @@ INSERT INTO `pendidikan_non_ilmiah` (`id`, `id_pelamar`, `nama`, `instansi`, `tg
 (171, 15, 'p', 'p', '2015-03-01', '2015-03-19'),
 (172, 16, 'i', 'i', '0008-07-01', '0010-03-09'),
 (173, 17, 'j', 'j', '2015-03-01', '2015-03-18'),
-(178, 38, '', '', '0000-00-00', '0000-00-00');
+(179, 38, '', '', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -573,7 +582,7 @@ CREATE TABLE IF NOT EXISTS `pengalaman_kerja` (
   `instansi` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `tgl_masuk` date NOT NULL,
   `tgl_keluar` date NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=89 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=90 ;
 
 --
 -- Dumping data untuk tabel `pengalaman_kerja`
@@ -620,7 +629,7 @@ INSERT INTO `pengalaman_kerja` (`id`, `id_pelamar`, `jabatan`, `instansi`, `tgl_
 (81, 15, 'p', 'p', '2015-03-01', '2015-03-18'),
 (82, 16, 'i', 'i', '2015-03-01', '2015-03-21'),
 (83, 17, 'j', 'j', '2015-03-01', '2015-03-13'),
-(88, 38, '', '', '0000-00-00', '0000-00-00');
+(89, 38, '', '', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -634,19 +643,16 @@ CREATE TABLE IF NOT EXISTS `psikotes` (
   `nilai_psikotes` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data untuk tabel `psikotes`
 --
 
 INSERT INTO `psikotes` (`id`, `id_lamaran`, `nilai_psikotes`, `created_at`, `updated_at`) VALUES
-(2, 5, 89, '2015-03-27 02:10:31', '2015-03-28 02:12:07'),
-(3, 7, 70, '2015-03-27 17:39:34', '2015-03-28 02:14:07'),
-(4, 6, 80, '2015-03-28 02:13:59', '2015-03-28 02:13:59'),
-(5, 21, 81, '2015-03-31 05:27:29', '2015-03-31 05:27:29'),
-(6, 9, 90, '2015-04-01 01:16:42', '2015-04-01 01:17:01'),
-(7, 26, 90, '2015-04-01 01:17:12', '2015-04-01 01:17:12');
+(14, 5, 70, '2015-04-15 11:52:26', '2015-04-15 11:52:26'),
+(15, 6, 80, '2015-04-15 11:52:39', '2015-04-15 11:52:39'),
+(16, 7, 60, '2015-04-15 11:52:46', '2015-04-15 11:52:46');
 
 -- --------------------------------------------------------
 
@@ -691,18 +697,15 @@ CREATE TABLE IF NOT EXISTS `tertulis` (
   `nilai_tertulis` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data untuk tabel `tertulis`
 --
 
 INSERT INTO `tertulis` (`id`, `id_lamaran`, `nilai_tertulis`, `created_at`, `updated_at`) VALUES
-(1, 5, 80, '2015-03-27 19:48:47', '2015-03-27 19:48:47'),
-(2, 6, 80, '2015-03-28 02:15:18', '2015-03-28 02:15:18'),
-(3, 7, 80, '2015-03-28 02:15:26', '2015-03-28 02:15:26'),
-(4, 21, 90, '2015-03-31 05:49:16', '2015-03-31 05:49:16'),
-(5, 26, 80, '2015-04-01 01:57:04', '2015-04-01 01:57:04');
+(9, 6, 90, '2015-04-15 11:53:22', '2015-04-15 11:53:22'),
+(10, 5, 98, '2015-04-15 11:53:28', '2015-04-15 11:53:28');
 
 -- --------------------------------------------------------
 
@@ -715,21 +718,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `roles` enum('admin','badan independent','top manager') COLLATE utf8_unicode_ci NOT NULL,
+  `roles` enum('admin','tim independent','top manager') COLLATE utf8_unicode_ci NOT NULL,
   `id_divisi` int(10) unsigned NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `roles`, `id_divisi`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'administrasi', 'admin', '$2y$10$7jZyIkq.Fv5CJomFbok5d.1VCMeemwJAst.r3NVFSvK0vN18skNeC', 'admin', 1, 'x9zquBnEqB895CqRwRbsoih3nfKfy0xrV1APBhZr3rSJfesQylaywdv7xzQ3', '2015-04-02 23:29:22', '2015-04-03 17:49:42'),
-(3, 'badan independent', 'badanindependent', '$2y$10$FqZbsqgI5KG2OAZEmoR7/eeg6m2.yW2rk9DRsmGUl2ag7FGcjaXQi', 'badan independent', 1, NULL, '2015-04-02 23:38:26', '2015-04-03 00:23:34'),
-(6, 'isa', 'isa9x', '$2y$10$fHImg/Zjb4EVmkjK8PwVYOKcappZexWdYyP/h61WQ4T7YFA2FLaLW', 'top manager', 2, NULL, '2015-04-03 01:07:41', '2015-04-03 01:07:41');
+(7, 'admin', 'admin', '$2y$10$Zgxr1eYAH4MN6z9zaJZtQe5.gOiSj6MVGEroLBlQIgfYXDXyKlXlu', 'admin', 1, 'TVtwF3nDgBSfGtzInB79lY3IOQQklJDg2bbxw9cpwgCrkBG2fcFK7xBrV33u', '2015-04-13 18:47:16', '2015-04-17 21:07:32'),
+(8, 'badan independent', 'badanindependent', '$2y$10$FtjE8HDfb/xWkiZn1.LlIuMsil5tzYB1DLQq9tarBcraApBdVtJSG', 'tim independent', 1, 'ypBMvFGuTFfAntUxsjDH4HMos2lgNs9YcQwE1XhFmhGfeTd6V2gTxDKv6eBa', '2015-04-13 18:47:52', '2015-04-17 21:05:33'),
+(9, 'top manager keuangan ', 'tmkeuangan', '$2y$10$QWtSsoUa8JH9e19qrNoBwefvP9P8JVD2usxIFdbyzl13g1qBQ3mLi', 'top manager', 1, 'i49kHIzRCoxDbojs4rGDZUAP5fcjM7mff4LdbBFVyikkuQhG0mTHTXHCYSqX', '2015-04-13 18:48:33', '2015-04-18 01:21:48');
 
 -- --------------------------------------------------------
 
@@ -747,18 +750,15 @@ CREATE TABLE IF NOT EXISTS `wawancara` (
   `nilai_topsis` float NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=55 ;
 
 --
 -- Dumping data untuk tabel `wawancara`
 --
 
 INSERT INTO `wawancara` (`id`, `id_lamaran`, `wa1`, `wa2`, `wa3`, `wa4`, `nilai_topsis`, `created_at`, `updated_at`) VALUES
-(16, 5, 5, 5, 5, 5, 1, '2015-03-28 04:16:26', '2015-03-28 04:16:26'),
-(17, 6, 5, 5, 5, 1, 0.253147, '2015-03-28 04:16:26', '2015-03-28 04:16:26'),
-(18, 7, 5, 4, 3, 5, 0.744878, '2015-03-28 04:16:26', '2015-03-28 04:16:26'),
-(19, 21, 5, 5, 5, 5, 0, '2015-03-31 16:50:05', '2015-03-31 16:50:05'),
-(20, 26, 5, 5, 5, 1, 0, '2015-04-01 01:57:42', '2015-04-01 01:57:42');
+(53, 5, 5, 5, 5, 1, 0.175629, '2015-04-16 00:26:36', '2015-04-16 00:26:36'),
+(54, 6, 5, 5, 5, 1, 0.824371, '2015-04-16 00:26:36', '2015-04-16 00:26:36');
 
 --
 -- Indexes for dumped tables
@@ -880,12 +880,12 @@ ALTER TABLE `wawancara`
 -- AUTO_INCREMENT for table `administrasi`
 --
 ALTER TABLE `administrasi`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=300;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=306;
 --
 -- AUTO_INCREMENT for table `bobot_administrasi`
 --
 ALTER TABLE `bobot_administrasi`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `bobot_wawancara`
 --
@@ -895,7 +895,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `divisi`
 --
 ALTER TABLE `divisi`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `kuota_psikotes`
 --
@@ -915,7 +915,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 -- AUTO_INCREMENT for table `lowongan`
 --
 ALTER TABLE `lowongan`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `pelamar`
 --
@@ -925,7 +925,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 -- AUTO_INCREMENT for table `pendidikan_non_ilmiah`
 --
 ALTER TABLE `pendidikan_non_ilmiah`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=179;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=180;
 --
 -- AUTO_INCREMENT for table `pendidikan_terakhir`
 --
@@ -935,12 +935,12 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 -- AUTO_INCREMENT for table `pengalaman_kerja`
 --
 ALTER TABLE `pengalaman_kerja`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=89;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=90;
 --
 -- AUTO_INCREMENT for table `psikotes`
 --
 ALTER TABLE `psikotes`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `tahap`
 --
@@ -950,17 +950,17 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 -- AUTO_INCREMENT for table `tertulis`
 --
 ALTER TABLE `tertulis`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `wawancara`
 --
 ALTER TABLE `wawancara`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --

@@ -44,13 +44,14 @@
 						<nav id="nav" style="  margin-top: 73px;">
 							<ul>
 								<li style="white-space: nowrap;"><a href="{!! url('/') !!}">Home</a></li>
+								@if(Auth::user()->roles != 'top manager')
 								@if(Auth::user()->roles == "admin")
 								<li style="white-space: nowrap;"><a href="{!! route('divisi.index') !!}">Divisi</a></li>
 								
 								<li style="white-space: nowrap;"><a href="{!! route('user.index') !!}">Manajemen Pengguna</a></li>
 								@endif
 								<li style="white-space: nowrap;"><a href="{!! route('lowongan.index') !!}">Lowongan</a></li>
-
+								@endif
 								<li style="white-space: nowrap;"><a href="{!! url('login/logout') !!}">Log Out</a></li>
 							</ul>
 						</nav>

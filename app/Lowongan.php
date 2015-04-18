@@ -36,5 +36,8 @@ class Lowongan extends Model {
 	public function tahap(){
 		return $this->belongsTo("App\Tahap","id_tahap");
 	}
-
+	
+	public function lamaran(){
+		return $this->hasOne("App\Lamaran",'id_lowongan');
+	}
 }

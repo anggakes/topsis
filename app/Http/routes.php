@@ -1,5 +1,8 @@
 <?php
+Route::get('laporan/{id}',['as'=>'laporan','uses'=>'Homecontroller@laporan']);
 Route::get('/logs',function(){	return view('template.index');   });
+
+
 // Divisi
 
 Route::get(
@@ -175,5 +178,7 @@ Route::group(['middleware' => 'auth','prefix' => 'lowongan'], function()
 
 });// <-- end prefix lowongan
 
+
 Route::controller('login','Auth\Authcontroller');
+
 Route::get('/',['as'=>'home','uses'=>'Homecontroller@index']);
