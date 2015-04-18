@@ -42,14 +42,12 @@
     $(document).ready(function(){
 
           $(".datatables").dataTable({
-              "ajax" : "{!! route('divisi.datatables') !!}",
-              "fnInitComplete": function(oSettings, json) {
+              "ajax" : "{!! route('divisi.datatables') !!}"}).on('draw.dt',function(){
                   //inisialisi saat datatables setelah load
                    $('a[data-method]').click(function(e){
                       handleMethod(e,$(this));
                       e.preventDefault();
                    });
-                }
             }); 
 
           $('#sign').on('click', function () {
