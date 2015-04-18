@@ -48,7 +48,7 @@ class AuthController extends Controller {
 			'username' => 'required', 'password' => 'required',
 		]);
 
-		$credentials = $request->only('username', 'password');
+		$credentials = $request->only('username', 'password','roles');
 
 		if ($auth->attempt($credentials, $request->has('remember')))
 		{

@@ -43,6 +43,7 @@
 						<h1 id="logo"><a href=".">{!!HTML::image("assets/logo/nindya-01.png");!!} <p id="logo">PT NINDYA KARYA</p></a></h1>
 						<nav id="nav" style="  margin-top: 73px;">
 							<ul>
+								<li style="white-space: nowrap;"><a href="{!! url('/') !!}">Home</a></li>
 								@if(Auth::user()->roles == "admin")
 								<li style="white-space: nowrap;"><a href="{!! route('divisi.index') !!}">Divisi</a></li>
 								

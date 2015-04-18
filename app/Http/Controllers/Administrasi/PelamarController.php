@@ -96,8 +96,10 @@ class PelamarController extends Controller {
 	 */
 	public function show($id_lowongan, $id)
 	{
-
-			
+		$pelamar = Pelamar::findOrFail($id);
+		return view('administrasi.pelamar.detail')
+		->with('pelamar',$pelamar)
+		->with('id_lowongan',$id_lowongan);	
 	}
 
 	/**

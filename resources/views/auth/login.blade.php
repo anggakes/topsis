@@ -60,16 +60,6 @@
 						<div class="modal-example-body">
 							<div class="row">
 								<section class="12u 12u(narrower)">
-										@if (count($errors) > 0)
-											<div class="alert alert-danger" style="font-size:10pt;Color:darkred;">
-												<strong>Whoops!</strong> There were some problems with your input.
-												<ul>
-													@foreach ($errors->all() as $error)
-														<li>{{ $error }}</li>
-													@endforeach
-												</ul>
-											</div>
-										@endif
 
 									<p style="font-size:10pt">
 									</p>
@@ -80,9 +70,21 @@
 													<input required placeholder="Username" type="text" maxlength="25" name="username" value="{{ old('username') }}">
 												</div>
 											</div>
+											<div class="row 50%">						
+												<div class="12u 12u(mobile)">
+													<input required placeholder="Password" type="password" maxlength="25" name="password" value="{{ old('password') }}">
+												</div>
+											</div>
 											<div class="row 50%">
 												<div class="12u 12u(mobile)">
-													<input required name="password" placeholder="Password" type="password" maxlength="25" title="Perhatikan besar dan kecilnya huruf!"/>
+													<p style="font-size:10pt;">
+														Sebagai :
+													</p>
+													<select required name="roles" placeholder="sebagai" >
+					<option value='admin'>admin</option>
+					<option value='tim independent'>tim independent</option>
+					<option value='top manager'>top manager</option>
+													</select>
 													<p style="font-size:10pt;"><input type="checkbox" name="remember"> Ingat saya!</p>
 												</div>
 											</div>
@@ -113,7 +115,7 @@
 			    });
 
 			    @if (count($errors) > 0)
-				        $.fn.custombox( $('#gagal'));
+				       alert(' Kombinasi salah ');
 				@endif
 
 
