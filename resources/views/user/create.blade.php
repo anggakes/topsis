@@ -72,8 +72,7 @@
                       <div class="12u">
                           <ul class="actions">
                             <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
-                            
-                            
+
                           </ul>
                       </div>
                     </div>

@@ -53,8 +53,8 @@ class LowonganController extends Controller {
 	public function store(Request $request)
 	{
 		//
-		$insert = $request->all();
-		$insert['id_tahap'] = 1;
+		$insert=$request->all();
+		$insert['id_tahap']=1;
 		Lowongan::create($insert);
 		return redirect()->route('lowongan.index')
 			->with('message','data berhasil ditambah');

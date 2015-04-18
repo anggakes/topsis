@@ -29,6 +29,7 @@
                       <div class="row 50%">           
                           <div class="2u 12u(mobile)">
                               {!! Form::label('nama','Divisi',['class'=>'col-sm-2 control-label']) !!}
+
                           </div>
                           <div class="10u 12u(mobile)">
                               {!! Form::select('id_divisi',$divisi,'',['class'=>'form-control', 'reuired'=>'required'])!!}  
@@ -50,8 +51,7 @@
                         <div class="12u">
                             <ul class="actions">
                               <li> {!! Form::submit('Simpan',['class'=>'btn btn-primary'])!!}</li>
-                              
-                              
+
                             </ul>
                         </div>
                       </div>

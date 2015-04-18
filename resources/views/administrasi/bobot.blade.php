@@ -3,6 +3,7 @@
 
       <div class="modal-example-header">
         <a href='#' class='pull-right' onclick="$.fn.custombox('close');" >&times;</a>
+
           <h4 class="modal-title">Bobot Administrasi</h4>
       </div>     <!-- /modal-header -->
       <div class="modal-example-body">
@@ -15,6 +16,7 @@
                         </div>
                         <div class="10u 12u(mobile)">
                             {!! Form::input('number','ka1',@$bobot->ka1,['class'=>'form-control', 'placeholder'=>'Kode Lowongan','required','required', 'step'=>'any'])!!}    
+
                         </div>
                   </div>
 
@@ -23,7 +25,9 @@
                             {!! Form::label('ipk','Ipk',['class'=>'col-sm-4 control-label']) !!}
                         </div>
                         <div class="10u 12u(mobile)">
+
                             {!! Form::input('number','ka2',@$bobot->ka2,['class'=>'form-control', 'placeholder'=>'Nama Lowongan','required','required', 'step'=>'any'])!!}    
+
                         </div>
                   </div>
                   
@@ -32,7 +36,9 @@
                             {!! Form::label('pni','Pendidikan Non Ilmiah',['class'=>'col-sm-4 control-label']) !!}
                         </div>
                         <div class="10u 12u(mobile)">
+
                             {!! Form::input('number','ka3',@$bobot->ka3,['class'=>'form-control', 'placeholder'=>'Nama Lowongan','required','required','step'=>'any'])!!}    
+
                         </div>
                   </div>
 
@@ -42,6 +48,7 @@
                         </div>
                         <div class="10u 12u(mobile)">
                             {!! Form::input('number','ka4',@$bobot->ka4,['class'=>'form-control', 'placeholder'=>'Nama Lowongan','required','required', 'step'=>'any'])!!}    
+
                         </div>
                   </div>
 
