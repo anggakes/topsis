@@ -10,7 +10,7 @@
 
 
 <br><br>
-<table class='table table-bordered'>
+<table class='table default'>
 <thead style='background:#c0c0c0'>
 <tr>
 <td>Kode</td>
