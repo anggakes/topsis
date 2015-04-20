@@ -136,18 +136,18 @@ class LowonganController extends Controller {
 		     "
 		      <li><a href='#'>Administrasi</a>
 		        <ul>
-		          <li><a  class='".($lowongan->id_tahap>2)? "":"disabled'"."
+		          <li><a  class='".($value->id_tahap>2)? "":"disabled'"."
 					                      	id='hasilAdm'  
-											href='".route('adm.get.hasil',$id_lowongan)."'>
+											href='".route('adm.get.hasil',$value->id)."'>
 				                      		 Hasil</a>
 				  </li>
-				  <li><a class='".($lowongan->id_tahap>1)? "":"disabled" ;" '
+				  <li><a class='".($value->id_tahap>1)? "":"disabled" ;" '
 											id='kelolaPelamar'  
-											href='".route('pelamar.index',$id_lowongan)."'' >
+											href='".route('pelamar.index',$value->id)."'' >
 				                      		Kelola Pelamar</a>
 				  </li>
 				  <li><a class=''      		id='bobotAdm'  
-				                      		href='".route('adm.get.bobot',$id_lowongan)."'
+				                      		href='".route('adm.get.bobot',$value->id)."'
 											data-toggle='modal'
 											data-target='#myModal'>
 				                      		 Bobot</a>
