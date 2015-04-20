@@ -29,11 +29,7 @@
 
                       <div class="row 50%">           
                           <div class="2u 12u(mobile)">
-<<<<<<< HEAD
-                              {!! Form::label('nama','Divisi',['class'=>'col-sm-2 control-label']) !!}
-=======
                               {!! Form::label('divisi','Divisi',['class'=>'col-sm-2 control-label']) !!}
->>>>>>> origin/master
                           </div>
                           <div class="10u 12u(mobile)">
                               {!! Form::select('id_divisi',$divisi,null,['class'=>'form-control disabled','required'=>'required'])!!}    

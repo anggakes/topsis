@@ -29,192 +29,202 @@ $lulus = Wawancara::whereHas('lamaran', function($q)use($id_lowongan){
 }
 ?>
 
+<style type="text/css">
+  .subtitle{width: 350px;}
+</style>
+<article id="content" class="10u 12u(narrower)">
+    <header class="image-wrapper first 12u(narrower)">
+      <h2 class="image">Laporan Lowongan</h2> 
+    </header>
+             
+    <div class="row">
 
-<center><h3>Laporan Lowongan </h3></center>
-<hr> 
-@if($lowongan->id_tahap>3)
-<h3>Tahap Administrasi</h3><br>
- <span class='label label-primary ' style='font-size: 14pt'>Kuota : {!! $kuotaAdmin !!} </span>
-              <?php $peringkat =1; ?>
-                  <table class='table default 12u 12u(mobile)'>
-                    <thead>
-                      <tr>
-                        <td>Peringkat</td>
-                        <td>No Peserta</td>
-                        <td>Nama</td>
-                        <td>Tanggal Lahir</td>
-                        <td>Nilai</td>
-                        <td>Status</td>
-                      </tr>
-                    </thead><tbody>
-                  @foreach ($lamaran->lulusAdministrasi($id_lowongan) as $l) 
-                    <tr>
-                      <td>
-                        {!! $peringkat !!}
-                      </td>
-                      <td>
-                        {!! $l->nomor_pelamar !!}
-                      </td>
-                      <td>
-                        {!! $l->nama !!}
-                      </td>
-                      <td>
-                        {!! $l->tanggal_lahir !!}
-                      </td>
-                      <td>
-                        {!! $l->nilai_topsis !!}
-                      </td>
-                      <td>
-                        {!!  ($peringkat<=$kuotaAdmin) ? "lulus" : "gagal" !!}
-                      </td>
-                    </tr>
-                    <?php $peringkat++; ?>
-                  @endforeach
-                  </tbody>
-                </table>
-@else
-	<center><h3>Tahap Administrasi belum selesai</h3></center>
-@endif
+                @if($lowongan->id_tahap>3)
+                <p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Administrasi</p>
+                 <span class='label label-primary ' style='font-size: 14pt'>Kuota : {!! $kuotaAdmin !!} </span>
+                              <?php $peringkat =1; ?>
+                                  <table class='table default 12u 12u(mobile)'>
+                                    <thead>
+                                      <tr>
+                                        <td>Peringkat</td>
+                                        <td>No Peserta</td>
+                                        <td>Nama</td>
+                                        <td>Tanggal Lahir</td>
+                                        <td>Nilai</td>
+                                        <td>Status</td>
+                                      </tr>
+                                    </thead><tbody>
+                                  @foreach ($lamaran->lulusAdministrasi($id_lowongan) as $l) 
+                                    <tr>
+                                      <td>
+                                        {!! $peringkat !!}
+                                      </td>
+                                      <td>
+                                        {!! $l->nomor_pelamar !!}
+                                      </td>
+                                      <td>
+                                        {!! $l->nama !!}
+                                      </td>
+                                      <td>
+                                        {!! $l->tanggal_lahir !!}
+                                      </td>
+                                      <td>
+                                        {!! $l->nilai_topsis !!}
+                                      </td>
+                                      <td>
+                                        {!!  ($peringkat<=$kuotaAdmin) ? "lulus" : "gagal" !!}
+                                      </td>
+                                    </tr>
+                                    <?php $peringkat++; ?>
+                                  @endforeach
+                                  </tbody>
+                                </table>
+                @else
+                	<p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Administrasi belum selesai</p>
+                @endif
 
-@if($lowongan->id_tahap>6)
-<h3>Tahap Psikotes</h3>
- <span class='label label-primary ' style='font-size: 14pt'>Kuota : {!! $kuotaPsi->kuota !!} </span>
-              -
-              <span class='label label-primary ' style='font-size: 14pt'>Nilai Minimum : {!! $kuotaPsi->nilai_minimum !!} </span><br><br>
+    </div>
+    <div class="row">
 
-              <?php $peringkat =1; ?>
-                  <table class='table default 12u 12u(mobile)'>
-                    <thead>
-                      <tr>
-                        <td>Peringkat</td>
-                        <td>No Peserta</td>
-                        <td>Nama</td>
-                        <td>Tanggal Lahir</td>
-                        <td>Nilai</td>
-                        <td>Status</td>
-                      </tr>
-                    </thead><tbody>
-                  @foreach ($lamaran->lulusPsikotes($id_lowongan,0,0) as $l) 
-                    <tr>
-                      <td>
-                        {!! $peringkat !!}
-                      </td>
-                      <td>
-                        {!! $l->nomor_pelamar !!}
-                      </td>
-                      <td>
-                        {!! $l->nama !!}
-                      </td>
-                      <td>
-                        {!! $l->tanggal_lahir !!}
-                      </td>
-                      <td>
-                        {!! $l->nilai_psikotes !!}
-                      </td>
-                      <td>
-                        {!!  ($peringkat<=$kuotaPsi->kuota AND $l->nilai_psikotes>=$kuotaPsi->nilai_minimum) ? "lulus" : "gagal" !!}
-                      </td>
-                    </tr>
-                    <?php $peringkat++; ?>
-                  @endforeach
-                  </tbody>
-                </table>
-@else
-	<center><h3>Tahap Psikotes belum selesai</h3></center>
-@endif
+                @if($lowongan->id_tahap>6)
+                <p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Psikotes</p>
+                 <span class='label label-primary ' style='font-size: 14pt'>Kuota : {!! $kuotaPsi->kuota !!} </span>
+                              -
+                              <span class='label label-primary ' style='font-size: 14pt'>Nilai Minimum : {!! $kuotaPsi->nilai_minimum !!} </span><br><br>
 
+                              <?php $peringkat =1; ?>
+                                  <table class='table default 12u 12u(mobile)'>
+                                    <thead>
+                                      <tr>
+                                        <td>Peringkat</td>
+                                        <td>No Peserta</td>
+                                        <td>Nama</td>
+                                        <td>Tanggal Lahir</td>
+                                        <td>Nilai</td>
+                                        <td>Status</td>
+                                      </tr>
+                                    </thead><tbody>
+                                  @foreach ($lamaran->lulusPsikotes($id_lowongan,0,0) as $l) 
+                                    <tr>
+                                      <td>
+                                        {!! $peringkat !!}
+                                      </td>
+                                      <td>
+                                        {!! $l->nomor_pelamar !!}
+                                      </td>
+                                      <td>
+                                        {!! $l->nama !!}
+                                      </td>
+                                      <td>
+                                        {!! $l->tanggal_lahir !!}
+                                      </td>
+                                      <td>
+                                        {!! $l->nilai_psikotes !!}
+                                      </td>
+                                      <td>
+                                        {!!  ($peringkat<=$kuotaPsi->kuota AND $l->nilai_psikotes>=$kuotaPsi->nilai_minimum) ? "lulus" : "gagal" !!}
+                                      </td>
+                                    </tr>
+                                    <?php $peringkat++; ?>
+                                  @endforeach
+                                  </tbody>
+                                </table>
+                @else
+                	<p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Psikotes belum selesai</p>
+                @endif
+    </div>
+    <div class="row">
 
-@if($lowongan->id_tahap>9)
-<h3>Tahap Tertulis</h3>
+                @if($lowongan->id_tahap>9)
+                <p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Tertulis</p>
 
-<span class='label label-primary ' style='font-size: 14pt'>Kuota : {!! $kuotaTulis->kuota !!} </span>
-              -
-              <span class='label label-primary ' style='font-size: 14pt'>Nilai Minimum : {!! $kuotaTulis->nilai_minimum !!} </span><br><br>
+                <span class='label label-primary ' style='font-size: 14pt'>Kuota : {!! $kuotaTulis->kuota !!} </span>
+                              -
+                              <span class='label label-primary ' style='font-size: 14pt'>Nilai Minimum : {!! $kuotaTulis->nilai_minimum !!} </span><br><br>
 
-              <?php $peringkat =1; ?>
-                  <table class='table default 12u 12u(mobile)'>
-                      <thead>
-                        <tr>
-                          <td>Peringkat</td>
-                          <td>No Peserta</td>
-                          <td>Nama</td>
-                          <td>Tanggal Lahir</td>
-                          <td>Nilai</td>
-                          <td>Status</td>
-                        </tr>
-                      </thead><tbody>
-                    @foreach ($lamaran->lulusTertulis($id_lowongan, 0, 0) as $l) 
-                      <tr>
-                        <td>
-                          {!! $peringkat !!}
-                        </td>
-                        <td>
-                          {!! $l->nomor_pelamar !!}
-                        </td>
-                        <td>
-                          {!! $l->nama !!}
-                        </td>
-                          <td>
-                          {!! $l->tanggal_lahir !!}
-                        </td>
-                        <td>
-                          {!! $l->nilai_tertulis !!}
-                        </td>
-                        <td>
-                          {!!  ($peringkat<=$kuotaTulis->kuota AND $l->nilai_tertulis>=$kuotaTulis->nilai_minimum) ? "lulus" : "gagal" !!}
-                        </td>
-                      </tr>
-                      <?php $peringkat++; ?>
-                    @endforeach
-                    </tbody>
-                  </table>
-@else
-	<center><h3>Tahap Tertulis belum selesai</h3></center>
-@endif
+                              <?php $peringkat =1; ?>
+                                  <table class='table default 12u 12u(mobile)'>
+                                      <thead>
+                                        <tr>
+                                          <td>Peringkat</td>
+                                          <td>No Peserta</td>
+                                          <td>Nama</td>
+                                          <td>Tanggal Lahir</td>
+                                          <td>Nilai</td>
+                                          <td>Status</td>
+                                        </tr>
+                                      </thead><tbody>
+                                    @foreach ($lamaran->lulusTertulis($id_lowongan, 0, 0) as $l) 
+                                      <tr>
+                                        <td>
+                                          {!! $peringkat !!}
+                                        </td>
+                                        <td>
+                                          {!! $l->nomor_pelamar !!}
+                                        </td>
+                                        <td>
+                                          {!! $l->nama !!}
+                                        </td>
+                                          <td>
+                                          {!! $l->tanggal_lahir !!}
+                                        </td>
+                                        <td>
+                                          {!! $l->nilai_tertulis !!}
+                                        </td>
+                                        <td>
+                                          {!!  ($peringkat<=$kuotaTulis->kuota AND $l->nilai_tertulis>=$kuotaTulis->nilai_minimum) ? "lulus" : "gagal" !!}
+                                        </td>
+                                      </tr>
+                                      <?php $peringkat++; ?>
+                                    @endforeach
+                                    </tbody>
+                                  </table>
+                @else
+                	<p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Tertulis belum selesai</p>
+                @endif
 
-@if($lowongan->id_tahap>12)
-<h3>Tahap Wawancara</h3><br>
-  <?php $peringkat =1; ?>
-              <table class='table default 12u 12u(mobile)'>
-                <thead>
-                  <tr>
-                    <td>Peringkat</td>
-                    <td>No Peserta</td>
-                    <td>Nama</td>
-                    <td>Tanggal Lahir</td>
-                    <td>Nilai</td>
-                  </tr>
-                </thead><tbody>
-              @foreach ($lulus as $l) 
-                <tr>
-                  <td>
-                    {!! $peringkat !!}
-                  </td>
-                  <td>
-                    {!! $l->lamaran->nomor_pelamar !!}
-                  </td>
-                  <td>
-                    {!! $l->lamaran->pelamar->nama !!}
-                  </td>
-                  <td>
-                    {!! $l->lamaran->pelamar->tanggal_lahir !!}
-                  </td>
-                  <td>
-                    {!! $l->nilai_topsis !!}
-                  </td>
-                </tr>
-                <?php $peringkat++; ?>
-              @endforeach
-              </tbody>
-            </table>
-@else
-	<center><h3>Tahap Wawancara belum selesai</h3></center>
-@endif
+    </div>
+    <div class="row">
 
-<!-- stop  -->
-			</div>
-		</div>
-	</div>
-</div>
+                @if($lowongan->id_tahap>12)
+                <p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Wawancara</p>
+                  <?php $peringkat =1; ?>
+                              <table class='table default 12u 12u(mobile)'>
+                                <thead>
+                                  <tr>
+                                    <td>Peringkat</td>
+                                    <td>No Peserta</td>
+                                    <td>Nama</td>
+                                    <td>Tanggal Lahir</td>
+                                    <td>Nilai</td>
+                                  </tr>
+                                </thead><tbody>
+                              @foreach ($lulus as $l) 
+                                <tr>
+                                  <td>
+                                    {!! $peringkat !!}
+                                  </td>
+                                  <td>
+                                    {!! $l->lamaran->nomor_pelamar !!}
+                                  </td>
+                                  <td>
+                                    {!! $l->lamaran->pelamar->nama !!}
+                                  </td>
+                                  <td>
+                                    {!! $l->lamaran->pelamar->tanggal_lahir !!}
+                                  </td>
+                                  <td>
+                                    {!! $l->nilai_topsis !!}
+                                  </td>
+                                </tr>
+                                <?php $peringkat++; ?>
+                              @endforeach
+                              </tbody>
+                            </table>
+                @else
+                	<p class="subtitle"><i class="icon-g-folder-open"></i>Tahap Wawancara Belum Selesai</p>
+                @endif
 
+                <!-- stop  -->
+    </div>
 @endsection

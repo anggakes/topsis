@@ -46,32 +46,51 @@
 								<li style="white-space: nowrap;"><a href="{!! url('/') !!}">Home</a></li>
 								@if(Auth::user()->roles != 'top manager')
 								@if(Auth::user()->roles == "admin")
-								<li style="white-space: nowrap;"><a href="{!! route('divisi.index') !!}">Divisi</a></li>
-								
-								<li style="white-space: nowrap;"><a href="{!! route('user.index') !!}">Manajemen Pengguna</a></li>
+								<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
+									<a href="">Divisi</a>
+									
+										<ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
+												<li style="white-space: nowrap;"><a href="{!! route('divisi.index') !!}">Lihat Divisi</a></li>
+												<li style="white-space: nowrap;"><a href="{!! route('divisi.create') !!}" id="signDis" data-target="#inputan">Tambah Divisi</a></li>
+										</ul>
+								</li>
+
+								<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
+									<a href="">Manajemen Pengguna</a>
+									
+										<ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
+												<li style="white-space: nowrap;"><a href="{!! route('user.index') !!}">Lihat Pengguna</a></li>
+												<li style="white-space: nowrap;"><a href="{!! route('user.create') !!}" id="signPen" data-target="#input">Tambah Pengguna</a></li>
+										</ul>
+								</li>
 								@endif
-								<li style="white-space: nowrap;"><a href="{!! route('lowongan.index') !!}">Lowongan</a></li>
+								<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
+									<a href="">Lowongan</a>
+									
+										<ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
+												<li style="white-space: nowrap;"><a href="{!! route('lowongan.index') !!}">Lihat Lowongan</a></li>
+												<li style="white-space: nowrap;"><a href="{!! route('lowongan.create') !!}" id="signLow" data-target="#input">Tambah Lowongan</a></li>
+										</ul>
+								</li>
 								@endif
 								<li style="white-space: nowrap;"><a href="{!! url('login/logout') !!}">Log Out</a></li>
 
 								<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
 									<a href="">Dropdown</a>
 									
-								<ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
-										<li style="white-space: nowrap;"><a href="#" style="display: block;">Lorem ipsum dolor</a></li>
-										<li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
-										<li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-										<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap;">
-											<a href="" style="display: block;">Phasellus consequat</a>
-											<ul class="dropotron" style="-webkit-user-select: none; display: none; position: absolute;">
-												<li style="white-space: nowrap;"><a href="#" style="display: block;">Lorem ipsum dolor</a></li>
-												<li style="white-space: nowrap;"><a href="#" style="display: block;">Phasellus consequat</a></li>
-												<li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
+										<ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
 												<li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-											</ul>
-										</li>
-										<li style="white-space: nowrap;"><a href="#" style="display: block;">Veroeros feugiat</a></li>
-									</ul></li>
+												<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap;">
+													<a href="" style="display: block;">Phasellus consequat</a>
+													<ul class="dropotron" style="-webkit-user-select: none; display: none; position: absolute;">
+														<li style="white-space: nowrap;"><a href="#" style="display: block;">Lorem ipsum dolor</a></li>
+														<li style="white-space: nowrap;"><a href="#" style="display: block;">Phasellus consequat</a></li>
+														<li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
+														<li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
+													</ul>
+												</li>
+										</ul>
+								</li>
 							</ul>
 						</nav>
 				</div>
@@ -115,6 +134,37 @@
             }
 			    /* refresh modal u can change the text with img */
 				    refreshModal("Loading..");
+
+
+			$('#signDis').on('click', function () {
+                $.fn.custombox( this, {
+                    effect: 'slip',
+                    overlayOpacity : 0.7,
+                    overlayColor: '#EBB198',
+                    speed: 150
+                });
+                return false;
+            });
+
+            $('#signPen').on('click', function () {
+                $.fn.custombox( this, {
+                    effect: 'slip',
+                    overlayOpacity : 0.7,
+                    overlayColor: '#EBB198',
+                    speed: 150
+                });
+                return false;
+            });
+
+            $('#signLow').on('click', function () {
+                $.fn.custombox( this, {
+                    effect: 'slip',
+                    overlayOpacity : 0.7,
+                    overlayColor: '#EBB198',
+                    speed: 150
+                });
+                return false;
+            });
 			</script>
 
 			@yield('js')

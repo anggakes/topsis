@@ -900,6 +900,19 @@
 		border-bottom: rgb(216, 224, 231) 1px solid;
 		margin-bottom: 5px;
 	}
+.subtitle:hover{
+		color: lightcoral;
+}	
+
+nav a:hover{
+    color: red!important;
+}
+
+a.ui-tabs-anchor:hover, :focus, :active{
+    color: lightcoral!important;
+}
+
+
 /*********************************************************************************/
 /* Main                                                                          */
 /*********************************************************************************/
