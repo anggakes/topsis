@@ -101,7 +101,7 @@ class InputWawancaraController extends Controller {
 			$l[5] = $value->wa4;
 			$l[6] = $value->lamaran->psikotes->nilai_psikotes;
 			$l[7] = $value->lamaran->tertulis->nilai_tertulis;
-			$l[8] = "<a href='".route('wawancara.destroy',[$id_lowongan,$value->id])."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a>";
+			$l[8] = "<a href='".route('wawancara.destroy',[$id_lowongan,$value->id])."' class='button small mistyrose' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a>";
 			$data[$i]=$l;
 			$i++;
 		}

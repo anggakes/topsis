@@ -110,8 +110,8 @@ class DivisiController extends Controller {
 		foreach ($divisi as $value) {
 			$l[0] = $value->nama;
 			$l[1] = "
-				<a href='".route('divisi.edit',$value->id)."' data-toggle='modal' data-target='#myModal' id='edit' onclick='edit(this)'>Edit</a> - 
-				<a href='".route('divisi.destroy',$value->id)."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a>
+				<a href='".route('divisi.edit',$value->id)."' class='button small blanchedalmond' data-toggle='modal' data-target='#myModal' id='edit' onclick='edit(this)'>Edit</a>  
+				<a href='".route('divisi.destroy',$value->id)."' class='button small mistyrose' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a>
 			";
 
 			$data[$i]=$l;

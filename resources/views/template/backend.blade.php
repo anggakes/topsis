@@ -103,6 +103,7 @@
 					<!-- Content -->
 
 				@yield('content')
+				@include('modal') <!-- include modal Wrap -->
 				</div>
 			</div>
 
@@ -121,7 +122,8 @@
 			{!!Html::script("assets/bootstrap/js/bootstrap.js")!!}
 			{!!Html::script("assets/laravel/laravel.bootstrap.js")!!} 
 			{!!Html::script("assets/datatables/jquery.dataTables.js")!!}
-
+			{!!Html::script("assets/js/jquery.custombox.js")!!}
+  			{!!Html::style("assets/css/jquery.custombox.css")!!}
 			<script type="text/javascript">
 				function edit(x) {
                 $.fn.custombox( x, {

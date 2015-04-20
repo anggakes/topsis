@@ -129,9 +129,32 @@ class LowonganController extends Controller {
 		foreach ($lowongan as $value) {
 
 			$aksi_admin = (Auth::user()->roles != "admin") ? "" :
-				"<a href='".route('lowongan.edit',$value->id)."' id='edit' onclick='edit(this)' data-toggle='modal' data-target='#myModal'>Edit</a> - 
-				<a href='".route('lowongan.destroy',$value->id)."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> -";
+				"<a href='".route('lowongan.edit',$value->id)."'class='button small blanchedalmond' id='edit' onclick='edit(this)' data-toggle='modal' data-target='#myModal'>Edit</a> 
+				<a href='".route('lowongan.destroy',$value->id)."' class='button small mistyrose' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> ";
 
+			$rAdmin= (Auth::user()->roles == "admin") ? "":
+		     "
+		      <li><a href='#'>Administrasi</a>
+		        <ul>
+		          <li><a  class='".($lowongan->id_tahap>2)? "":"disabled'"."
+					                      	id='hasilAdm'  
+											href='".route('adm.get.hasil',$id_lowongan)."'>
+				                      		 Hasil</a>
+				  </li>
+				  <li><a class='".($lowongan->id_tahap>1)? "":"disabled" ;" '
+											id='kelolaPelamar'  
+											href='".route('pelamar.index',$id_lowongan)."'' >
+				                      		Kelola Pelamar</a>
+				  </li>
+				  <li><a class=''      		id='bobotAdm'  
+				                      		href='".route('adm.get.bobot',$id_lowongan)."'
+											data-toggle='modal'
+											data-target='#myModal'>
+				                      		 Bobot</a>
+				  </li>
+		        </ul>
+		      </li>";
+		    
 			$l[0] = $value->nama;
 			$l[1] = $value->kode;
 			$l[2] = $value->divisi->nama;
@@ -140,7 +163,16 @@ class LowonganController extends Controller {
 			$l[4] = $value->keterangan;
 			$l[5] = "
 				$aksi_admin
-				<a href='".route('lowongan.show',$value->id)."'>Kelola</a>
+				<nav id='primary_nav_wrap'>
+					<ul>
+					  <li><a href='".route('lowongan.show',$value->id)."' class='button small azure'>Kelola</a>
+					    <ul>
+					    	<li><a>aaaaa</a></li>
+					    	$rAdmin
+					    </ul>
+					  </li>  
+					</ul>
+				</nav>
 			";
 
 			$data[$i]=$l;

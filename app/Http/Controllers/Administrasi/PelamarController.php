@@ -185,9 +185,9 @@ class PelamarController extends Controller {
 			$l[3] = $value->pelamar->tanggal_lahir;
 			$l[4] = $value->pelamar->kontak;
 			$l[5] = "
-				<a href='".route('pelamar.edit',[$id_lowongan,$value->id])."' >Edit</a> - 
-				<a href='".route('pelamar.destroy',[$id_lowongan,$value->id])."' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> - 
-				<a href='".route('pelamar.show',[$id_lowongan,$value->id])."'>Detail</a>
+				<a href='".route('pelamar.edit',[$id_lowongan,$value->id])."' class='button small blanchedalmond' >Edit</a>  
+				<a href='".route('pelamar.destroy',[$id_lowongan,$value->id])."' class='button small mistyrose' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a>  
+				<a href='".route('pelamar.show',[$id_lowongan,$value->id])."' class='button small azure'>Detail</a>
 			";
 
 			$data[$i]=$l;

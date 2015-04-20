@@ -10,6 +10,7 @@
              
     <div class="row">
         <div class="12u">
+        
             <table class='table datatables' width='800px;'>
                 <thead>
                 <tr>

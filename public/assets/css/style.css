@@ -1065,6 +1065,14 @@ a.ui-tabs-anchor:hover, :focus, :active{
 	{
 		background: mistyrose;
 	}
+	.lightcoral
+	{
+		background: lightcoral;
+	}
+	.skyblue
+	{
+		background: skyblue;
+	}
 	input[type="submit"]{
 		background: blanchedalmond;
 	}
