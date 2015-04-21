@@ -29,7 +29,7 @@
   float:left;
   margin:0;
   padding:0;
-  color: #fff;
+  color: black;
           text-decoration: none;
           outline: 0;
           border: 0;
