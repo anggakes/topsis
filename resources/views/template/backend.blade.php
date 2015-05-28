@@ -65,15 +65,19 @@
 								</li>
 								@endif
 								<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
-									<a href="">Lowongan</a>
+									<a href="">Pelamar</a>
 									
 										<ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
-												<li style="white-space: nowrap;"><a href="{!! route('lowongan.index') !!}">Lihat Lowongan</a></li>
-												<li style="white-space: nowrap;"><a href="{!! route('lowongan.create') !!}" id="signLow" data-target="#input">Tambah Lowongan</a></li>
+												<li style="white-space: nowrap;"><a href="{!! route('lowongan.index') !!}">Lihat Pelamar</a></li>
+												<li style="white-space: nowrap;"><a href="{!! route('lowongan.create') !!}" id="signLow" data-target="#input">Tambah Pelamar</a></li>
 										</ul>
 								</li>
 								@endif
+<<<<<<< HEAD
 								
+=======
+								<li style="white-space: nowrap;"><a href="{!! url('gantipassword') !!}">Ganti Password</a></li>
+>>>>>>> origin/master
 
 								<li style="white-space: nowrap;"><a href="{!! url('login/logout') !!}">Log Out</a></li>
 							</ul>

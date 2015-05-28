@@ -32,7 +32,7 @@
                             <label class="col-md-4 control-label">Password</label>
                         </div>
                         <div class="10u 12u(mobile)">
-                            <input type="password" class="form-control" name="password" required>
+                            <input type="password" id="p1" class="form-control" name="password" required>
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
                             <label class="col-md-4 control-label">Confirm Password</label>
                         </div>
                         <div class="10u 12u(mobile)">
-                            <input type="password" class="form-control" name="password_confirmation" required>
+                            <input type="password" id="p2" class="form-control" name="password_confirmation" required>
                         </div>
                     </div>
 
@@ -80,5 +80,32 @@
             </div>
       </div>
   </div>      <!-- /modal-end -->
+
+  <script type="text/javascript">
+    var submit=false;
+
+    function cek_pass(){
+        if($('#p1').val() == $('#p2').val()){
+            submit = true;
+            $('#p1').css('border-color','green');
+            $('#p2').css('border-color','green');
+        }
+        else{
+            submit = false;
+            $('#p1').css('border-color','red');
+            $('#p2').css('border-color','red');
+        }
+    }
+
+    $('#p1').keyup(function(){cek_pass();});
+    $('#p2').keyup(function(){cek_pass();});
+    $('#add').submit(function(){
+        if(submit==false){
+            alert('Perbaiki dulu password anda!');
+            event.preventDefault();
+        }
+    });
+</script>
   {!! Form::close() !!} 
+
 </div>

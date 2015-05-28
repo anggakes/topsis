@@ -29,7 +29,7 @@
   float:left;
   margin:0;
   padding:0;
-  color: #fff;
+  color: black;
           text-decoration: none;
           outline: 0;
           border: 0;
@@ -94,7 +94,7 @@
   display:block
 }
 </style>
-<article id="content" class="9u 12u(narrower)">
+<article id="content" class="12u 12u(narrower)">
     <header class="image-wrapper first 12u(narrower)">
       <h2 class="image">Lowongan</h2> 
       @if(Auth::user()->roles == "admin"))
@@ -104,7 +104,7 @@
              
     <div class="row">
 
-        <table class='table datatables table-bordered 9u 12u(narrower)' style='width:900px'>
+        <table class='table datatables table-bordered ' style='width:1000px'>
             <thead>
                   <tr>
                         <th >Nama</th>

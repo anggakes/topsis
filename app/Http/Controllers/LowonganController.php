@@ -132,15 +132,23 @@ class LowonganController extends Controller {
 				"<a href='".route('lowongan.edit',$value->id)."'class='button small blanchedalmond' id='edit' onclick='edit(this)' data-toggle='modal' data-target='#myModal'>Edit</a> 
 				<a href='".route('lowongan.destroy',$value->id)."' class='button small mistyrose' data-method = 'DELETE' data-confirm='yakin untuk menghapus?' >Hapus</a> ";
 
+<<<<<<< HEAD
 			$gui = (Auth::user()->roles != "admin") ? "style='margin-top:0px;'" :
 				"style='margin-top:-37px;'";
 
+=======
+>>>>>>> origin/master
 			$rAdmin= (Auth::user()->roles == "admin") ? "
 				<li><a href='#'>Administrasi</a>
 		        	<ul>
 		         <li><a class=''      		id='bobotAdm'  
 				                      		href='".route('adm.get.bobot',$value->id)."'
+<<<<<<< HEAD
 											onclick='modal(this)' data-toggle='modal' data-target='#myModal'>
+=======
+											data-toggle='modal'
+											data-target='#myModal'>
+>>>>>>> origin/master
 				                      		 Bobot</a>
 				  </li>
 				  <li><a class='".$this->disabled('kelolapelamar',$value->id_tahap)."'
@@ -164,6 +172,7 @@ class LowonganController extends Controller {
 		        	<ul>
 		        <li><a class=''      		id='bobotpsikotes'  
 				                      		href='".route('psikotes.get.bobot',$value->id)."'
+<<<<<<< HEAD
 				                      		onclick='modal(this)'
 											data-toggle='modal'
 											data-target='#myModal'>
@@ -189,6 +198,67 @@ class LowonganController extends Controller {
 		        <li><a class=''      		id='bobottertulis'  
 				                      		href='".route('tertulis.get.bobot',$value->id)."'
 											onclick='modal(this)'
+=======
+>>>>>>> origin/master
+											data-toggle='modal'
+											data-target='#myModal'>
+				                      		 Bobot</a>
+				  </li>
+<<<<<<< HEAD
+				  <li><a class='".$this->disabled('tertulisindex',$value->id_tahap)."'
+											id='psikotesindex'  
+											href='".route('tertulis.get.index',$value->id)."'' >
+				                      		Input Nilai</a>
+				  </li>
+		          <li><a  class='".$this->disabled('hasiltertulis',$value->id_tahap)."'
+					                      	id='hasilpsikotes'  
+											href='".route('tertulis.get.hasil',$value->id)."'>
+				                      		 Hasil</a>
+				  </li>
+				  
+				  
+		        </ul>
+		      </li>
+
+		      <li><a href='#'>Wawancara</a>
+		        	<ul>
+		        <li><a class=''      		id='bobotwawancara'  
+				                      		href='".route('wawancara.get.bobot',$value->id)."'
+											data-toggle='modal'
+											data-target='#myModal'>
+				                      		 Bobot</a>
+				  </li>
+				  <li><a class='".$this->disabled('wawancaraindex',$value->id_tahap)."'
+											id='psikotesindex'  
+											href='".route('wawancara.get.index',$value->id)."'' >
+				                      		Nilai</a>
+				  </li>
+		          <li><a  class='".$this->disabled('hasilwawancara',$value->id_tahap)."'
+					                      	id='hasilpsikotes'  
+											href='".route('wawancara.get.hasil',$value->id)."'>
+=======
+				  <li><a class='".$this->disabled('psikotesindex',$value->id_tahap)."'
+											id='psikotesindex'  
+											href='".route('psikotes.get.index',$value->id)."'' >
+				                      		Input Nilai</a>
+				  </li>
+		          <li><a  class='".$this->disabled('hasilpsikotes',$value->id_tahap)."'
+					                      	id='hasilpsikotes'  
+											href='".route('psikotes.get.hasil',$value->id)."'>
+>>>>>>> origin/master
+				                      		 Hasil</a>
+				  </li>
+				  
+				  
+		        </ul>
+		      </li>
+
+<<<<<<< HEAD
+=======
+		      <li><a href='#'>Tertulis</a>
+		        	<ul>
+		        <li><a class=''      		id='bobottertulis'  
+				                      		href='".route('tertulis.get.bobot',$value->id)."'
 											data-toggle='modal'
 											data-target='#myModal'>
 				                      		 Bobot</a>
@@ -231,6 +301,7 @@ class LowonganController extends Controller {
 		        </ul>
 		      </li>
 
+>>>>>>> origin/master
 
 		      "
 		      : "";
