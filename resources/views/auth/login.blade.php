@@ -83,9 +83,8 @@
 													<select required name="roles" placeholder="sebagai" >
 					<option value='admin'>admin</option>
 					<option value='tim independent'>tim independent</option>
-					<option value='top manager'>top manager</option>
 													</select>
-													<p style="font-size:10pt;"><input type="checkbox" name="remember"> Ingat saya!</p>
+													
 												</div>
 											</div>
 											

@@ -75,7 +75,7 @@ class ProsesWawancaraController extends Controller {
 			
 						$q->where('id_lowongan','=',$id_lowongan);
 					
-					})->get();
+					})->orderBy('nilai_topsis','desc')->get();
 
 	return view('wawancara.hasil')
 		->with('lulus',$lulus)

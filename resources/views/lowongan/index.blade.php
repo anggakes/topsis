@@ -4,7 +4,6 @@
 <style type="text/css">
 #primary_nav_wrap
 {
-  margin-top:-37px;
 }
 
 #primary_nav_wrap ul
@@ -12,7 +11,8 @@
   list-style:none;
   position:relative;
   float:right;
-  padding:0
+  padding:0;
+  height:0px;
 }
 
 #primary_nav_wrap ul a
@@ -143,6 +143,36 @@
                           handleMethod(e,$(this));
                           e.preventDefault();
                        });
+
+            $('#signPsi').on('click', function () {
+                $.fn.custombox( this, {
+                    effect: 'slip',
+                    overlayOpacity : 0.7,
+                    overlayColor: '#EBB198',
+                    speed: 150
+                });
+                return false;
+            });
+
+            $('#signTls').on('click', function () {
+                $.fn.custombox( this, {
+                    effect: 'slip',
+                    overlayOpacity : 0.7,
+                    overlayColor: '#EBB198',
+                    speed: 150
+                });
+                return false;
+            });
+
+            $('#signWwc').on('click', function () {
+                $.fn.custombox( this, {
+                    effect: 'slip',
+                    overlayOpacity : 0.7,
+                    overlayColor: '#EBB198',
+                    speed: 150
+                });
+                return false;
+            });
                 }); 
               
             $('#sign').on('click', function () {
@@ -154,7 +184,18 @@
                 });
                 return false;
             });
-      });       
+
+            
+      });  
+      function modal(e){
+                $.fn.custombox( e, {
+                    effect: 'newspaper',
+                    overlayOpacity : 0.7,
+                    overlayColor: '#EBB198',
+                    speed: 150
+                });
+                return false;
+            }    
    </script>
    @stop
 

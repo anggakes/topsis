@@ -1008,6 +1008,10 @@ a.ui-tabs-anchor:hover, :focus, :active{
 *
 *
 */
+@media screen{
+
+	  #tertanda{display:none;}
+}
 
 @media print {
 	  * {	
@@ -1028,6 +1032,8 @@ a.ui-tabs-anchor:hover, :focus, :active{
 		}
 	  .content{display: block;background: url("../logo/nindya-01.png")!important;padding-top: 500px;}
 	  .logo{display:block;}
+	  #tertanda{display:inherit;}
+	  #noprint{display:none;}
 	  .image{display: block;}
 	  #header.container{visibility: hidden;}
 	  #header-wrapper{visibility: hidden;}

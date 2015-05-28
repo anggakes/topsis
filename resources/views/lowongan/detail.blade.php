@@ -3,7 +3,7 @@
 @section('content')
 <article id="content" class="8u 12u(narrower)">
               <header class="image-wrapper first 12u(narrower)">
-                <h2 class="image">Detail</h2>  
+                <h2 class="image">Detail Lowongan</h2>  
               </header>
              
             <div class="row">

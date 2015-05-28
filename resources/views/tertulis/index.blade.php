@@ -70,7 +70,36 @@
         </div>
     </div>
 </article>
+@include('modal') <!-- include modal Wrap -->
 
+@stop
+
+@section('js')
+
+ {!! Html::script('assets/select2/js/select2.min.js')!!}
+  {!!Html::script("assets/laravel/laravel.methodHandler.js")!!} 
+
+ <script type="text/javascript">    
+    $(document).ready(function(){
+       
+       $(".datatables").dataTable({
+              "ajax" : "{!! route('tertulis.datatables',$id_lowongan) !!}"}).on('draw.dt',function(){
+                  //inisialisi saat datatables setelah load
+                   $('a[data-method]').click(function(e){
+                      handleMethod(e,$(this));
+                      e.preventDefault();
+                   });
+            }); 
+              
+        $("#select2").prepend("<option></option>").val('');
+        
+       $('#select2').select2({
+        allowClear: true,
+        placeholder: "Nomor Peserta"
+       })
+    });
+     
+ </script>
 @include('modal') <!-- include modal Wrap -->
 
 @stop

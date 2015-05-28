@@ -52,8 +52,8 @@
                         <div class="10u 12u(mobile)">
                             {!! Form::select('roles',[
                               'admin'=>'Admin',
-                              'badan independent'=>'Badan Independent',
-                              'top manager'=>'Top Manager'
+                              'tim independent'=>'Tim Independent',
+
                             ],null,['class'=>'form-control', 'placeholder'=>'Hak Akses user','required'=>'required'])!!}    
                         </div>
                     </div>

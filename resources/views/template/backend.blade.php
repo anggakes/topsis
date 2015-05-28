@@ -73,24 +73,9 @@
 										</ul>
 								</li>
 								@endif
-								<li style="white-space: nowrap;"><a href="{!! url('login/logout') !!}">Log Out</a></li>
+								
 
-								<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
-									<a href="">Dropdown</a>
-									
-										<ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
-												<li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-												<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap;">
-													<a href="" style="display: block;">Phasellus consequat</a>
-													<ul class="dropotron" style="-webkit-user-select: none; display: none; position: absolute;">
-														<li style="white-space: nowrap;"><a href="#" style="display: block;">Lorem ipsum dolor</a></li>
-														<li style="white-space: nowrap;"><a href="#" style="display: block;">Phasellus consequat</a></li>
-														<li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
-														<li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-													</ul>
-												</li>
-										</ul>
-								</li>
+								<li style="white-space: nowrap;"><a href="{!! url('login/logout') !!}">Log Out</a></li>
 							</ul>
 						</nav>
 				</div>
@@ -126,14 +111,24 @@
   			{!!Html::style("assets/css/jquery.custombox.css")!!}
 			<script type="text/javascript">
 				function edit(x) {
-                $.fn.custombox( x, {
-                    effect: 'makeway',
-                    overlayOpacity : 0.7,
-                    overlayColor: '#EBB198',
-                    speed: 150
-                });
-                return false;
-            }
+	                $.fn.custombox( x, {
+	                    effect: 'makeway',
+	                    overlayOpacity : 0.7,
+	                    overlayColor: '#EBB198',
+	                    speed: 150
+	                });
+	                return false;
+	            }
+
+	            function modal(y) {
+	                $.fn.custombox( y, {
+	                    effect: 'makeway',
+	                    overlayOpacity : 0.7,
+	                    overlayColor: '#EBB198',
+	                    speed: 150
+	                });
+	                return false;
+	            }
 			    /* refresh modal u can change the text with img */
 				    refreshModal("Loading..");
 

@@ -1,10 +1,10 @@
 @extends('template.backend')
 <!-- awal section content -->
 @section('content')
-  <article id="content" class="9u 12u(narrower)">
+  <article id="content" class="11u 12u(narrower)">
     <header class="image-wrapper first 12u(narrower)">
       <a href="{!! route('lowongan.show',$id_lowongan) !!}" class="image pull-right button small 4(narrower)">Kembali</a>
-      <h2 class="image">Pengguna</h2> 
+      <h2 class="image">Pelamar</h2> 
       <a href="{!! route('adm.get.proses',$id_lowongan)!!}" class='image pull-right button small 4(narrower) <?php echo ($jumlah_pelamar>2)? "":"disabled" ;?>'> 
         Proses 
         Hitung Topsis</a>

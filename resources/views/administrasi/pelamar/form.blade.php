@@ -123,7 +123,7 @@
               {!! Form::label('ipk','IPK',['class'=>'col-sm-2 control-label']) !!}
           </div>
           <div class="10u 12u(mobile)">
-              {!! Form::text('pendidikan_terakhir[ipk]',@$lamaran->pelamar->pendidikanTerakhir->ipk,['class'=>'form-control', 'placeholder'=>'Nilai IPK'])!!}    
+              {!! Form::text('pendidikan_terakhir[ipk]',@$lamaran->pelamar->pendidikanTerakhir->ipk,['class'=>'form-control', 'placeholder'=>'Nilai IPK','max'=>'4','step'=>'any'])!!}    
           </div>
       </div>
   

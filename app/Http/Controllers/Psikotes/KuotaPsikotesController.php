@@ -16,7 +16,7 @@ class KuotaPsikotesController extends Controller {
 		$bobot = $model->where('id_lowongan','=',$id_lowongan)->first();
 
 
-		return view('psikotes.kuota')
+		return view('psikotes.kuota3')
 			->with('id_lowongan',$id_lowongan)
 			->with('bobot',$bobot);
 	}

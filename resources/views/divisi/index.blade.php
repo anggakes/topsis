@@ -9,9 +9,9 @@
     </header>
              
     <div class="row">
-        <div class="12u">
+        <div class="9u">
         
-            <table class='table datatables' width='800px;'>
+            <table class='table datatables' width='500px;'>
                 <thead>
                 <tr>
                             <th >Nama</th>

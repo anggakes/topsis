@@ -15,7 +15,7 @@
                             {!! Form::label('akreditas','Akreditas',['class'=>'col-sm-4 control-label']) !!}
                         </div>
                         <div class="10u 12u(mobile)">
-                            {!! Form::input('number','ka1',@$bobot->ka1,['class'=>'form-control', 'placeholder'=>'Kode Lowongan','required','required', 'step'=>'any'])!!}    
+                            {!! Form::input('number','ka1',@$bobot->ka1,['class'=>'form-control', 'placeholder'=>'Bobot Akreditasi','required','required', 'step'=>'any'])!!}    
 
                         </div>
                   </div>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="10u 12u(mobile)">
 
-                            {!! Form::input('number','ka2',@$bobot->ka2,['class'=>'form-control', 'placeholder'=>'Nama Lowongan','required','required', 'step'=>'any'])!!}    
+                            {!! Form::input('number','ka2',@$bobot->ka2,['class'=>'form-control', 'placeholder'=>'Bobot IPK','required','required', 'step'=>'any'])!!}    
 
                         </div>
                   </div>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="10u 12u(mobile)">
 
-                            {!! Form::input('number','ka3',@$bobot->ka3,['class'=>'form-control', 'placeholder'=>'Nama Lowongan','required','required','step'=>'any'])!!}    
+                            {!! Form::input('number','ka3',@$bobot->ka3,['class'=>'form-control', 'placeholder'=>'Bobot Pendidikan Non Ilmiah','required','required','step'=>'any'])!!}    
 
                         </div>
                   </div>
@@ -47,7 +47,7 @@
                             {!! Form::label('pk','Pengalaman Kerja',['class'=>'col-sm-4 control-label']) !!}
                         </div>
                         <div class="10u 12u(mobile)">
-                            {!! Form::input('number','ka4',@$bobot->ka4,['class'=>'form-control', 'placeholder'=>'Nama Lowongan','required','required', 'step'=>'any'])!!}    
+                            {!! Form::input('number','ka4',@$bobot->ka4,['class'=>'form-control', 'placeholder'=>'Bobot Pengalaman Kerja','required','required', 'step'=>'any'])!!}    
 
                         </div>
                   </div>
@@ -77,3 +77,21 @@
   </div>      <!-- /modal-end -->
   {!! Form::close() !!} 
 </div>
+
+<script type="text/javascript">
+$('.form-horizontal').submit(function(){
+var ka1 = parseFloat($('[name=ka1]').val());
+var ka2 = parseFloat($('[name=ka2]').val());
+var ka3 = parseFloat($('[name=ka3]').val());
+var ka4 = parseFloat($('[name=ka4]').val());
+var total = ka1+ka2+ka3+ka4;
+if(total == 1){
+return true;
+}else{
+  alert("maaf total semua bobot harus sama dengan 1");
+  return false;
+}
+
+
+});
+</script>

@@ -2,6 +2,7 @@
 Route::get('laporan/{id}',['as'=>'laporan','uses'=>'Homecontroller@laporan']);
 Route::get('/logs',function(){	return view('template.index');   });
 
+Route::controller('gantipassword','GantiPasswordController');
 
 // Divisi
 
