@@ -73,6 +73,8 @@
 										</ul>
 								</li>
 								@endif
+								<li style="white-space: nowrap;"><a href="{!! url('gantipassword') !!}">Ganti Password</a></li>
+
 								<li style="white-space: nowrap;"><a href="{!! url('login/logout') !!}">Log Out</a></li>
 
 								<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
