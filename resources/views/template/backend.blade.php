@@ -76,23 +76,6 @@
 								<li style="white-space: nowrap;"><a href="{!! url('gantipassword') !!}">Ganti Password</a></li>
 
 								<li style="white-space: nowrap;"><a href="{!! url('login/logout') !!}">Log Out</a></li>
-
-								<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
-									<a href="">Dropdown</a>
-									
-										<ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
-												<li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-												<li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap;">
-													<a href="" style="display: block;">Phasellus consequat</a>
-													<ul class="dropotron" style="-webkit-user-select: none; display: none; position: absolute;">
-														<li style="white-space: nowrap;"><a href="#" style="display: block;">Lorem ipsum dolor</a></li>
-														<li style="white-space: nowrap;"><a href="#" style="display: block;">Phasellus consequat</a></li>
-														<li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
-														<li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-													</ul>
-												</li>
-										</ul>
-								</li>
 							</ul>
 						</nav>
 				</div>
